@@ -41,7 +41,7 @@
 ```
 CATALINA_OPTS="$CATALINA_OPTS -Djava.rmi.server.hostname=192.168.1.153 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9004 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=true"
 ```
-注：hostname根据自己的实际情况配置；
+注：hostname和port根据自己的实际情况配置；
 
 ## 修改权限文件
 ```
