@@ -37,7 +37,7 @@
 * 查找：`Execute The Requested Command`，在这行代码之前加入如下代码
 
 ```
-CATALINA_OPTS="$CATALINA_OPTS -Djava.rmi.server.hostname=192.168.11.128 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9004 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=true"
+CATALINA_OPTS="$CATALINA_OPTS -Djava.rmi.server.hostname=192.168.1.153 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9004 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=true"
 ```
 注：hostname根据自己的实际情况配置；
 
@@ -62,7 +62,7 @@ vim /etc/sysconfig/iptables
 ```
 添加行：
 ```
--A INPUT -s 192.168.11.1 -p tcp -j ACCEPT
+-A INPUT -s 192.168.1.244 -p tcp -j ACCEPT
 ```
 注：上面允许某个固定的IP访问服务器。
 
