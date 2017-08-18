@@ -64,10 +64,14 @@ vim /etc/sysconfig/iptables
 ```
 添加行：
 ```
--A INPUT -s 192.168.1.244 -p tcp -j ACCEPT
+# -A INPUT -s 192.168.1.244 -p tcp -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 9004 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 1099 -j ACCEPT
 ```
-注：上面允许某个固定的IP访问服务器。
-
+注：
+1. 上面注释是允许某个固定的IP访问服务器；
+1. 下面是允许两个端口访问，使用的端口一个是``catalina.sh``文件下端口，一个是jstatd端口，具体根据自己实际情况设置。
+![](assets/2017-08-18-17-42-29.png)
 ## 设置hostname
 
 输入命令``hostname -i``如果报错，启动tomcat监听日志，看报错的hostname
@@ -124,6 +128,6 @@ IP使用本机IP，端口默认配置是1099，根据实际情况填写
 ![](assets/2017-08-18-17-32-21.png)
 ![](assets/2017-08-18-17-32-27.png)
 ![](assets/2017-08-18-17-32-38.png)
-
+![](assets/2017-08-18-17-33-56.png)
 
 [返回](readme.md)
