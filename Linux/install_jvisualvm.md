@@ -9,6 +9,7 @@
 	* [修改防火墙](#修改防火墙)
 	* [设置hostname](#设置hostname)
 * [客户端配置](#客户端配置)
+* [插件中心配置](#插件中心配置)
 
 <!-- /code_chunk_output -->
 
@@ -44,6 +45,7 @@ CATALINA_OPTS="$CATALINA_OPTS -Djava.rmi.server.hostname=192.168.11.128 -Dcom.su
 ```
 cd $JAVA_HOME/jre/lib/management
 mv jmxremote.password.template jmxremote.password
+chmod 600 jmxremote.password jmxremote.access
 vim jmxremote.password
 ```
 如下所示，123是密码，根据自己的实际情况设置；
@@ -81,11 +83,17 @@ vim /etc/sysconfig/iptables
 * 右键添加远程主机，填写IP地址，点击确认
 
 ![](assets/2017-08-18-14-55-26.png)
-* 右键点击添加JMX链接，填写链接信息，点击确认
+* 右键点击添加JMX链接，填写链接信息，点击确认(controlRole,monitorRole登陆)
 
 ![](assets/2017-08-18-14-56-39.png)
 * 环境搭建完成，查看监听数据；
 
 ![](assets/2017-08-18-15-00-14.png)
+
+# 插件中心配置
+* 点击工具->插件->设置->编辑->URL填写地址 ``https://visualvm.github.io/archive/uc/8u40/updates.xml.gz``，点击确定。
+
+注：
+如果不是JDK 1.7_79,可参考网址``https://visualvm.github.io/pluginscenters.html``选择自己版本的插件中心。
 
 [返回](readme.md)
