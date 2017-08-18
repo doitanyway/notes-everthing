@@ -9,7 +9,9 @@
 	* [修改防火墙](#修改防火墙)
 	* [设置hostname](#设置hostname)
 * [客户端配置](#客户端配置)
-* [插件中心配置](#插件中心配置)
+	* [打开客户端](#打开客户端)
+	* [插件中心配置](#插件中心配置)
+* [执行效果图](#执行效果图)
 
 <!-- /code_chunk_output -->
 
@@ -79,6 +81,7 @@ vim /etc/sysconfig/iptables
 如上所属，加入``bogon``
 
 # 客户端配置
+## 打开客户端
 * JAVA目录下找到``jdk1.7.0_80/bin/jvisualvm.exe``（建议客户端与服务器版本一致）
 * 右键添加远程主机，填写IP地址，点击确认
 
@@ -90,7 +93,7 @@ vim /etc/sysconfig/iptables
 
 ![](assets/2017-08-18-15-00-14.png)
 
-# 插件中心配置
+## 插件中心配置
 * 点击工具->插件->设置->编辑->URL填写地址 ``https://visualvm.github.io/archive/uc/8u40/updates.xml.gz``，点击确定。
 
 注：
@@ -99,6 +102,28 @@ vim /etc/sysconfig/iptables
 
 * 安裝插件
 ![](assets/2017-08-18-16-34-42.png)
+
+解决此时Visual GC插件「不受此JVM支持」问题
+
+![](assets/2017-08-18-17-27-04.png)
+要解决这个问题需要Java自带的Jstatd服务， 使用步骤如下
+* 在服务器上的java安装的bin下（如$JAVA_HOME/bin）新建一个文件文件名为jstatd.all.policy
+```
+grant codebase "file:${java.home}/../lib/tools.jar" { 
+        permission java.security.AllPermission; 
+    };
+```
+* 在当前目录中（bin）执行如下命令
+```
+./jstatd -J-Djava.rmi.server.hostname=192.168.1.153 -J-Djava.security.policy=jstatd.all.policy -p 1099
+```
+IP使用本机IP，端口默认配置是1099，根据实际情况填写
+![](assets/2017-08-18-17-29-11.png)
+
+# 执行效果图
+![](assets/2017-08-18-17-32-21.png)
+![](assets/2017-08-18-17-32-27.png)
+![](assets/2017-08-18-17-32-38.png)
 
 
 [返回](readme.md)
