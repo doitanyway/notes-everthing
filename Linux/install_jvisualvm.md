@@ -94,6 +94,11 @@ vim /etc/sysconfig/iptables
 * 点击工具->插件->设置->编辑->URL填写地址 ``https://visualvm.github.io/archive/uc/8u40/updates.xml.gz``，点击确定。
 
 注：
-如果不是JDK 1.7_79,可参考网址``https://visualvm.github.io/pluginscenters.html``选择自己版本的插件中心。
+如果不是JDK 1.7_79,可参考网址``https://visualvm.github.io/pluginscenters.html``选
+择自己版本的插件中心。
+
+* 安裝插件
+![](assets/2017-08-18-16-34-42.png)
+
 
 [返回](readme.md)
