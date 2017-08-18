@@ -3,18 +3,19 @@
 <!-- code_chunk_output -->
 
 * [前言](#前言)
-* [配置``catalina.sh``](#配置catalinash)
-* [修改权限文件](#修改权限文件)
-* [修改防火墙](#修改防火墙)
-* [troubleshooting](#troubleshooting)
-	* [tomcat报错``local host name unknow``](#tomcat报错local-host-name-unknow)
+* [服务器配置](#服务器配置)
+	* [配置``catalina.sh``](#配置catalinash)
+	* [修改权限文件](#修改权限文件)
+	* [修改防火墙](#修改防火墙)
+	* [设置hostname](#设置hostname)
+* [客户端配置](#客户端配置)
 
 <!-- /code_chunk_output -->
 
 
 
 
-## 前言
+# 前言
 本问主要介绍如何安装配置jvisualvm，后续可用其监控远程tomcat项目
 
 本文的测试环境是：
@@ -27,6 +28,8 @@
    java 1.7
 
 本文假设该环境已经搭建好。
+
+# 服务器配置
 
 ## 配置``catalina.sh``
 * 打开文件 vim {tomccat_home}/bin/catalina.sh
@@ -61,14 +64,23 @@ vim /etc/sysconfig/iptables
 ```
 注：上面允许某个固定的IP访问服务器。
 
-## troubleshooting
+## 设置hostname
 
-### tomcat报错``local host name unknow``
-
+输入命令``hostname -i``如果报错，启动tomcat监听日志，看报错的hostname
 ![](assets/2017-08-18-14-42-13.png)
 
+修改设置``vim /etc/hosts``
 ```
 127.0.0.1  bogon localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 ```
 如上所属，加入``bogon``
+
+# 客户端配置
+* JAVA目录下找到``jdk1.7.0_80/bin/jvisualvm.exe``（建议客户端与服务器版本一致）
+* 右键添加远程主机，填写IP地址，点击确认
+![](assets/2017-08-18-14-55-26.png)
+* 右键点击添加JMX链接，填写链接信息，点击确认
+![](assets/2017-08-18-14-56-39.png)
+* 环境搭建完成，查看监听数据；
+![](assets/2017-08-18-15-00-14.png)
