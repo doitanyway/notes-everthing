@@ -72,17 +72,20 @@ cnpm install gitbook-cli
 ##常用组合操作
 
 ### 从命令行创建一个新的仓库
+```
 touch README.md
 git init
 git add README.md
 git commit -m "first commit"
-git remote add origion https://try.gogs.io/****/test.git
-git push -u origion master
+git remote add origin https://try.gogs.io/****/test.git
+git push -u origin master
+```
 
 ### 从命令行推送已经创建的仓库
-git remote add origion https://try.gogs.io/****/test.git
-git push -u origion master
-
+```
+git remote add origin https://try.gogs.io/****/test.git
+git push -u origin master
+```
 
 ### 发布版本
 * 查看tag
