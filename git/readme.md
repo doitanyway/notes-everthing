@@ -24,7 +24,7 @@ calibre：PDF格式电子书转换需要；
 
 本文介绍上面三个软件的安装和使用,假设读者电脑已经安装好了node，如果没有安装好node，请参考【[node安装](/Nodejs/install.md)】
 ## 安装软件 
-* [官网](https://git-scm.com/downloads)下载安装。如果是在windows下安装，请选择安装LINUX命令，这将对你以后的研发很有帮助。
+* [官网](https://git-scm.com/downloads)下载git安装。如果是在windows下安装，请选择安装LINUX命令，这将对你以后的研发很有帮助。
 ![](assets/markdown-img-paste-20170813103947623.png)
 * 安装gitbook
 ```
@@ -72,17 +72,20 @@ cnpm install gitbook-cli
 ##常用组合操作
 
 ### 从命令行创建一个新的仓库
+```
 touch README.md
 git init
 git add README.md
 git commit -m "first commit"
-git remote add origion https://try.gogs.io/****/test.git
-git push -u origion master
+git remote add origin https://try.gogs.io/****/test.git
+git push -u origin master
+```
 
 ### 从命令行推送已经创建的仓库
-git remote add origion https://try.gogs.io/****/test.git
-git push -u origion master
-
+```
+git remote add origin https://try.gogs.io/****/test.git
+git push -u origin master
+```
 
 ### 发布版本
 * 查看tag
