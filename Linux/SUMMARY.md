@@ -1,5 +1,4 @@
 # 目录
-
 * [简介](readme.md)
-* [常用命令](content/cmds.md)
-* [设置网络](content/set_network.md)
+* [安装](install.md)
+* [常用命令](./content/linux_commands/linux_commands.md)
