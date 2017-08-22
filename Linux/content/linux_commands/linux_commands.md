@@ -30,6 +30,7 @@
 * 查看文件前面100行,并显示行号``cat catalina.out -n|head -n 100``
 * 查看文件最后100行,并显示行号``cat catalina.out -n|tail -n 100``
 * 统计查询结果条数``cat catalina.out -n|tail -n 100|wc -l``
+* 把两天的日志转存到文件``cat catalina.out | grep -a -E "2017-08-22|2017-08-21" >log.log``
 
 
 
