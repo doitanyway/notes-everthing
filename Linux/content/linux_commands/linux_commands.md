@@ -15,10 +15,12 @@
 满足其中一个条件查找
 * cat [filename] -n | grep -a -E "[string2]"|grep -a -E "[string1]"
 满足多个条件的查找
-* cat [filename] | more
-分页显示（more关键字,前面的所有命令如果需要也可以加more）。
+* cat [filename] | less
+分页显示（less关键字,前面的所有命令如果需要也可以加less）。
 
 注：该应用用来查找日志文件，有较大优势，速度较快。
+
+
 
 ## ifconfig查看网络信息
 
