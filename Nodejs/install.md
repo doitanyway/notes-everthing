@@ -25,6 +25,7 @@ docsify init ./docs
 cd docs
 docsify serve 
 ```
+更多docsify的使用方法，参考 https://docsify.js.org
 
 
 ## cnpm 命令简要说明

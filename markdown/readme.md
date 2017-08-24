@@ -1,20 +1,30 @@
 
-# Markdown基础命令 {ignore=true}
+# Markdown使用 {ignore=true}
 
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 <!-- code_chunk_output -->
 
-* [标题](#标题)
-* [正文](#正文)
-* [表格](#表格)
-* [超链接](#超链接)
-* [图片](#图片)
-* [mermaid](#mermaid)
+* [软件安装](#软件安装)
+* [markdown 语法](#markdown-语法)
+	* [标题](#标题)
+	* [正文](#正文)
+	* [表格](#表格)
+	* [超链接](#超链接)
+	* [图片](#图片)
+	* [mermaid](#mermaid)
 
 <!-- /code_chunk_output -->
+## 软件安装
+使用markdown编辑文件，最好有一些配套软件，可预览，编辑文件；同时也可以生成html以及pdf文件。请参考下面文章安装软件；
 
-## 标题
+* [VS Code](/vs_code/readme.md)
+* [Git](/git/readme.md)
+* [Nodejs](/Nodejs/install.md)
+
+
+## markdown 语法
+### 标题
 
 ```
 # 标题1
@@ -28,7 +38,7 @@
 
 ![](assets/2017-08-21-20-36-03.png)
 
-## 正文
+### 正文
 
 * 普通正文，直接输入即可；
 * 背景灰,`灰色背景示例`；
@@ -49,7 +59,7 @@
 *强调*
 ```
 
-## 表格
+### 表格
 
 ```
 |col1|col|
@@ -62,7 +72,7 @@
 ![](assets/2017-08-21-21-00-25.png)
 
 
-## 超链接
+### 超链接
 
 格式：
 ```
@@ -75,7 +85,7 @@
 效果：
 [官网](https://www.baidu.com)
 
-## 图片
+### 图片
 格式：
 ```
 [alt](url_or_path)
@@ -87,7 +97,7 @@
 效果：
 ![alt](assets/2017-08-21-21-00-25.png)
 
-## mermaid
+### mermaid
 使用mermaid需要把代码用如下字符串包含：
 
 ![](assets/2017-08-23-20-01-26.png)
