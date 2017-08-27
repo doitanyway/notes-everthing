@@ -14,7 +14,7 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 ## 安装 docsify
 * 安装
 ```
-npm i docsify-cli -g
+cnpm i docsify-cli -g --save
 ```
 * 初始化
 ```
