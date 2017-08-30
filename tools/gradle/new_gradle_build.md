@@ -147,6 +147,6 @@ task hello {
 
 ## 下一步
 
-If you are specifically interested in building Java applications, read the [Getting Started Building Java Applications](https://guides.gradle.org/building-java-applications/) guide. You should also read the [Java Quickstart](https://docs.gradle.org/4.0/userguide/tutorial_java_projects.html) chapter of the user manual. To learn about creating other kinds of popular Gradle builds, follow these readings for the type of project you want:
+如果你对JAVA应用程序特别感兴趣，可以读 [Getting Started Building Java Applications](https://guides.gradle.org/building-java-applications/) guide. You should also read the [Java Quickstart](https://docs.gradle.org/4.0/userguide/tutorial_java_projects.html) chapter of the user manual. To learn about creating other kinds of popular Gradle builds, follow these readings for the type of project you want:
 
 
