@@ -22,7 +22,7 @@ gitbook：电子书生成工具；
 
 calibre：PDF格式电子书转换需要；
 
-本文介绍上面三个软件的安装和使用,假设读者电脑已经安装好了node，如果没有安装好node，请参考【[node安装](/Nodejs/install.md)】
+本文介绍上面三个软件的安装和使用,假设读者电脑已经安装好了node，如果没有安装好node，请参考【[node安装](/tools/Nodejs/install.md)】
 ## 安装软件 
 * [官网](https://git-scm.com/downloads)下载git安装。如果是在windows下安装，请选择安装LINUX命令，这将对你以后的研发很有帮助。
 ![](assets/markdown-img-paste-20170813103947623.png)
