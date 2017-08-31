@@ -1,6 +1,24 @@
-# 建立一个新的gradle build
+# 建立一个新的gradle build {ignore=true}
+
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- code_chunk_output -->
+
+* [创建一个项目](#创建一个项目)
+* [运行任务命令](#运行任务命令)
+* [Copy任务](#copy任务)
+* [添加打包任务](#添加打包任务)
+* [列举所有任务任务](#列举所有任务任务)
+* [清除任务](#清除任务)
+* [添加一个helloword](#添加一个helloword)
+* [完整的build.gradle文件](#完整的buildgradle文件)
+* [下一步](#下一步)
+
+<!-- /code_chunk_output -->
+
 
 ## 创建一个项目
+
 ```
 $ mkdir basic-demo
 $ cd basic-demo
