@@ -32,6 +32,10 @@
 * 统计查询结果条数``cat catalina.out -n|tail -n 100|wc -l``
 * 把两天的日志转存到文件``cat catalina.out | grep -a -E "2017-08-22|2017-08-21" >log.log``
 
+## ./mysqldump -uroot -p -d DB1>/home/leo/db1.sql
+* 备份数据库,``mysqldump -uroot -pXXXX  dbname>/home/db1.sql``
+* 备份数据库，只备份结构``mysqldump -uroot -pXXXX -d dbname>/home/db1.sql``
+* 还原数据库,``mysql -uroot -pXXXX dbname < backup.sq``
 
 
 

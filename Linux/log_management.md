@@ -124,6 +124,37 @@ logrotate可以在任何时候从命令行手动调用。
 ```
 # logrotate -d /etc/logrotate.d/log-file 
 ```
+
+### 强制轮询
+即使轮循条件没有满足，我们也可以通过使用‘-f’选项来强制logrotate轮循日志文件，‘-v’参数提供了详细的输出。
+```
+[root@bogon logrotate.d]# logrotate -vf tomcat
+```
+
+```
+[root@bogon logrotate.d]# logrotate -vf tomcat 
+reading config file tomcat
+reading config info for /usr/local/tomcat_road/logs/catalina.out 
+
+Handling 1 logs
+
+rotating pattern: /usr/local/tomcat_road/logs/catalina.out 
+ forced from command line (7 rotations)
+empty log files are not rotated, old logs are removed
+considering log /usr/local/tomcat_road/logs/catalina.out
+  log needs rotating
+rotating log /usr/local/tomcat_road/logs/catalina.out, log->rotateCount is 7
+dateext suffix '-20170902'
+glob pattern '-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'
+glob finding old rotated logs failed
+copying /usr/local/tomcat_road/logs/catalina.out to /usr/local/tomcat_road/logs/catalina.out-20170902
+truncating /usr/local/tomcat_road/logs/catalina.out
+compressing log with: /bin/gzip
+```
+
+
+
+
 ## Logrotate的记录日志
 logrotate自身的日志通常存放于/var/lib/logrotate/status目录。
 
