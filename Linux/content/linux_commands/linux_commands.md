@@ -38,8 +38,6 @@
 * 还原数据库,``mysql -uroot -pXXXX dbname < backup.sq``
 
 
-
-
 ## ifconfig查看网络信息1
 
 

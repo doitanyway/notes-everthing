@@ -99,12 +99,12 @@ vim /usr/local/tomcat_road/logs/catalina.out
     daily
     rotate 7
     compress
-    delaycompress
     missingok
     notifempty
     dateext
 }
 ```
+注意：delaycompress还在考虑；
 
 ## 故障排除
 这里提供了一些logrotate设置的排障提示。
