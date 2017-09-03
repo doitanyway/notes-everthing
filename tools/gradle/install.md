@@ -187,5 +187,6 @@ allprojects{
   }
 }
 ```
+build.gradle文件修改``jcenter()``为`` maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}``
 
 [返回](/readme.md)
