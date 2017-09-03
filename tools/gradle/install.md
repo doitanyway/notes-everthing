@@ -163,5 +163,29 @@ To see more detail about a task, run gradle help --task <task>
 ```
 
 
+## gradle 加速
+
+找到gradle的配置文件路径，例如Windows中的路径为C:\Users\${你的用户名}\.gradle
+
+新建一个文件名为init.gradle，用记事本或者类似的编辑器打开，输入以下内容：
+```
+allprojects{
+  repositories {
+    def REPOSITORY_URL = 'http://maven.aliyun.com/nexus/content/groups/public/'
+      all { ArtifactRepository repo ->
+        if(repo instanceof MavenArtifactRepository){
+          def url = repo.url.toString()
+          if (url.startsWith('https://repo1.maven.org/maven2') || url.startsWith('https://jcenter.bintray.com/')) {
+            project.logger.lifecycle "Repository ${repo.url} replaced by $REPOSITORY_URL."
+            remove repo
+          }
+       }
+    }
+    maven {
+      url REPOSITORY_URL
+    }
+  }
+}
+```
 
 [返回](/readme.md)

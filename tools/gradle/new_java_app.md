@@ -1,8 +1,25 @@
-# 建立一个新的java应用
+# 建立一个新的java应用 {ignore=true}
+
 本文演示了用gradle如何生成一个新的JAVA应用，
+
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- code_chunk_output -->
+
+* [完成效果](#完成效果)
+* [准备条件](#准备条件)
+* [准备知识](#准备知识)
+* [创建目录](#创建目录)
+* [执行init任务](#执行init任务)
+* [执行编译](#执行编译)
+* [执行任务](#执行任务)
+* [总结](#总结)
+
+<!-- /code_chunk_output -->
 
 ## 完成效果
 我们将按默认方式生成一个JAVA应用
+
 
 ## 准备条件
 * 10分钟
