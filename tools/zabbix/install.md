@@ -19,6 +19,9 @@
 	* [用网页访问zabbix](#用网页访问zabbix)
 * [安装zabbix-server前端](#安装zabbix-server前端)
 * [安装zabbix-agent](#安装zabbix-agent)
+	* [安装仓库配置包](#安装仓库配置包-1)
+	* [安装软件](#安装软件)
+	* [启动](#启动)
 
 <!-- /code_chunk_output -->
 
@@ -95,6 +98,27 @@ yum update selinux-policy.noarch selinux-policy-targeted.noarch
 //Having SELinux status enabled in enforcing mode, you need to execute the following command to enable successful connection of Zabbix frontend to the server:
 ```
 # setsebool -P httpd_can_connect_zabbix on
+```
+
+今天发现centos 7 1611使用此方法并不管用，现新增方法如下：
+
+1.安装selinux相关工具
+
+yum install policycoreutils-python
+2.如果是server_agent端，则按照以下操作进行
+
+```
+cat /var/log/audit/audit.log | grep zabbix_agentd | grep denied | audit2allow -M zabbix_agent_setrlimit
+```
+执行上述命令后，会在当前目录生成一个名为zabbix_agent_setrlimit.pp的文件，接下来执行以下命令
+
+```
+semodule -i zabbix_agent_setrlimit.pp
+```
+如果是server端，则按照如下方法执行即可
+```
+cat /var/log/audit/audit.log | grep zabbix_server | grep denied | audit2allow -M zabbix_server_setrlimit
+semodule -i zabbix_server_setrlimit.pp
 ```
 
 ### 处理报错
@@ -187,4 +211,26 @@ firewall-cmd --reload
 
 ## 安装zabbix-agent
 
-* 
+安装zabbix-agent安装在被安装电脑上
+### 安装仓库配置包
+
+```
+# rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el7.centos.noarch.rpm
+```
+
+### 安装软件
+```
+# yum install zabbix-agent
+```
+### 启动
+```
+service zabbix-agent start
+chkconfig --add zabbix-agent
+```
+
+说明： 
+chkconfig 功能说明：检查，设置系统的各种服务。
+语法：chkconfig [--add][--del][--list][系统服务] 或 chkconfig [--level <等级代号>][系统服务][on/off/reset]
+--add 添加服务
+--del 删除服务
+--list 查看各服务启动状态
