@@ -1,4 +1,26 @@
-# zabbix 安装
+# zabbix 安装 {ignore=true}
+
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- code_chunk_output -->
+
+* [前言](#前言)
+* [安装server](#安装server)
+	* [安装系统](#安装系统)
+	* [安装仓库配置包](#安装仓库配置包)
+	* [server安装](#server安装)
+	* [安装数据库](#安装数据库)
+	* [selinux配置](#selinux配置)
+	* [启动zabbix](#启动zabbix)
+	* [zabbix前端参数配置](#zabbix前端参数配置)
+	* [启动http服务](#启动http服务)
+	* [允许http端口访问](#允许http端口访问)
+	* [用网页访问zabbix](#用网页访问zabbix)
+* [安装zabbix-server前端](#安装zabbix-server前端)
+* [安装zabbix-agent](#安装zabbix-agent)
+
+<!-- /code_chunk_output -->
+
 
 ## 前言
 
@@ -125,4 +147,5 @@ firewall-cmd --reload
 
 
 
+## 安装zabbix-agent
 
