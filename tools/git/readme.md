@@ -28,7 +28,7 @@ calibre：PDF格式电子书转换需要；
 ![](assets/markdown-img-paste-20170813103947623.png)
 * 安装gitbook
 ```
-cnpm install gitbook-cli
+cnpm install gitbook-cli -g --save
 ```
 * 安装calibre
 到[官网](https://calibre-ebook.com/download_windows)下载安装；
