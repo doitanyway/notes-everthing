@@ -11,6 +11,7 @@
 	* [server安装](#server安装)
 	* [安装数据库](#安装数据库)
 	* [selinux配置](#selinux配置)
+	* [处理报错](#处理报错)
 	* [启动zabbix](#启动zabbix)
 	* [zabbix前端参数配置](#zabbix前端参数配置)
 	* [启动http服务](#启动http服务)
@@ -96,6 +97,17 @@ yum update selinux-policy.noarch selinux-policy-targeted.noarch
 # setsebool -P httpd_can_connect_zabbix on
 ```
 
+### 处理报错
+```
+zabbix_agentd [20529]: cannot create Semaphore: [28] No space left on device
+zabbix_agentd [20529]: unable to create mutex for log file
+```
+为避免如上报错，可修改文件``/etc/sysctl.conf``,添加如下行。  
+```
+kernel.sem = 500        64000   64      256
+```
+执行``sysctl -p``使其生效。
+
 ### 启动zabbix 
 ```
 # systemctl start zabbix-server
@@ -112,13 +124,15 @@ php_value post_max_size 16M
 php_value upload_max_filesize 2M
 php_value max_input_time 300
 php_value always_populate_raw_post_data -1
-# php_value date.timezone Europe/Riga
+php_value date.timezone Asia/Chongqing
 ```
+注意：默认的timezone需要根据实际情况设置
 
 ### 启动http服务
 
 ```
 # systemctl start httpd
+# systemctl enable httpd
 ```
 
 ### 允许http端口访问
@@ -144,8 +158,33 @@ firewall-cmd --reload
 
 ## 安装zabbix-server前端
 
+* 打开网站``http://{ip_address}/zabbix``
+![](assets/2017-09-08-17-00-05.png)
+
+* 检查网站安装需求；（如果有失败，可修改``/etc/httpd/conf.d/zabbix.conf``）
+![](assets/2017-09-08-17-05-58.png)
+
+* 配置数据库
+![](assets/2017-09-08-17-10-29.png)
+
+* 配置监听端口、域名、服务器名字
+![](assets/2017-09-08-17-11-27.png)
+
+* 检查配置汇总
+![](assets/2017-09-08-17-11-54.png)
+
+* 安装完成
+![](assets/2017-09-08-17-12-26.png)
+后续如果需要修改配置，可以到``/etc/zabbix/web/zabbix.conf.php``上修改。
+
+* 登录系统
+![](assets/2017-09-08-17-15-08.png)
+
+默认用户：Admin
+默认密码：zabbix
 
 
 
 ## 安装zabbix-agent
 
+* 
