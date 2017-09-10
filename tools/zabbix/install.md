@@ -213,9 +213,13 @@ firewall-cmd --reload
 
 安装zabbix-agent安装在被安装电脑上
 ### 安装仓库配置包
-
+centos 7
 ```
-# rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el7.centos.noarch.rpm
+# rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el7.noarch.rpm
+```
+centos 6
+```
+# rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/6/x86_64/zabbix-release-3.4-1.el6.noarch.rpm
 ```
 
 ### 安装软件
