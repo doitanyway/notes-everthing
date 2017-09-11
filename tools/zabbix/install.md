@@ -227,7 +227,6 @@ rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el
 centos 6
 ```
 # rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/6/x86_64/zabbix-release-3.4-1.el6.noarch.rpm
->>>>>>> 4fbf5ad21352137c9836098e07f2888d5c247f77
 ```
 
 ### 安装软件
