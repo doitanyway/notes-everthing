@@ -17,7 +17,7 @@
 	* [启动http服务](#启动http服务)
 	* [允许http端口访问](#允许http端口访问)
 	* [用网页访问zabbix](#用网页访问zabbix)
-* [安装zabbix-server前端](#安装zabbix-server前端)
+* [配置zabbix-server前端](#配置zabbix-server前端)
 * [安装zabbix-agent](#安装zabbix-agent)
 	* [安装仓库配置包](#安装仓库配置包-1)
 	* [安装软件](#安装软件)
@@ -180,7 +180,7 @@ firewall-cmd --reload
 ![](assets/2017-09-08-12-24-16.png)
 
 
-## 安装zabbix-server前端
+## 配置zabbix-server前端
 
 * 打开网站``http://{ip_address}/zabbix``
 ![](assets/2017-09-08-17-00-05.png)
@@ -215,11 +215,12 @@ firewall-cmd --reload
 ### 安装仓库配置包
 
 ```
-# rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el7.centos.noarch.rpm
+rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el7.centos.noarch.rpm
 ```
 
 ### 安装软件
 ```
+# yum install glibc.i686
 # yum install zabbix-agent
 ```
 ### 启动
