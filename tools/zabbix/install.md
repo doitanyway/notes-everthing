@@ -21,7 +21,11 @@
 * [安装zabbix-agent](#安装zabbix-agent)
 	* [安装仓库配置包](#安装仓库配置包-1)
 	* [安装软件](#安装软件)
+	* [配置zabbix-agent](#配置zabbix-agent)
 	* [启动](#启动)
+	* [设置开机启动](#设置开机启动)
+		* [CENTOS 6](#centos-6)
+		* [centos 7](#centos-7)
 
 <!-- /code_chunk_output -->
 
@@ -44,6 +48,8 @@ zabbix安装包括两个部分，zabbix-server安装,zabbix-agent安装；
 # rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el7.centos.noarch.rpm
 ```
 
+
+
 ### server安装
 
 ```
@@ -52,7 +58,8 @@ zabbix安装包括两个部分，zabbix-server安装,zabbix-agent安装；
 
 ### 安装数据库
 
-* 安装数据库方法请查看 [MYSQL安装](/mysql/install.md)
+
+* 安装数据库方法请查看 [MYSQL安装](/mysql/install.md)，如果已经安装好，则直接执行下一步；
 
 * 生成数据库
 ```
@@ -213,9 +220,14 @@ firewall-cmd --reload
 
 安装zabbix-agent安装在被安装电脑上
 ### 安装仓库配置包
-
+centos 7
 ```
 rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el7.centos.noarch.rpm
+```
+centos 6
+```
+# rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/6/x86_64/zabbix-release-3.4-1.el6.noarch.rpm
+>>>>>>> 4fbf5ad21352137c9836098e07f2888d5c247f77
 ```
 
 ### 安装软件
@@ -223,15 +235,52 @@ rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el
 # yum install glibc.i686
 # yum install zabbix-agent
 ```
-### 启动
-```
-service zabbix-agent start
-chkconfig --add zabbix-agent
-```
 
+### 配置zabbix-agent
+
+编辑配置文件``/etc/zabbix/zabbix_agentd.conf``
+
+```
+#Server=[zabbix server ip]
+#Hostname=[ Hostname of client system ]
+
+Server=192.168.1.11
+Hostname=Server1
+```
+注：IP地址根据实际配置。
+
+### 启动
+
+``/etc/init.d/zabbix-agent restart`` 重启zabbix  
+``/etc/init.d/zabbix-agent start``   启动zabbix
+``/etc/init.d/zabbix-agent stop``    停止zabbix
+
+
+### 设置开机启动
+
+####  CENTOS 6
+```
+chkconfig --add zabbix-agent
+chkconfig --level 235 zabbix-agent on
+```
 说明： 
 chkconfig 功能说明：检查，设置系统的各种服务。
 语法：chkconfig [--add][--del][--list][系统服务] 或 chkconfig [--level <等级代号>][系统服务][on/off/reset]
 --add 添加服务
 --del 删除服务
 --list 查看各服务启动状态
+
+Linux OS 将操作 环境分为以下7个等级(level)，即  
+0：关机  
+1：单用户模式（单用户、无网络）  
+2：无网络支持的多用户模式（多用户、无网络）  
+3：有网络支持的多用户模式（多用户、有网络）  
+4：保留，未使用  
+5：有网络支持有X-Window支持的多用户模式（多用户、有网络、X-Window界面）  
+6：重新引导系统，即重启  
+
+#### centos 7
+
+```
+# systemctl enable zabbix-agent
+```
