@@ -38,29 +38,8 @@ ZABBIX SERVER -> ZABBIX AGENT -> 自定义shell脚本
 ```
 #!/bin/bash
 #xiaoluo
-#scripts for tcp status
-function SYNRECV {
-/usr/sbin/ss -ant | awk '{++s[$1]} END {for(k in s) print k,s[k]}' | grep 'SYN-RECV' | awk '{print $2}'
-}
-function ESTAB {
-/usr/sbin/ss -ant | awk '{++s[$1]} END {for(k in s) print k,s[k]}' | grep 'ESTAB' | awk '{print $2}'
-}
-function FINWAIT1 {
-/usr/sbin/ss -ant | awk '{++s[$1]} END {for(k in s) print k,s[k]}' | grep 'FIN-WAIT-1' | awk '{print $2}'
-}
-function FINWAIT2 {
-/usr/sbin/ss -ant | awk '{++s[$1]} END {for(k in s) print k,s[k]}' | grep 'FIN-WAIT-2' | awk '{print $2}'
-}
-function TIMEWAIT {
-/usr/sbin/ss -ant | awk '{++s[$1]} END {for(k in s) print k,s[k]}' | grep 'TIME-WAIT' | awk '{print $2}'
-}
-function LASTACK {
-/usr/sbin/ss -ant | awk '{++s[$1]} END {for(k in s) print k,s[k]}' | grep 'LAST-ACK' | awk '{print $2}'
-}
-function LISTEN {
-/usr/sbin/ss -ant | awk '{++s[$1]} END {for(k in s) print k,s[k]}' | grep 'LISTEN' | awk '{print $2}'
-}
-$1
+#scripts for tcp numbers
+netstat -nat|grep -i "$1"|wc -l
 ```
 修改权限，``chmod o+x /usr/local/zabbix/scripts/tcp_status.sh``
 
@@ -82,6 +61,7 @@ UserParameter=tcp.status[*],/usr/local/zabbix/scripts/tcp_status.sh $1
 ```
 zabbix_get -s 192.168.1.239 -p 10050 -k "tcp.status[LISTEN]"
 ```
+
 注：如果zabbix_get未安装，则使用``yum install zabbix-get.x86_64``安装；IP和端口根据实际情况填写；
 
 ### 配置item
@@ -107,3 +87,4 @@ zabbix_get -s 192.168.1.239 -p 10050 -k "tcp.status[LISTEN]"
 ## 完成效果图
 
 ![](assets/2017-09-11-21-18-14.png)
+
