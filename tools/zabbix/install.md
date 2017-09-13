@@ -11,7 +11,6 @@
 	* [server安装](#server安装)
 	* [安装数据库](#安装数据库)
 	* [selinux配置](#selinux配置)
-	* [处理报错](#处理报错)
 	* [启动zabbix](#启动zabbix)
 	* [zabbix前端参数配置](#zabbix前端参数配置)
 	* [启动http服务](#启动http服务)
@@ -92,52 +91,10 @@ DBPassword=<password>
 
 ### selinux配置
 
-需要设置selinux,方法如下(推荐方法2)：
-1. 关闭selinux（不推荐）
+关闭selinux
 ```
 setenforce 0
 ```
-2. 更新selinux策略
-```
-yum update selinux-policy.noarch selinux-policy-targeted.noarch
-```
-//todo 这个是否有必要执行
-//Having SELinux status enabled in enforcing mode, you need to execute the following command to enable successful connection of Zabbix frontend to the server:
-```
-# setsebool -P httpd_can_connect_zabbix on
-```
-
-今天发现centos 7 1611使用此方法并不管用，现新增方法如下：
-
-1.安装selinux相关工具
-
-yum install policycoreutils-python
-2.如果是server_agent端，则按照以下操作进行
-
-```
-cat /var/log/audit/audit.log | grep zabbix_agentd | grep denied | audit2allow -M zabbix_agent_setrlimit
-```
-执行上述命令后，会在当前目录生成一个名为zabbix_agent_setrlimit.pp的文件，接下来执行以下命令
-
-```
-semodule -i zabbix_agent_setrlimit.pp
-```
-如果是server端，则按照如下方法执行即可
-```
-cat /var/log/audit/audit.log | grep zabbix_server | grep denied | audit2allow -M zabbix_server_setrlimit
-semodule -i zabbix_server_setrlimit.pp
-```
-
-### 处理报错
-```
-zabbix_agentd [20529]: cannot create Semaphore: [28] No space left on device
-zabbix_agentd [20529]: unable to create mutex for log file
-```
-为避免如上报错，可修改文件``/etc/sysctl.conf``,添加如下行。  
-```
-kernel.sem = 500        64000   64      256
-```
-执行``sysctl -p``使其生效。
 
 ### 启动zabbix 
 ```
@@ -147,7 +104,7 @@ kernel.sem = 500        64000   64      256
 
 ### zabbix前端参数配置
 
-``/etc/httpd/conf.d/zabbix.conf``文件，读者可以自行修改；
+``vim /etc/httpd/conf.d/zabbix.conf``文件，读者可以自行修改；
 ```
 php_value max_execution_time 300
 php_value memory_limit 128M
@@ -231,7 +188,6 @@ centos 6
 
 ### 安装软件
 ```
-# yum install glibc.i686
 # yum install zabbix-agent
 ```
 
@@ -259,7 +215,6 @@ Hostname=Server1
 
 ####  CENTOS 6
 ```
-chkconfig --add zabbix-agent
 chkconfig --level 235 zabbix-agent on
 ```
 说明： 

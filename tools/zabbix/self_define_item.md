@@ -36,8 +36,7 @@ ZABBIX SERVER -> ZABBIX AGENT -> 自定义shell脚本
 ``/usr/local/zabbix/scripts/tcp_status.sh``
 
 ```
-#!/bin/bash
-#xiaoluo
+#!/usr/local/zabbix/scripts/tcp_status.sh
 #scripts for tcp numbers
 netstat -nat|grep -i "$1"|wc -l
 ```
@@ -53,25 +52,31 @@ UserParameter=tcp.status[*],/usr/local/zabbix/scripts/tcp_status.sh $1
 ```
 注意：tcp.status，是未来在server上配置的配置key.
 
+重启server。 
+```
+service zabbix-agent restart
+```
+
 ## 设置server
 
 ### 测试客户端设置
 
 使用如下测试命令，测试调试设置是否OK。
 ```
-zabbix_get -s 192.168.1.239 -p 10050 -k "tcp.status[LISTEN]"
+zabbix_get -s 183.246.164.180 -p 10050 -k "tcp.status[5000]"
 ```
 
 注：如果zabbix_get未安装，则使用``yum install zabbix-get.x86_64``安装；IP和端口根据实际情况填写；
 
 ### 配置item
 
-* configuration -> hosts 
-* 点击对应host的item
+* configuration -> hosts   
+* 点击对应host的item  
 ![](assets/2017-09-11-21-11-57.png)
 
-* 点击create item;
-* 填写name以及key(参考``vim /etc/zabbix/zabbix_agentd.d/tcp-status-params.conf``文件,的tcp.status)
+* 点击create item; 
+* 填写name以及key(参考``vim /etc/zabbix/zabbix_agentd.d/tcp-status-params.conf``文件,的tcp.status)  
+![](assets/2017-09-12-20-06-14.png)
 * 填写其他信息点击add。
 
 

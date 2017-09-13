@@ -13,6 +13,8 @@
 * [J2ee](/j2ee/readme.md)
 * [MYSQL](/mysql/readme.md)
 * [前端](/web_font/readme.md)
+* [工作技巧](/work_skill/readme.md)
+
 
 
 更多markdown.md语法，请参考“https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/”

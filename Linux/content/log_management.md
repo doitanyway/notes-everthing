@@ -18,9 +18,11 @@
 	* [强制轮询](#强制轮询)
 * [Logrotate的记录日志](#logrotate的记录日志)
 * [Logrotate定时任务](#logrotate定时任务)
+* [配置生成日志时间](#配置生成日志时间)
 * [其他](#其他)
 
 <!-- /code_chunk_output -->
+
 
 
 
@@ -114,7 +116,7 @@ logrotate的配置文件是/etc/logrotate.conf，通常不需要对它进行修�
 ### 样例4
 保存当前正在打开的日志，按每天保存，保存7个备份，按日期修改文件名，压缩保存（延迟压缩），忽略错误，空文件不处理。
 ``
-vim /usr/local/tomcat_road/logs/catalina.out
+vim /etc/logrotate.d/log-file 
 ``
 ```
 /usr/local/tomcat_road/logs/catalina.out
@@ -201,8 +203,35 @@ exit 0
 
 
 
+
+## 配置生成日志时间
+
+cat /etc/anacrontab
+
+里面有个
+
+START_HOURS_RANGE=3-22    这个是开始时间
+RANDOM_DELAY=45    这个是随机的延迟时间，表示最大45min.
+
+还有个
+```
+1       5       cron.daily              nice run-parts /etc/cron.daily  
+```
+第一个是Recurrence period  第二个是延迟时间，所以cron.daily会在3:22+(5,45)这个时间段执行，/etc/cron.daily是个文件夹
+
+
+新增完毕之后，我们可以使用以下命令，强制执行一次，以后就会按定时计划执行
+```
+logrotate -f /etc/logrotate.d/mmmmmm
+```
+
 ## 其他
+
 gz文件解压与压缩
 gzip –c filename > filename.gz
 gunzip –c filename.gz > filename  
+gcat file | less  阅读文件
+
+
+
 
