@@ -17,7 +17,7 @@ mysql> create database urpcs_new character set utf8 collate utf8_general_ci;
 
 2. 使用mysqldump及mysql的命令组合，一次性完成复制
 ```
-# mysqldump urpcs -uroot -ppassword --add-drop-table | mysql urpcs_new -uroot -ppassword
+# mysqldump -R urpcs -uroot -ppassword --add-drop-table | mysql urpcs_new -uroot -ppassword
 ```
 
 ### 克隆文件

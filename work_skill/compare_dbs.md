@@ -21,8 +21,8 @@ shell> cat /home/init3.sql | mysql -uroot -p db_b
 ## 导出数据库文件
 
 ```
-mysqldump -uroot -pXXXXX db_a --no-data>/home/a.sql
-mysqldump -uroot -pXXXXX db_b --no-data>/home/b.sql
+mysqldump -R -uroot -pXXXXX db_a --no-data>/home/a.sql
+mysqldump -R -uroot -pXXXXX db_b --no-data>/home/b.sql
 ```
 
 ## 比较文件
