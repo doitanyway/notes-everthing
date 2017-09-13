@@ -17,6 +17,7 @@ tomcat 目录为/user/local/tomcat/
 ### 恢复数据库
 
 ```
+shell> set global log_bin_trust_function_creators=TRUE;
 shell> mysql -uroot -p<password>
 mysql> drop database urpcs;
 mysql> create database urpcs character set utf8 collate utf8_general_ci;

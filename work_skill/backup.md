@@ -41,7 +41,7 @@ mkdir -p /home/urpcs_backup_20170913
 ### 备份数据库 
 
 ```
-mysqldump -R -uroot -pXXXXX db_name>/home/urpcs_backup_20170913/db_name.sql
+mysqldump -R -uroot -pXXXXX --default-character-set=utf8 db_name >/home/urpcs_backup_20170913/db_name.sql
 ```
 
 ### 备份工程文件
