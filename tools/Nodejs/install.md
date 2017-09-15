@@ -2,7 +2,7 @@
 
 ## 安装node
 
-在[官网](https://nodejs.org/en/)下载node安装。
+在[官网](https://nodejs.org/download/release/v6.10.3/)下载node安装。
 
 ## 安装cnpm
 
