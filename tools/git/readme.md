@@ -104,6 +104,17 @@ git push -u origin master
 git push origin v1.0.1
 ```
 
+## 分支合并
+
+### 创建并导出一个分支
+
+```
+# git checkout -b iss1
+```
+
+
+
+
 效果演示：
 ![](assets/markdown-img-paste-20170813182318179.png)
 
