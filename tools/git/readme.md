@@ -104,6 +104,25 @@ git push -u origin master
 git push origin v1.0.1
 ```
 
+## 切换远程分支
+
+* 列举所有分支
+```
+$ git branch --all
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+  remotes/origin/xiantingche_ios
+```
+
+* 切换分支
+
+```
+$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+```
+
 ## 分支合并
 
 ### 创建并导出一个分支
@@ -113,10 +132,10 @@ git push origin v1.0.1
 ```
 
 
-
-
 效果演示：
 ![](assets/markdown-img-paste-20170813182318179.png)
+
+
 
 
 [返回](/readme.md)
