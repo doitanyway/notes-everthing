@@ -123,6 +123,12 @@ Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
 ```
 
+## 恢复删除文件
+
+```
+git checkout filename
+```
+
 ## 分支合并
 
 ### 创建并导出一个分支
