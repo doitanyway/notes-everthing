@@ -58,6 +58,7 @@ cnpm install gitbook-cli -g --save
 | git checkout ***                    | 切换分支         |
 | git status                          | 查看状态         |
 | git log                             | 查看提交修改记录     |
+|git checkout filename|恢复删除文件|
 
 ### gitbook命令
 | 命令            | 说明      |
@@ -123,11 +124,6 @@ Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
 ```
 
-## 恢复删除文件
-
-```
-git checkout filename
-```
 
 ## 分支合并
 
