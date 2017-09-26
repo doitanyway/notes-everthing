@@ -8,10 +8,16 @@
 * [常用命令](#常用命令)
 	* [git命令](#git命令)
 	* [gitbook命令](#gitbook命令)
-* [常用组合操作](#常用组合操作)
-	* [从命令行创建一个新的仓库](#从命令行创建一个新的仓库)
-	* [从命令行推送已经创建的仓库](#从命令行推送已经创建的仓库)
-	* [发布版本](#发布版本)
+* [git全局设置](#git全局设置)
+* [克隆本地一个新仓库](#克隆本地一个新仓库)
+* [已经存在的文件](#已经存在的文件)
+* [已经存在的git本地仓库](#已经存在的git本地仓库)
+* [发布版本](#发布版本)
+* [切换远程分支](#切换远程分支)
+* [忽略文件](#忽略文件)
+* [解決冲突](#解決冲突)
+* [分支合并](#分支合并)
+	* [创建并导出一个分支](#创建并导出一个分支)
 
 <!-- /code_chunk_output -->
 ---
@@ -37,29 +43,29 @@ cnpm install gitbook-cli -g --save
 ## 常用命令
 ### git命令
 
-| 命令                                  | 说明           |
-|-------------------------------------|--------------|
-| git init                            | 初始化仓库        |
-| git add .                           | 添加新文件或者更改新文件 |
-| git add filename                    | 添加一个文件       |
-| git commit -m "comment"             | 提交文件到本地      |
-| git remote                          | 列出已经存在的远程分支  |
-| git remote remove <name>            | 删除远程分支       |
-| git clone https://url/testTitle.git | 克隆到本地        |
-| git fetch branch2                   | 更新信息         |
-| git merge branch2/master            | merge本地信息    |
-| git remove  **                      | 删除文件         |
-| git push                            | push到服务器上    |
-| git pull origin master              | 从服务器上拉取信息    |
-| git branch -a                       | 查看所有分支       |
-| git branch -r                       | 查看远程分支       |
-| git branch -d ***                   | 删除分支         |
-| git branch  ***                     | 新建分支         |
-| git checkout ***                    | 切换分支         |
-| git status                          | 查看状态         |
-| git log                             | 查看提交修改记录     |
-|git checkout filename|恢复删除文件|
-
+| 命令                                  | 说明                     |
+|---------------------------------------|--------------------------|
+| git init                              | 初始化仓库               |
+| git add .                             | 添加新文件或者更改新文件 |
+| git add filename                      | 添加一个文件             |
+| git commit -m "comment"               | 提交文件到本地           |
+| git remote                            | 列出已经存在的远程分支   |
+| git remote remove <name>              | 删除远程分支             |
+| git clone https://url/testTitle.git   | 克隆到本地               |
+| git fetch branch2                     | 更新信息                 |
+| git merge branch2/master              | merge本地信息            |
+| git remove  **                        | 删除文件                 |
+| git push                              | push到服务器上           |
+| git pull origin master                | 从服务器上拉取信息       |
+| git branch -a                         | 查看所有分支             |
+| git branch -r                         | 查看远程分支             |
+| git branch -d ***                     | 删除分支                 |
+| git branch  ***                       | 新建分支                 |
+| git checkout ***                      | 切换分支                 |
+| git status                            | 查看状态                 |
+| git log                               | 查看提交修改记录         |
+| git checkout filename                 | 恢复删除文件             |
+| git push --set-upstream origin master | 设置push到哪里           |
 ### gitbook命令
 | 命令            | 说明      |
 |---------------|---------|
@@ -70,68 +76,160 @@ cnpm install gitbook-cli -g --save
 
 
 
-##常用组合操作
 
-### 从命令行创建一个新的仓库
+## git全局设置
+
 ```
+git config --global user.name "name"
+git config --global user.email "name@szfangle.com"
+```
+
+## 克隆本地一个新仓库
+
+```
+git clone http://58.250.204.146:6002/qiujiahong/test.git
+cd test
 touch README.md
-git init
 git add README.md
-git commit -m "first commit"
-git remote add origin https://try.gogs.io/****/test.git
+git commit -m "add README"
 git push -u origin master
 ```
 
-### 从命令行推送已经创建的仓库
+## 已经存在的文件
+
 ```
-git remote add origin https://try.gogs.io/****/test.git
+cd existing_folder
+git init
+git remote add origin http://58.250.204.146:6002/qiujiahong/test.git
+git add .
+git commit -m "Initial commit"
 git push -u origin master
 ```
 
-### 发布版本
+## 已经存在的git本地仓库
+
+```
+cd existing_repo
+git remote add origin http://58.250.204.146:6002/qiujiahong/test.git
+git push -u origin --all
+git push -u origin --tags
+```
+
+
+## 发布版本
+
 * 查看tag
- ```
- git tag
- ```
+	```
+	git tag
+	```
+
+* 查看当前提交
+	```
+	git log -n 1
+	```
 * 新建tag
- >git tag [tagname] -m "[comment]"
- ```
- git tag v1.0.1 -m "发布1.0.1版本"
- ```
+	>git tag -a "tagname" id  -m "[comment]"
+	```
+	git tag -a "v1.0.1" dad6772a3ba211453d2112ce2e4763f97b7414b1 -m "this is a test"
+	```
 
 * 提交tag
->git push origin [tagname]
-```
-git push origin v1.0.1
-```
+	>git push origin [tagname]
+	```
+	git push origin v1.0.1
+	```
+* 刪除tag
+	```	
+	git tag -d tagname
+	```
 
 ## 切换远程分支
 
 * 列举所有分支
-```
-$ git branch --all
-* master
-  remotes/origin/HEAD -> origin/master
-  remotes/origin/master
-  remotes/origin/xiantingche_ios
-```
+	```
+	$ git branch --all
+	* master
+	remotes/origin/HEAD -> origin/master
+	remotes/origin/master
+	remotes/origin/xiantingche_ios
+	```
 
 * 切换分支
+	```
+	$ git checkout master
+	Switched to branch 'master'
+	Your branch is up-to-date with 'origin/master'.
+	```
 
+
+## 忽略文件
+
+在git项目跟目录下建立文件``.gitignore``,把需要忽略的文件或者是文件夹写在文件内,把改文件提交到服务器即可生效；
+
+* 忽略指定文件
+	```
+	# Windows:
+	Thumbs.db
+	ehthumbs.db
+	Desktop.ini
+	```
+
+* 忽略匹配的文件
+	```
+	# Python:
+	*.py[cod]
+	*.so
+	*.egg
+	*.egg-info
+	```
+
+* 忽略文件夹
+	```
+	dist
+	build
+	```
+
+* 强制添加文件
+	如果想提交按``.gitignore``文件规则匹配的文件或者文件夹则使用强制提交命令,如下：
+	```
+	$ git add -f App.class
+	```
+
+## 解決冲突
+
+* 下拉文件
 ```
-$ git checkout master
-Switched to branch 'master'
-Your branch is up-to-date with 'origin/master'.
+git pull origin master
+```
+* 编辑文件解决冲突
+```
+<<<<<<< HEAD
+# NI SHI WO
+
+# WO SHI NI
+
+=======
+# hello
+
+## this is
+>>>>>>> 07bc3732d82169c75b9d62ba3151deed5c68f4f6
 ```
 
+* 提交
+```
+git add .
+git commit -m "test"
+git push
+```
 
 ## 分支合并
 
 ### 创建并导出一个分支
 
 ```
-# git checkout -b iss1
+git checkout -b iss1
 ```
+
 
 
 效果演示：
