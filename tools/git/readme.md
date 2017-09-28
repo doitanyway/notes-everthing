@@ -32,6 +32,13 @@ calibre：PDF格式电子书转换需要；
 ## 安装软件 
 * [官网](https://git-scm.com/downloads)下载git安装。如果是在windows下安装，请选择安装LINUX命令，这将对你以后的研发很有帮助。  
 ![](assets/markdown-img-paste-20170813103947623.png)
+
+* 设置用户名、邮箱
+	```
+	git config --global user.email "xxx@szfangle.com"
+	git config --global user.name "xxx"
+	```
+
 * 管理员执行命令，安装gitbook
 ```
 cnpm install gitbook-cli -g --save
