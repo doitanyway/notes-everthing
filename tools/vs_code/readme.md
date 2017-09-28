@@ -5,10 +5,21 @@
 
 ## 安装插件
 
-* markdown checkbox
-* markdown pase image
-* markdown preview enhanced
-* markdown table prettifier
+* 管理员打开VS CODE
+
+* 搜索安装以下插件
+    * markdown checkbox
+    * markdown pase image
+    * markdown preview enhanced
+    * markdown table prettifier
+    ![](assets/2017-09-28-10-57-31.png)
+
+## 提交git
+
+* 查看提交文件，添加注释，点击√提交  
+    ![](assets/2017-09-28-11-00-00.png)
+* 点击三个点，点``推送``文件到远端
+    ![](assets/2017-09-28-11-01-02.png)
 
 ## 常用快捷键
 
