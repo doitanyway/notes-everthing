@@ -32,7 +32,7 @@ calibre：PDF格式电子书转换需要；
 ## 安装软件 
 * [官网](https://git-scm.com/downloads)下载git安装。如果是在windows下安装，请选择安装LINUX命令，这将对你以后的研发很有帮助。  
 ![](assets/markdown-img-paste-20170813103947623.png)
-* 安装gitbook
+* 管理员执行命令，安装gitbook
 ```
 cnpm install gitbook-cli -g --save
 ```
