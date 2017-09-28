@@ -66,6 +66,8 @@ cnpm install gitbook-cli -g --save
 | git log                               | 查看提交修改记录         |
 | git checkout filename                 | 恢复删除文件             |
 | git push --set-upstream origin master | 设置push到哪里           |
+|git tag -d v1.1                        | 删除版本                 |
+
 ### gitbook命令
 | 命令            | 说明      |
 |---------------|---------|
