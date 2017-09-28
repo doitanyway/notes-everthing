@@ -11,22 +11,6 @@
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 
-## 安装 docsify
-* 安装
-```
-cnpm i docsify-cli -g --save
-```
-* 初始化
-```
-docsify init ./docs
-```
-* 预览
-```
-cd docs
-docsify serve 
-```
-更多docsify的使用方法，参考 https://docsify.js.org
-
 
 ## cnpm 命令简要说明
 ### 安装模块
