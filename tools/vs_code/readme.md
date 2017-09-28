@@ -11,14 +11,14 @@
     * markdown checkbox
     * markdown pase image
     * markdown preview enhanced
-    * markdown table prettifier
+    * markdown table prettifier  
     ![](assets/2017-09-28-10-57-31.png)
 
 ## 提交git
 
-* 查看提交文件，添加注释，点击√提交  
+* 查看提交文件，添加注释，点击√提交   
     ![](assets/2017-09-28-11-00-00.png)
-* 点击三个点，点``推送``文件到远端
+* 点击三个点，点``推送``文件到服务器  
     ![](assets/2017-09-28-11-01-02.png)
 
 ## 常用快捷键
