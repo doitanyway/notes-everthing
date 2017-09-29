@@ -67,7 +67,7 @@ mysql> create database zabbix character set utf8 collate utf8_bin;
 mysql> grant all privileges on zabbix.* to zabbix@localhost identified by '<password>';
 mysql> quit;
 ```
-注：<password>请根据自己实际情况填写；
+注：``<password>``请根据自己实际情况填写；
 
 * 导入初始化数据库
 ```
