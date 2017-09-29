@@ -204,7 +204,9 @@ centos 6
 Server=192.168.1.11
 Hostname=Server1
 ```
-注：IP地址根据实际配置。
+注：
+1.服务器上使用命令‘hostname’查看hostname信息
+2.IP地址根据实际配置。
 
 ### 启动
 
