@@ -167,7 +167,6 @@ firewall-cmd --reload
 后续如果需要修改配置，可以到``/etc/zabbix/web/zabbix.conf.php``上修改。
 
 * 登录系统
-* 
 
 ![](assets/2017-09-08-17-15-08.png)
 
