@@ -82,6 +82,7 @@ cnpm install gitbook-cli -g --save
 | gitbook build | 生成HTML  |
 | gitbook serve | 打开浏览器服务 |
 | gitbook pdf   | 生成PDF   |
+| gitbook pdf ./ readme.pdf   | 按名字生成PDF   |
 
 
 
