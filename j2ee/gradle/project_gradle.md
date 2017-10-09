@@ -42,7 +42,7 @@ gradle-4.1-rc-2 解压即可，环境已经搭建好。
 ### 配置eclipse
 * 官网下载 eclipse 包，解压即可
 
-* 运行 eclipse
+* 运行 eclipse  
 ![](assets/QQ图片20170913113117.png)
 
 * eclipse安装gradle插件
