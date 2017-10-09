@@ -49,13 +49,14 @@ gradle-4.1-rc-2 解压即可，环境已经搭建好。
 
 
 ### 配置gradle
-* gradle配置
 
-    1. 作者的gradle工具解压目录在D:\gradleServer\gradle-4.1-rc-2
-    1. 系统环境配置新增GRADLE_HOME，和新增PATH路径中添加 "%GRADLE_HOME%\bin  
-    ![](assets/QQ图片20170913113633.png)
-    1. eclipse 配置 gradle  
-    ![](assets/QQ图片20170913114013.png)
+* gradle配置  
+
+    * 作者的gradle工具解压目录在D:\gradleServer\gradle-4.1-rc-2
+    * 系统环境配置新增GRADLE_HOME，和新增PATH路径中添加 "%GRADLE_HOME%\bin  
+        ![](assets/QQ图片20170913113633.png)
+    * eclipse 配置 gradle  
+        ![](assets/QQ图片20170913114013.png)
 
 
 ## 创建gradle项目
@@ -144,7 +145,7 @@ gradle-4.1-rc-2 解压即可，环境已经搭建好。
     ![](assets/QQ图片20170913150543.png)
 
 
-* Project Facets
+* Project Facets  
     ![](assets/QQ图片20170913150847.png)
 
 * 编译打包 cmd 到项目目录下，运行 ``gradle build``
