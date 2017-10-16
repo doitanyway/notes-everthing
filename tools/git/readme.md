@@ -18,6 +18,8 @@
 * [解決冲突](#解決冲突)
 * [分支合并](#分支合并)
 	* [创建并导出一个分支](#创建并导出一个分支)
+	* [提交代码](#提交代码)
+	* [合并代码](#合并代码)
 
 <!-- /code_chunk_output -->
 ---
@@ -236,10 +238,65 @@ git push
 
 ### 创建并导出一个分支
 
-```
-git checkout -b iss1
-```
+* 创建分支
+	```
+	$ git branch
+	* master
 
+	Administrator@WIN-KH7USRS3HHQ MINGW64 /f/vue (master)
+	$ git branch testbranch
+
+	Administrator@WIN-KH7USRS3HHQ MINGW64 /f/vue (master)
+	$ git checkout testbranch
+	Switched to branch 'testbranch'
+	M       .idea/preferred-vcs.xml
+	M       .idea/workspace.xml
+
+	Administrator@WIN-KH7USRS3HHQ MINGW64 /f/vue (testbranch
+	```
+* 以上语句可以合并成为一句
+	```
+	git checkout -b iss1
+	```
+
+### 提交代码
+
+	```
+	git add .
+	git commit -m "test"
+	git push origin testbranch
+	```
+注：可以使用``git push --set-upstream origin testbranch``设置上行推送默认地址,如果做了改设置，可使用``git push``推送。
+
+### 合并代码
+
+* 切换到将要合并的分支
+	```
+	git checkout master
+	```
+* 合并分支
+	```
+	$ git merge testbranch
+	Updating 0862265..0ff6c19
+	Fast-forward
+	.gitignore              |   2 +
+	.idea/preferred-vcs.xml |   3 +-
+	.idea/workspace.xml     | 150 +++++++++++++++++++++++++++++++++++++++---------
+	examples/v-for.html     |  32 +++++++++++
+	index.html              |   2 +
+	5 files changed, 160 insertions(+), 29 deletions(-)
+	create mode 100644 .gitignore
+	create mode 100644 examples/v-for.html
+	```
+* 解决冲突
+  使用下面命令查看冲突文件，手动编辑解决冲突，解决完冲突的文件使用``git add filename``命令标记为解决。
+  ```
+  git status 
+  ```
+  
+* 删除分支,``git branch -d branchname``
+
+* 刪除远程分支,``git push origin --delete testbranch``
 
 
 效果演示：
