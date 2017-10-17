@@ -20,6 +20,7 @@
 	* [创建并导出一个分支](#创建并导出一个分支)
 	* [提交代码](#提交代码)
 	* [合并代码](#合并代码)
+	* [发布版本](#发布版本-1)
 
 <!-- /code_chunk_output -->
 ---
@@ -214,18 +215,18 @@ git push -u origin --tags
 git pull origin master
 ```
 * 编辑文件解决冲突
-```
-<<<<<<< HEAD
-# NI SHI WO
+	```
+	<<<<<<< HEAD
+	# NI SHI WO
 
-# WO SHI NI
+	# WO SHI NI
 
-=======
-# hello
+	=======
+	# hello
 
-## this is
->>>>>>> 07bc3732d82169c75b9d62ba3151deed5c68f4f6
-```
+	## this is
+	>>>>>>> 07bc3732d82169c75b9d62ba3151deed5c68f4f6
+	```
 
 * 提交
 ```
@@ -299,7 +300,20 @@ git push
 * 刪除远程分支,``git push origin --delete testbranch``
 
 
-效果演示：
+### 发布版本
+
+git tag
+
+git tag -d tagname
+
+git log -n 1
+
+git tag -a "v1.0.1" dad6772a3ba211453d2112ce2e4763f97b7414b1 -m "this is a test"
+
+
+git push origin v1.0.1
+
+效果演示：  
 ![](assets/markdown-img-paste-20170813182318179.png)
 
 
