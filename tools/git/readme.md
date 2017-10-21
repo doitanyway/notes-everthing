@@ -304,6 +304,14 @@ git push
 * 刪除远程分支,``git push origin --delete testbranch``
 
 
+* 查看分支合并版本关系
+
+  ```
+  gitk
+  gitk --simplify-by-decoration --all
+  ```
+
+
 ### 发布版本
 
 git tag
