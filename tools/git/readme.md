@@ -294,6 +294,10 @@ git push
   ```
   git status 
   ```
+  使用下面工具解决冲突，请注意，合并时mine指的你当前所处的分支。
+  ```
+  git mergetool
+  ```
   
 * 删除分支,``git branch -d branchname``
 
