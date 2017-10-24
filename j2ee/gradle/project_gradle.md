@@ -11,7 +11,7 @@
 * [创建gradle项目](#创建gradle项目)
 	* [创建](#创建)
 	* [项目参数配置](#项目参数配置)
-* [java项目转gradle项目](#java项目转gradle项目)
+	* [java项目转gradle项目](#java项目转gradle项目)
 
 <!-- /code_chunk_output -->
 
@@ -42,124 +42,112 @@ gradle-4.1-rc-2 解压即可，环境已经搭建好。
 ### 配置eclipse
 * 官网下载 eclipse 包，解压即可
 
-* 运行 eclipse
+* 运行 eclipse  
 ![](assets/QQ图片20170913113117.png)
 
-* eclipse安装gradle插件
-
-在Eclipse中，点击Help菜单，然后有个Eclipse Marketplace,搜索buildship，然后出现如下，install第一个，然后重启Eclipse
+* eclipse安装gradle插件，在Eclipse中，点击Help菜单，然后有个Eclipse Marketplace,搜索buildship，然后出现如下，install第一个，然后重启Eclipse
 
 
 ### 配置gradle
-* gradle配置
 
-    1、作者的gradle工具解压目录在D:\gradleServer\gradle-4.1-rc-2
+* gradle配置  
 
-    2、系统环境配置新增GRADLE_HOME，和新增PATH路径中添加 "%GRADLE_HOME%\bin
-![](assets/QQ图片20170913113633.png)
-
-    3、eclipse 配置 gradle
-![](assets/QQ图片20170913114013.png)
+    * 作者的gradle工具解压目录在D:\gradleServer\gradle-4.1-rc-2
+    * 系统环境配置新增GRADLE_HOME，和新增PATH路径中添加 "%GRADLE_HOME%\bin  
+        ![](assets/QQ图片20170913113633.png)
+    * eclipse 配置 gradle  
+        ![](assets/QQ图片20170913114013.png)
 
 
 ## 创建gradle项目
 
 ### 创建
 
-* 打开eclipse，new project 选择 gradle project
+* 打开eclipse，new project 选择 gradle project  
 ![](assets/QQ图片20170913141929.png)
 
-* 下一步
+* 下一步  
 ![](assets/QQ图片20170913142306.png)
 
-* 填写 项目名称
+* 填写 项目名称  
 ![](assets/QQ图片20170913142455.png)
 
-* 下一步
+* 下一步  
 ![](assets/QQ图片20170913142629.png)
 
-* 完成
+* 完成  
 ![](assets/QQ图片20170913142813.png)
 
 
 ### 项目参数配置
 
-* build.gradle
-![](assets/QQ图片20170913143559.png)
-    apply plugin: 'java' // java 应用程序
-
-    apply plugin: 'war' //war包
-
-    sourceCompatibility = 1.8   //源jdk版本
-
-    targetCompatibility = 1.8   //目标jdk版本
-
-    mavenCentral //中央仓库
-
-    compile //引用jar包
+* build.gradle  
+    ![](assets/QQ图片20170913143559.png)
+    ```
+        apply plugin: 'java' // java 应用程序
+        apply plugin: 'war' //war包
+        sourceCompatibility = 1.8   //源jdk版本
+        targetCompatibility = 1.8   //目标jdk版本
+        mavenCentral //中央仓库
+        compile //引用jar包
+    ``
 
 
-* 编译打包 cmd 到项目目录下，运行 gradle build
-![](assets/QQ图片20170913144457.png)
+* 编译打包 cmd 到项目目录下，运行 gradle build  
+    ![](assets/QQ图片20170913144457.png)
 
 ### java项目转gradle项目
 
-* 创建项目同名的gradle项目例如：URPCSF0008.3
-![](assets/QQ图片20170913145541.png)
+* 创建项目同名的gradle项目例如：URPCSF0008.3  
+    ![](assets/QQ图片20170913145541.png)
 
 
-* build.gradle 配置
-```
-apply plugin: 'java'
-apply plugin: 'war'
-apply plugin: 'maven'
+* build.gradle 配置  
+    ```
+    apply plugin: 'java'
+    apply plugin: 'war'
+    apply plugin: 'maven'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-//version = '1.0.1-SNAPSHOP'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    //version = '1.0.1-SNAPSHOP'
 
-webAppDirName = 'website'
+    webAppDirName = 'website'
 
-tasks.withType(JavaCompile) {  
-    options.encoding = 'UTF-8'  
-}
+    tasks.withType(JavaCompile) {  
+        options.encoding = 'UTF-8'  
+    }
 
-repositories {
-	mavenCentral()
-}
+    repositories {
+        mavenCentral()
+    }
 
-dependencies { 
-    providedCompile 'javax.servlet:jsp-api:2.0'
-	providedCompile 'javax.servlet:servlet-api:2.5'
-	compile fileTree(dir: 'website/WEB-INF/lib', include: '*.jar')
-}
-```
-配置根据项目的需要引入需要的jar包。
+    dependencies { 
+        providedCompile 'javax.servlet:jsp-api:2.0'
+        providedCompile 'javax.servlet:servlet-api:2.5'
+        compile fileTree(dir: 'website/WEB-INF/lib', include: '*.jar')
+    }
+    ```
+    配置根据项目的需要引入需要的jar包。
 
 
 * 代码
-
-原项目的代码复制到 src/main/java 中
-![](assets/QQ图片20170913145842.png)
+    原项目的代码复制到 src/main/java 中  
+    ![](assets/QQ图片20170913145842.png)
 
 * 配置文件
-
-原项目的配置文件复制到 src/main/resources 中
-![](assets/QQ图片20170913150242.png)
+    原项目的配置文件复制到 src/main/resources 中  
+    ![](assets/QQ图片20170913150242.png)
 
 
 * 根目录
-
-指定根目录文件夹website
-![](assets/QQ图片20170913150543.png)
-
-
-* Project Facets
-
-![](assets/QQ图片20170913150847.png)
+    指定根目录文件夹website  
+    ![](assets/QQ图片20170913150543.png)
 
 
-* 编译打包 cmd 到项目目录下，运行 gradle build
+* Project Facets  
+    ![](assets/QQ图片20170913150847.png)
 
+* 编译打包 cmd 到项目目录下，运行 ``gradle build``
 
 [返回](readme.md)

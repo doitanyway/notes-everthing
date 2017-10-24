@@ -35,6 +35,8 @@ ZABBIX SERVER -> ZABBIX AGENT -> 自定义shell脚本
 
 ``/usr/local/zabbix/scripts/tcp_status.sh``
 
+新建文件 “tcp_status.sh”，添加内容如下
+
 ```
 #!/usr/local/zabbix/scripts/tcp_status.sh
 #scripts for tcp numbers

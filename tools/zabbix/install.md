@@ -67,6 +67,7 @@ mysql> create database zabbix character set utf8 collate utf8_bin;
 mysql> grant all privileges on zabbix.* to zabbix@localhost identified by '<password>';
 mysql> quit;
 ```
+注：``<password>``请根据自己实际情况填写；
 
 * 导入初始化数据库
 ```
@@ -152,20 +153,21 @@ firewall-cmd --reload
 * 检查网站安装需求；（如果有失败，可修改``/etc/httpd/conf.d/zabbix.conf``）
 ![](assets/2017-09-08-17-05-58.png)
 
-* 配置数据库
+* 配置数据库  
 ![](assets/2017-09-08-17-10-29.png)
 
-* 配置监听端口、域名、服务器名字
+* 配置监听端口、域名、服务器名字  
 ![](assets/2017-09-08-17-11-27.png)
 
-* 检查配置汇总
+* 检查配置汇总  
 ![](assets/2017-09-08-17-11-54.png)
 
-* 安装完成
+* 安装完成  
 ![](assets/2017-09-08-17-12-26.png)
 后续如果需要修改配置，可以到``/etc/zabbix/web/zabbix.conf.php``上修改。
 
 * 登录系统
+
 ![](assets/2017-09-08-17-15-08.png)
 
 默认用户：Admin
@@ -202,7 +204,9 @@ centos 6
 Server=192.168.1.11
 Hostname=Server1
 ```
-注：IP地址根据实际配置。
+注：
+1.服务器上使用命令‘hostname’查看hostname信息  
+2.IP地址根据实际配置。
 
 ### 启动
 
