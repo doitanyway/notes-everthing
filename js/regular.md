@@ -1,4 +1,23 @@
-# 正则表达式
+# 正则表达式 {ignore=true}
+
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- code_chunk_output -->
+
+* [JavaScript 正则表达式](#javascript-正则表达式)
+* [什么是正则表达式？](#什么是正则表达式)
+* [语法](#语法)
+* [使用字符串方法](#使用字符串方法)
+	* [search() 方法使用正则表达式](#search-方法使用正则表达式)
+	* [replace() 方法](#replace-方法)
+* [正则表达式的模式](#正则表达式的模式)
+* [使用 RegExp 对象](#使用-regexp-对象)
+	* [使用 test()](#使用-test)
+	* [使用 exec()](#使用-exec)
+* [常用实列](#常用实列)
+* [更多参考](#更多参考)
+
+<!-- /code_chunk_output -->
 
 ## JavaScript 正则表达式
 
@@ -93,3 +112,66 @@ var txt = str.replace("Microsoft","Runoob");
 | n+   | 匹配任何包含至少一个 n 的字符串。   |
 | n*   | 匹配任何包含零个或多个 n 的字符串。 |
 | n?   | 匹配任何包含零个或一个 n 的字符串。 |
+
+
+## 使用 RegExp 对象
+在 JavaScript 中，RegExp 对象是一个预定义了属性和方法的正则表达式对象。
+
+### 使用 test()
+
+test() 方法是一个正则表达式方法。
+test() 方法用于检测一个字符串是否匹配某个模式，如果字符串中含有匹配的文本，则返回 true，否则返回 false。
+以下实例用于搜索字符串中的字符 "e"：
+```
+/e/.test("The best things in life are free!")
+```
+
+### 使用 exec()
+
+exec() 方法是一个正则表达式方法。
+exec() 方法用于检索字符串中的正则表达式的匹配。
+该函数返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。
+以下实例用于搜索字符串中的字母 "e":
+```
+/e/.exec("The best things in life are free!");
+```
+
+
+## 常用实列
+
+```
+/*是否带有小数*/
+function    isDecimal(strValue )  {  
+   var  objRegExp= /^\d+\.\d+$/;
+   return  objRegExp.test(strValue);  
+}  
+
+/*校验是否中文名称组成 */
+function ischina(str) {
+    var reg=/^[\u4E00-\u9FA5]{2,4}$/;   /*定义验证表达式*/
+    return reg.test(str);     /*进行验证*/
+}
+
+/*校验是否全由8位数字组成 */
+function isStudentNo(str) {
+    var reg=/^[0-9]{8}$/;   /*定义验证表达式*/
+    return reg.test(str);     /*进行验证*/
+}
+
+/*校验电话码格式 */
+function isTelCode(str) {
+    var reg= /^((0\d{2,3}-\d{7,8})|(1[3584]\d{9}))$/;
+    return reg.test(str);
+}
+
+/*校验邮件地址是否合法 */
+function IsEmail(str) {
+    var reg=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;
+    return reg.test(str);
+}
+```
+
+
+## 更多参考
+
+更多参考，请查看 http://www.runoob.com/jsref/jsref-obj-regexp.html
