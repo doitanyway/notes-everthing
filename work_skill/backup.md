@@ -86,6 +86,10 @@ CREATE DATABASE `urpcs20171026` DEFAULT CHARACTER SET UTF8 COLLATE UTF8_GENERAL_
 
 mysqldump -R -E -uroot -pfangle@FANGLE --default-character-set=utf8 urpcs | mysql urpcs20171026 -u root -pfangle@FANGLE
 ```
+要忽略指定表格备份：
+```
+mysqldump -R -E -uroot -pfangle@FANGLE --ignore-table=urpcs.urpcs_artificialrecord --default-character-set=utf8 urpcs | mysql urpcs20171026 -u root -pfangle@FANGLE
+```
 
 以上是在同一台MySQL服务器上复制数据库的方法。如果要复制到远程另一台MySQL服务器上，可以使用mysql的“ -h 主机名/ip”参数。前提是mysql允许远程连接，且远程复制的传输效率和时间可以接受。
 
