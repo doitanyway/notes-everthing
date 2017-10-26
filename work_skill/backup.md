@@ -43,6 +43,7 @@ mkdir -p /home/urpcs_backup_20170913
 ```
 mysqldump -R -E -uroot -pXXXXX --default-character-set=utf8 db_name >/home/urpcs_backup_20170913/db_name.sql
 ```
+注意：如果不是本级，则需要调用命令 -h10.154.0.43 -P3341 
 
 ### 备份工程文件
 
