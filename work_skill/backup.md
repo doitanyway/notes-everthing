@@ -68,9 +68,9 @@ tar -czf /home/urpcs_backup_20170913/URPCSF0008.0_20170913.tar.gz  URPCSF0008.0
 
 ```
 # mysql -u root -ppassword
+mysql>CREATE DATABASE `newdb` DEFAULT CHARACTER SET UTF8 COLLATE UTF8_GENERAL_CI;
 ```
 
-mysql>CREATE DATABASE `newdb` DEFAULT CHARACTER SET UTF8 COLLATE UTF8_GENERAL_CI;
 2. 使用mysqldump及mysql的命令组合，一次性完成复制
 
 ```
