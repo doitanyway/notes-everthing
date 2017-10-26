@@ -78,6 +78,15 @@ mysql>CREATE DATABASE `newdb` DEFAULT CHARACTER SET UTF8 COLLATE UTF8_GENERAL_CI
 ```
 （注意-ppassword参数的写法：-p后面直接跟密码，中间没有空格)
 
+
+```
+mysql -u root -pfangle@FANGLE
+
+CREATE DATABASE `urpcs20171026` DEFAULT CHARACTER SET UTF8 COLLATE UTF8_GENERAL_CI;
+
+mysqldump -R -E -uroot -pfangle@FANGLE --default-character-set=utf8 urpcs | mysql urpcs20171026 -u root -pfangle@FANGLE
+```
+
 以上是在同一台MySQL服务器上复制数据库的方法。如果要复制到远程另一台MySQL服务器上，可以使用mysql的“ -h 主机名/ip”参数。前提是mysql允许远程连接，且远程复制的传输效率和时间可以接受。
 
 ```
