@@ -275,6 +275,6 @@ gzip –c filename > filename.gz
 gunzip –c filename.gz > filename  
 gcat file | less  阅读文件
 
-
+更多详细的日志阅读办法，请查看``http://58.250.204.146:6002/fangle/notes-everthing/blob/master/Linux/content/commands/cat.md``
 
 
