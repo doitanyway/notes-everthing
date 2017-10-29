@@ -207,6 +207,13 @@ git push -u origin --tags
 	```
 	$ git add -f App.class
 	```
+	
+* .gitignore规则不生效的解决办法,把某些目录或文件加入忽略规则，发现并未生效，原因是.gitignore只能忽略那些原来没有被追踪的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。那么解决方法就是先把本地缓存删除（改变成未被追踪状态），然后再提交：
+```
+git rm -r --cached .
+git add .
+git commit -m 'update .gitignore'
+```
 
 ## 解決冲突
 
@@ -261,12 +268,14 @@ git push
 	```
 
 ### 提交代码
+提交代码列如下，其中``git add .``是添加所有变动文件，如果只需要添加部分文件则使用``git add filename``添加。  
 
-	```
-	git add .
-	git commit -m "test"
-	git push origin testbranch
-	```
+```
+git add .
+git commit -m "test"
+git push origin testbranch
+```
+	
 注：可以使用``git push --set-upstream origin testbranch``设置上行推送默认地址,如果做了改设置，可使用``git push``推送。
 
 ### 合并代码解决冲突
@@ -276,6 +285,7 @@ git push
 	git checkout master
 	```
 * 合并分支
+
 	```
 	$ git merge testbranch
 	Updating 0862265..0ff6c19
