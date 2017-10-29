@@ -269,6 +269,7 @@ git push
 
 ### 提交代码
 
+
 	```
 	git add .
 	git commit -m "test"
@@ -283,6 +284,7 @@ git push
 	git checkout master
 	```
 * 合并分支
+
 	```
 	$ git merge testbranch
 	Updating 0862265..0ff6c19
