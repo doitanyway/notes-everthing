@@ -41,8 +41,9 @@ mkdir -p /home/urpcs_backup_20170913
 ### 备份数据库 
 
 ```
-mysqldump -R -uroot -pXXXXX --default-character-set=utf8 db_name >/home/urpcs_backup_20170913/db_name.sql
+mysqldump -R -E -uroot -pXXXXX --default-character-set=utf8 db_name >/home/urpcs_backup_20170913/db_name.sql
 ```
+注意：如果不是本级，则需要调用命令 -h10.154.0.43 -P3341 
 
 ### 备份工程文件
 
@@ -52,10 +53,48 @@ tar -czf /home/urpcs_backup_20170913/URPCSF0008.0_20170913.tar.gz  URPCSF0008.0
 
 备份工程文件；
 
+
 ### 总结
 
 完成备份之后，我们存在了两个文件，分别是：   
 /home/urpcs_backup_20170913/URPCSF0008.0_20170913.tar.gz  
 /home/urpcs_backup_20170913/db_name.sql
+
+## 克隆
+
+假设已经存在的数据库名字叫db，想要复制一份，命名为newdb。步骤如下：
+
+1. 首先创建新的数据库urpcs
+
+```
+# mysql -u root -ppassword
+mysql>CREATE DATABASE `newdb` DEFAULT CHARACTER SET UTF8 COLLATE UTF8_GENERAL_CI;
+```
+
+2. 使用mysqldump及mysql的命令组合，一次性完成复制
+
+```
+# mysqldump db1 -u root -ppassword --add-drop-table | mysql newdb -u root -ppassword
+```
+（注意-ppassword参数的写法：-p后面直接跟密码，中间没有空格)
+
+
+```
+mysql -u root -pfangle@FANGLE
+
+CREATE DATABASE `urpcs20171026` DEFAULT CHARACTER SET UTF8 COLLATE UTF8_GENERAL_CI;
+
+mysqldump -R -E -uroot -pfangle@FANGLE --default-character-set=utf8 urpcs | mysql urpcs20171026 -u root -pfangle@FANGLE
+```
+要忽略指定表格备份：
+```
+mysqldump -R -E -uroot -pfangle@FANGLE --ignore-table=urpcs.urpcs_artificialrecord --default-character-set=utf8 urpcs | mysql urpcs20171026 -u root -pfangle@FANGLE
+```
+
+以上是在同一台MySQL服务器上复制数据库的方法。如果要复制到远程另一台MySQL服务器上，可以使用mysql的“ -h 主机名/ip”参数。前提是mysql允许远程连接，且远程复制的传输效率和时间可以接受。
+
+```
+# mysqldump db1 -uroot -ppassword --add-drop-table | mysql -h 192.168.1.22 newdb -uroo
+```
 
 
