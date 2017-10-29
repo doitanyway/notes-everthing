@@ -269,12 +269,12 @@ git push
 
 ### 提交代码
 
-
 	```
 	git add .
 	git commit -m "test"
 	git push origin testbranch
 	```
+	
 注：可以使用``git push --set-upstream origin testbranch``设置上行推送默认地址,如果做了改设置，可使用``git push``推送。
 
 ### 合并代码解决冲突
