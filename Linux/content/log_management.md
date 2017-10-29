@@ -231,39 +231,39 @@ logrotate -f /etc/logrotate.d/mmmmmm
 * 处理日志文件``/home/tomcat/logs/catalina.out``
 
 * 新建配置``vim /etc/logrotate.d/tomcat``文件，内容如下
-```
-/home/tomcat/logs/catalina.out
-{
-    copytruncate
-    daily
-    rotate 7
-    compress
-    missingok
-    notifempty
-    dateext
-}
-```
+    ```
+    /home/tomcat/logs/catalina.out
+    {
+        copytruncate
+        daily
+        rotate 7
+        compress
+        missingok
+        notifempty
+        dateext
+    }
+    ```
 
 * 配置执行时间``vim /etc/anacrontab``,如下修改START_HOURS_RANGE，则每天22点多切割日志，实际根据自己需要的时间配置；
 
-```shell
-# /etc/anacrontab: configuration file for anacron
+    ```shell
+    # /etc/anacrontab: configuration file for anacron
 
-# See anacron(8) and anacrontab(5) for details.
+    # See anacron(8) and anacrontab(5) for details.
 
-SHELL=/bin/sh
-PATH=/sbin:/bin:/usr/sbin:/usr/bin
-MAILTO=root
-# the maximal random delay added to the base delay of the jobs
-RANDOM_DELAY=45
-# the jobs will be started during the following hours only
-START_HOURS_RANGE=22-23
+    SHELL=/bin/sh
+    PATH=/sbin:/bin:/usr/sbin:/usr/bin
+    MAILTO=root
+    # the maximal random delay added to the base delay of the jobs
+    RANDOM_DELAY=45
+    # the jobs will be started during the following hours only
+    START_HOURS_RANGE=22-23
 
-#period in days   delay in minutes   job-identifier   command
-1       5       cron.daily              nice run-parts /etc/cron.daily
-7       25      cron.weekly             nice run-parts /etc/cron.weekly
-@monthly 45     cron.monthly            nice run-parts /etc/cron.monthly
-```
+    #period in days   delay in minutes   job-identifier   command
+    1       5       cron.daily              nice run-parts /etc/cron.daily
+    7       25      cron.weekly             nice run-parts /etc/cron.weekly
+    @monthly 45     cron.monthly            nice run-parts /etc/cron.monthly
+    ```
 
 * 强制执行一次，``logrotate -f /etc/logrotate.d/tomcat ``，后续每天会自动执行。
 
