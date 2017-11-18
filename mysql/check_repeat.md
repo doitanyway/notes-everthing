@@ -22,15 +22,15 @@ insert into product1 values (8,'梨','梨',24);
 ## 查询一列重复
 
 ```sql
-select t.id,t.name,CONCAT(t.name,t.name1) AS is_repeat from product1 t group by is_repeat having COUNT(*)>1
+select * from product1 group by name having COUNT(*)>1
 ```
 
 ## 查询两列重复
 
 ```
-SELECT a.id,a.name,a.name1,CONCAT(a.name,a.name1) as is_repeat from product1 a GROUP BY is_repeat HAVING COUNT(*)>1;
+SELECT *,CONCAT(a.name,a.name1) as is_repeat from product1 a GROUP BY is_repeat HAVING COUNT(*)>1;
 ```
 或者
 ```
-SELECT *,CONCAT(a.name,a.name1) as is_repeat from product1 a GROUP BY is_repeat HAVING COUNT(*)>1;
+SELECT a.id,a.name,a.name1,CONCAT(a.name,a.name1) as is_repeat from product1 a GROUP BY is_repeat HAVING COUNT(*)>1;
 ```
