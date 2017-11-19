@@ -9,7 +9,7 @@
 
 * 搜索安装以下插件
     * markdown checkbox
-    * markdown pase image
+    * Paste Image
     * markdown preview enhanced
     * markdown table prettifier  
     ![](assets/2017-09-28-10-57-31.png)
