@@ -12,8 +12,8 @@
     * Paste Image
     * markdown preview enhanced
     * markdown table prettifier  
-    ![](assets/2017-09-28-10-57-31.png)
-
+    ![](assets/2017-11-19-17-54-51.png)  
+    
 * 设置past image
     * ctrl+shift+p
     * 输入设置-》打开工作区设置
