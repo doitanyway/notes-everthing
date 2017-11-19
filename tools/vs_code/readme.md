@@ -18,6 +18,7 @@
     * ctrl+shift+p
     * 输入设置-》打开工作区设置
     * 选择pase image configration,做如下修改；
+    
     ```
     {
         "pasteImage.path": "${currentFileDir}/assets/",
