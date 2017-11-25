@@ -308,6 +308,7 @@ git push origin testbranch
   ```
   git mergetool
   ```
+* 删除*.orig文件，解决冲突之后会生成一些orig文件，使用命令``rm -rf xxx.orig``删除这些文件；
   
 * 删除分支,``git branch -d branchname``
 
