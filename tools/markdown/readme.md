@@ -1,4 +1,3 @@
-
 # Markdown使用 {ignore=true}
 
 
@@ -103,3 +102,7 @@
 ![](assets/2017-08-23-20-01-26.png)
 
 更多详细内容请参考：https://mermaidjs.github.io/demos.html
+
+### 其他
+
+如果想更深层次的学习markdown 可关注[该网址](https://shd101wyy.github.io/markdown-preview-enhanced/#/markdown-basics)。
