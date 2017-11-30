@@ -40,6 +40,7 @@ calibre：PDF格式电子书转换需要；
 	```
 	git config --global user.email "xxx@szfangle.com"
 	git config --global user.name "xxx"
+	git config --global user.password "xxx"
 	```
 
 * 管理员执行命令，安装gitbook
