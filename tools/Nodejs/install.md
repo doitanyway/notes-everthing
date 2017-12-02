@@ -12,12 +12,13 @@
 * 存放Node到对应目录（建议/usr/local/src/）
 * 解压文件  
 
-   ```
-   $ xz -d node-v6.10.1-linux-x64.tar.xz
-   $ tar -xvf node-v6.10.1-linux-x64.tar
-   ```
+```
+$ xz -d node-v6.10.1-linux-x64.tar.xz
+$ tar -xvf node-v6.10.1-linux-x64.tar
+```
 
 * 使用root用户设置环境变量``vi /etc/profile``，文件末尾加上
+
 
 ```
 # node （注释作用）
@@ -25,16 +26,17 @@ export NODE_HOME=/usr/local/src/node-v6.10.1-linux-x64
 export PATH=$PATH:$NODE_HOME/bin  
 export NODE_PATH=$NODE_HOME/lib/node_modules 
 ```
+
 * :wq （保存并退出）
 * source /etc/profile （使配置文件生效）
 * 验证是否安装好
+
 ```
 [root@bogon node-v8.9.1-linux-x64]# node -v
 v8.9.1
 [root@bogon node-v8.9.1-linux-x64]# npm -v
 5.5.1
 ```
-
 
 
 ## 安装cnpm
