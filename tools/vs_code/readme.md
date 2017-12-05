@@ -9,10 +9,22 @@
 
 * 搜索安装以下插件
     * markdown checkbox
-    * markdown pase image
+    * Paste Image
     * markdown preview enhanced
     * markdown table prettifier  
-    ![](assets/2017-09-28-10-57-31.png)
+    ![](assets/2017-11-19-17-54-51.png)  
+    
+* 设置past image
+    * ctrl+shift+p
+    * 输入设置-》打开工作区设置
+    * 选择pase image configration,做如下修改；
+    
+    ```
+    {
+        "pasteImage.path": "${currentFileDir}/assets/",
+        "pasteImage.basePath": "${currentFileDir}/assets/"
+    }
+    ```
 
 ## 提交git
 
