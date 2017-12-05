@@ -108,6 +108,7 @@ mysqldump -R -E -uroot -pfangle@FANGLE --ignore-table=urpcs.urpcs_artificialreco
 ## 安装软件
 
 * 安装``rsync``,执行命令``yum install rsync``
+* 依赖安装，``yum -y install perl perl-devel libaio libaio-devel perl-Time-HiRes perl-DBD-MySQL``
 * 安装``libev-4``
 	* 下载： ``wget http://dl.fedoraproject.org/pub/epel/6/x86_64//libev-4.03-3.el6.x86_64.rpm``
 	* 安装：``rpm -ivh libev-4.03-3.el6.x86_64.rpm``
