@@ -1,6 +1,10 @@
 # MYSQL 
 
 * [安装](install.md)
+* [手动备份系统](backup.md)
+* [还原系统](recover.md)
+* [克隆系统](clone.md)
+* [比较数据库结构](compare_dbs.md)
 * [数据类型](data_type.md)
 * [忘记密码](forget_password.md)
 * [查找相同Mysql记录](check_repeat.md)
