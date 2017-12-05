@@ -96,3 +96,15 @@ public class ResponseDemo1 extends HttpServlet {
      */
 }
 ```
+
+应答JSON代码；
+```java
+    response.setStatus(402);
+		response.setCharacterEncoding("UTF-8");  
+	    response.setContentType("application/json; charset=utf-8");  
+//		PrintWriter out = response.getWriter();
+		ErrorRes res = new ErrorRes();
+		res.setError_code(1);
+		res.setError_desc("error");
+		response.getWriter().write(JsonUtil.jsonObj2Sting(res));
+```
