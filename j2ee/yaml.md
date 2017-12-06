@@ -86,7 +86,10 @@ public class YamlTest {
         System.out.println(me);
 	}
 	
-    //
+    //获取WEB-INT路径，me.yaml放在该路径下
+    //如果引用了jar包spring-core,也可使用：
+    //Resource resource = new ClassPathResource("weixin_config.properties");
+    //resource.getFile();
 	  public static String getXmlPath()    
       {    
           String path=Thread.currentThread().getContextClassLoader().getResource("").toString();    
