@@ -8,6 +8,7 @@ yaml文件可以作为配置文件，从文件直接转化成为类。本文介�
 ## 代码
 
 * me.yaml
+
 ```yaml
 age: 1  
 name: jiaobuchong
@@ -20,6 +21,7 @@ favoriteBooks:
 ```
 
 * me.java
+
 ```java
 import java.util.List;
 import java.util.Map;
@@ -70,7 +72,9 @@ public class Me {
 }
 
 ```
+
 * YamlTest.java
+
 ```java
 public class YamlTest {
 	public static void main(String[] args) throws FileNotFoundException {
