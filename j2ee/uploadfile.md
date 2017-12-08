@@ -34,7 +34,7 @@ Content-Type: image/jpeg
 
 ## 服务器配置
 
-* servlet 配置  
+* servlet 配置添加``<multipart-config/>``  
 ```xml
    	<servlet>
     	<servlet-name>certification</servlet-name>
@@ -46,6 +46,7 @@ Content-Type: image/jpeg
     	<url-pattern>/wxtag/v1.00/certification</url-pattern>
    	</servlet-mapping>
 ```
+
 * servlet 类
 
 ```java
@@ -53,7 +54,7 @@ Content-Type: image/jpeg
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		LOGGER.info("call "+request.getRequestURL());
-        
+
 		Part plateNumber=request.getPart("plateNumber");
 		Part phone=request.getPart("phone");
 		Part idCard = request.getPart("idCard");
