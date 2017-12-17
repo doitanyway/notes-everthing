@@ -4,11 +4,11 @@
 
 * 下载tomcat
 ```
-[linux]# wget http://mirrors.shuosc.org/apache/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz
+[linux]# wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82.tar.gz
 [linux]# tar -xzvf apache-tomcat-8.5.24.tar.gz 
 [linux]# mv apache-tomcat-8.5.24 tomcat_newname
 ```
-其他版本： http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82.tar.gz
+其他版本： http://mirrors.shuosc.org/apache/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz
 
 
 * 配置防火墙
