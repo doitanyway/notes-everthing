@@ -27,8 +27,10 @@
 [linux]# ./bin/catalina.sh run
 ```
 
-* 正常启动tomcat
+* 正常启动tomcat 
+
+```
 [linux]# cd {tomcat dir}
 [linux]# ./bin/startup.sh 
-
+```
 
