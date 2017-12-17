@@ -9,6 +9,7 @@
   * [Markdown](/tools/markdown/readme.md)
   * [gradle](/tools/gradle/readme.md)
   * [zabbix](/tools/zabbix/readme.md)
+  * [tomcat](/tools/tomcat/readme.md)
 * [Linux](/Linux/readme.md)
 * [J2ee](/j2ee/readme.md)
 * [js](/js/readme.md)
