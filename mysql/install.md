@@ -101,6 +101,7 @@ max_connections=1000
 * 重启mysql,``service mysql restart``
 
 * 检查字符集是否生效
+
 ```
 [linux]# mysql -uroot -p111111
 
