@@ -1,12 +1,17 @@
 # 基于现在的表创建新表
 
 ## 创建相同表
-创建相同表，不拷贝记录
+
+* 创建相同表
 ```sql
-create table departments_t like departments;
+mysql> create table departments_t like departments;
+```
+* 插入记录
+```
+mysql> insert into departments_t select * from departments;
 ```
 
-## 创建相同表，拷贝记录
+## 创建类似表
 
 ```sql
 CREATE TABLE tbl_cust_charge_history1 AS   
