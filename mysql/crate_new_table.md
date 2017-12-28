@@ -23,4 +23,4 @@ SELECT id, cust_id AS cust_id1, platform_type AS platform_type1, wx_open_id AS w
 )  
 ```
 
-上边语句创建了一个与之前表类似的表格；
+上边语句创建了一个与之前表类似的表格,并且插入了相关记录；
