@@ -22,7 +22,7 @@ $ tar -xvf node-v6.10.1-linux-x64.tar
 
 ```
 # node （注释作用）
-export NODE_HOME=/usr/local/src/node-v6.10.1-linux-x64
+export NODE_HOME=/usr/local/src/node-v6.10.3-linux-x64
 export PATH=$PATH:$NODE_HOME/bin  
 export NODE_PATH=$NODE_HOME/lib/node_modules 
 ```
