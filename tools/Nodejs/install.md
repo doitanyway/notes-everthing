@@ -68,6 +68,10 @@ $ open https://npm.taobao.org/sync/connect
 
 $ cnpm info connect
 
+## 其他
+
+如果需要安装gitbook请移步[git说明](http://58.250.204.146:6002/fangle/notes-everthing/blob/master/tools/git/readme.md)
+
 
 
 [返回](./readme.md)
