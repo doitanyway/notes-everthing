@@ -1,4 +1,8 @@
-1.问题描述
+# mysql使用JDBC查询无效
+
+
+## 问题描述
+
      使用原生jdbc的template,查询一下语句导致没有返回结果：
      String sql="select AmountOwed-RecoveredAmount AS ownedMount from urpcs_blacklistrecord where License='"+license+"' and AmountOwed>RecoveredAmount and TotalSubCentre="+totalSubCentre;
      //查询
@@ -21,7 +25,8 @@
 		}
 		return count;
 	}
-2.原因分析以及解决方案
+## 原因分析以及解决方案
+
       1）使用了中文查询条件：license，需要将jdbc连接增加utf-8编码支持（如果数据库表使用的该编码）
       2）使用Statement，中条件的引号需要转移，而且要使用PrepareedsTatement预编译。
       3）结果列使用别名
