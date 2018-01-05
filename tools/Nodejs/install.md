@@ -22,7 +22,7 @@ $ tar -xvf node-v6.10.1-linux-x64.tar
 
 ```
 # node （注释作用）
-export NODE_HOME=/usr/local/src/node-v6.10.1-linux-x64
+export NODE_HOME=/usr/local/src/node-v6.10.3-linux-x64
 export PATH=$PATH:$NODE_HOME/bin  
 export NODE_PATH=$NODE_HOME/lib/node_modules 
 ```
@@ -67,6 +67,10 @@ $ open https://npm.taobao.org/sync/connect
 支持 npm 除了 publish 之外的所有命令, 如:
 
 $ cnpm info connect
+
+## 其他
+
+如果需要安装gitbook请移步[git说明](http://58.250.204.146:6002/fangle/notes-everthing/blob/master/tools/git/readme.md)
 
 
 
