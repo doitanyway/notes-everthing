@@ -32,9 +32,11 @@
 ## 原因分析以及解决方案
 
 * 使用了中文查询条件：license，需要将jdbc连接增加utf-8编码支持（如果数据库表使用的该编码）
+
 ```
 jdbc.url=jdbc\:mysql\://localhost\:3306/urpcs0008??useUnicode=true&characterEncoding=utf8
 ```
+
 * 使用Statement，中条件的引号需要转移，而且要使用PrepareedsTatement预编译。
 * 结果列使用别名
       
