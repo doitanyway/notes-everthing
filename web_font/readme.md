@@ -10,6 +10,6 @@
     * [选择器使用](jquery/working_with_selections.md)
     * [元素的运维](jquery/manipulating_elements.md)
     * [jquery对象](jquery/object.md)
-    * [穿越](jquery/Traversing.md)
+    * [传递](jquery/Traversing.md)
 * [NVD3](./NVD3/readme.md)
 * [vue.js](./vue/readme.md)
