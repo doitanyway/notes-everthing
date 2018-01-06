@@ -7,5 +7,8 @@
     * [避免冲突](jquery/avoid_conficts.md)
     * [Attributes](jquery/Attributes.md)
     * [选择器](jquery/selector.md)
+    * [选择器使用](jquery/working_with_selections.md)
+    * [元素的运维](jquery/manipulating_elements.md)
+    
 * [NVD3](./NVD3/readme.md)
 * [vue.js](./vue/readme.md)
