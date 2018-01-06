@@ -6,5 +6,6 @@
     * [$( document ).ready()](jquery/ready.md)
     * [避免冲突](jquery/avoid_conficts.md)
     * [Attributes](jquery/Attributes.md)
+    * [选择器](jquery/selector.md)
 * [NVD3](./NVD3/readme.md)
 * [vue.js](./vue/readme.md)
