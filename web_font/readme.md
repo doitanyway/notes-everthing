@@ -11,5 +11,7 @@
     * [元素的运维](jquery/manipulating_elements.md)
     * [jquery对象](jquery/object.md)
     * [传递](jquery/Traversing.md)
+    * [CSS, Styling, & Dimensions](jquery/css_styling.md)
+    
 * [NVD3](./NVD3/readme.md)
 * [vue.js](./vue/readme.md)
