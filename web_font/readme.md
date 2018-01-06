@@ -15,6 +15,7 @@
     * [Data Methods](jquery/data_methods.md)
     * [工具方法](jquery/utility.md)
     * [便利访问jquery以及非jquery对象](jquery/access_objects.md)
+    * [jQuery’s .index()](jquery/index.md)
     
 * [NVD3](./NVD3/readme.md)
 * [vue.js](./vue/readme.md)
