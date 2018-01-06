@@ -12,6 +12,9 @@
     * [jquery对象](jquery/object.md)
     * [传递](jquery/Traversing.md)
     * [CSS, Styling, & Dimensions](jquery/css_styling.md)
+    * [Data Methods](jquery/data_methods.md)
+    * [工具方法](jquery/utility.md)
+    * [便利访问jquery以及非jquery对象](jquery/access_objects.md)
     
 * [NVD3](./NVD3/readme.md)
 * [vue.js](./vue/readme.md)
