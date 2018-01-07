@@ -23,5 +23,6 @@
     * [浏览器的兼容文体](css/vendor_prefixes.ms)
     * [过渡](css/transitions.md)
     * [一个相册](css/gallery.md)
+    * [key frame](css/key_frame.md)
 * [NVD3](./NVD3/readme.md)
 * [vue.js](./vue/readme.md)
