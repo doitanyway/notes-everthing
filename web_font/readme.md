@@ -20,7 +20,7 @@
     * [css animations](css/animations.md)
     * [一个3d button](css/3d_button.md)
     * [改变](css/transform.md)
-    * [浏览器的兼容文体](css/vendor_prefixes.ms)
+    * [浏览器的兼容文体](css/vendor_prefixes.md)
     * [过渡](css/transitions.md)
     * [一个相册](css/gallery.md)
     * [key frame](css/key_frame.md)
