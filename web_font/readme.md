@@ -25,6 +25,7 @@
     * [一个相册](css/gallery.md)
     * [key frame](css/key_frame.md)
     * [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [D3](d3/d3_and_DOM.md)
     
 * [NVD3](./NVD3/readme.md)
 * [vue.js](./vue/readme.md)
