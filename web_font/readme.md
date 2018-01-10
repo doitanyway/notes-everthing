@@ -28,6 +28,8 @@
     * [font awesome](css/font_awesome.md)
     * [i标签放图片](css/i_tag.md)
 * [D3](d3/d3_and_DOM.md)
+    * [selections && callbacks](d3/selections_callbacks.md)
+    * [Event listeners](d3/Event_listeners.md)
     
 * [NVD3](./NVD3/readme.md)
 * [vue.js](./vue/readme.md)
