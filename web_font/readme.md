@@ -24,7 +24,9 @@
     * [过渡](css/transitions.md)
     * [一个相册](css/gallery.md)
     * [key frame](css/key_frame.md)
-    * [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+    * [flexbox](css/flexbox.md)
+    * [font awesome](css/font_awesome.md)
+    * [i标签放图片](css/i_tag.md)
     
 * [NVD3](./NVD3/readme.md)
 * [vue.js](./vue/readme.md)
