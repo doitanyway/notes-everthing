@@ -10,7 +10,7 @@
 * 合并update 和 enter selections，d3升级模式；
 
 
-## 基础数据链接以及enter链接
+## enter selctions 方法
 
 
 ```html
@@ -89,4 +89,51 @@ d3.select("#quotes")                    //选择ul元素
     .style("padding","20px")
     .style("font-size", d => d.quote.length < 25 ? "2em":"1em");
 
+```
+
+
+* 根据不同等级显示不同颜色；
+
+```js
+var colors ={
+    "G":"#3cff00",
+    "PG": "#f9ff00",
+    "PG-13": "#ff9000",
+    "R": "#ff0000"
+}
+
+d3.select("#quotes")                    //选择ul元素
+    .style("list-style","none")        //设置风格
+    .selectAll("li")                       //选择li,一个空的D3
+    .data(quotes)                       //这里面有enter 以及 exit两个属性
+    .enter()
+    .append("li")
+        .text(d => '"'+d.quote+'" - ' + d.movie+ '(' + d.year + ')')
+    .style("margin","20px")
+    .style("padding","20px")
+    .style("font-size", d => d.quote.length < 25 ? "2em":"1em")
+    .style("background-color", d => colors[d.rating])
+    .style("border-radius","8px");
+
+```
+
+
+## exit selctions 方法
+
+* 删除最后一个数据
+    * quotes.pop()
+    * d3.selectAll("li").data(quotes).exit().remove()
+
+* 删除R级别的数据
+
+```js
+var nonRQutotes = quotes.filter(function(movie){
+	return movie.rating !== "R";
+});
+
+d3.selectAll("li")
+	.data(nonRQutotes,function(d){
+		return d.quote;
+	}).exit()
+	.remove();
 ```
