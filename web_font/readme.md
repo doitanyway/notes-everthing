@@ -31,6 +31,8 @@
     * [selections && callbacks](d3/selections_callbacks.md)
     * [Event listeners](d3/Event_listeners.md)
     * [guess the password](d3/guess_the_password.md)
+    * [my notes](https://codepen.io/qiujiahong/pen/gozrNV)
+    * [D3 objectives](d3/objectives.md)
     
 * [NVD3](./NVD3/readme.md)
 * [vue.js](./vue/readme.md)
