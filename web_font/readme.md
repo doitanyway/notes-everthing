@@ -33,6 +33,7 @@
     * [guess the password](d3/guess_the_password.md)
     * [my notes](https://codepen.io/qiujiahong/pen/gozrNV)
     * [D3 objectives](d3/objectives.md)
+    * [first bar chart](https://codepen.io/qiujiahong/pen/EoRVLp)
 * [html]
     * [svg](html/svg.md)
 * [NVD3](./NVD3/readme.md)
