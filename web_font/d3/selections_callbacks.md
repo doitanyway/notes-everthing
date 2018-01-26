@@ -1,5 +1,22 @@
 # selections && callbacks
 
+
+## 选择器
+
+* 方法
+  * d3.select()
+  * d3.selectAll()
+
+* 例
+
+```js
+d3.selectAll("p").style("color", "red");
+```
+
+```js
+d3.select("body").style("background-color", "black");
+```
+
 ## 方法
 * selection.style(propery[,callback])
 * selection.attr(attribute[.callback])
