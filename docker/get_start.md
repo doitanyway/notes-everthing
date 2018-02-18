@@ -36,6 +36,18 @@ fangledeMacBook-Pro:~ fangle$
     如果需要删除容器，执行命令``docker container rm -f webserver``,这条命了将会删除容器，但是不会删除镜像，于是我们下次使用的时候将不会在docker hub上获取，而直接使用本地的镜像。要删除该镜像执行命令``docker image rm nginx``
 
 
+## kitematic 
 
+kitematic 是一个docker容器的gui管理器；
 
+* 安装
+    * 点击kitematic，弹出窗口安装kitematic
+    ![](./assets/2018-02-17-15-28-53.png)
+    ![](./assets/2018-02-17-15-30-02.png)
+* 截图
+    ![](./assets/2018-02-17-15-36-14.png)
+
+## 更多常用的docker命令 
+
+https://springframework.guru/docker-cheat-sheet-for-spring-devlopers/
 
