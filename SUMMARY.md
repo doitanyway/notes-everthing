@@ -4,6 +4,7 @@
 * [工具软件](/tools/tools.md)
   * [Markdown](/tools/markdown/readme.md)
   * [gradle](/tools/gradle/readme.md)
+  * [maven](/tools/maven/readme.md)
   * [VS Code](/tools/vs_code/readme.md)
   * [Git](/tools/git/readme.md)
   * [Nodejs](/tools/Nodejs/readme.md)
