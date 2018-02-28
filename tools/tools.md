@@ -6,3 +6,4 @@
   * [VS Code](vs_code/readme.md)
   * [Git](git/readme.md)
   * [Nodejs](Nodejs/readme.md)
+  * [Eclipse](Eclipse/readme.md)

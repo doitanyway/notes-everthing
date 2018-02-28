@@ -9,8 +9,13 @@
   * [Markdown](/tools/markdown/readme.md)
   * [gradle](/tools/gradle/readme.md)
   * [zabbix](/tools/zabbix/readme.md)
+  * [tomcat](/tools/tomcat/readme.md)
+  * [eclipse](/tools/eclipse/readme.md)
+  * [idea](/tools/idea/readme.md)
+  
 * [Linux](/Linux/readme.md)
 * [J2ee](/j2ee/readme.md)
+  * [jhipster](/jhipster/readme.md)
 * [js](/js/readme.md)
 * [MYSQL](/mysql/readme.md)
 * [前端](/web_font/readme.md)

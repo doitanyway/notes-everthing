@@ -20,7 +20,7 @@
 
 ## 修改mysql登录设置
 
-打开文件``vim /etc/my.cnf``添加``skip-grant-tables``
+打开文件``vim /etc/my.cnf``（或``/usr/my.cnf``）添加``skip-grant-tables``
 
 ```
 [mysqld] 
@@ -34,7 +34,7 @@ skip-grant-tables
 重启，使用空密码登陆mysql。
 
 ```
-service mysqld restart 
+service mysql restart 
 mysql
 ```
 
@@ -65,5 +65,5 @@ socket=/var/lib/mysql/mysql.sock
 ```
 重启mysql服务
 ```
-service mysqld restart 
+service mysql restart 
 ```

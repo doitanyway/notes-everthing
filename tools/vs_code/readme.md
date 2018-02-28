@@ -21,9 +21,11 @@
     
     ```
     {
-        "pasteImage.path": "${currentFileDir}/assets/",
-        "pasteImage.basePath": "${currentFileDir}/assets/"
+    "pasteImage.path": "${currentFileDir}/assets/",
+    "pasteImage.basePath": "${currentFileDir}/assets/",
+    "pasteImage.prefix": "./assets/"
     }
+
     ```
 
 ## 提交git

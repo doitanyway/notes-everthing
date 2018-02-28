@@ -40,6 +40,7 @@ calibre：PDF格式电子书转换需要；
 	```
 	git config --global user.email "xxx@szfangle.com"
 	git config --global user.name "xxx"
+	git config --global user.password "xxx"
 	```
 
 * 管理员执行命令，安装gitbook
@@ -308,6 +309,7 @@ git push origin testbranch
   ```
   git mergetool
   ```
+* 删除*.orig文件，解决冲突之后会生成一些orig文件，使用命令``rm -rf xxx.orig``删除这些文件；
   
 * 删除分支,``git branch -d branchname``
 
