@@ -10,6 +10,6 @@
 * [logrotate日志管理](content/log_management.md)
 * [系统时间设置](content/system_time.md)
 * [VMWARE克隆LINUX系统网卡设置](content/clone_linux_network.md)
-
+* [df查看磁盘错误解决办法](content/df_error.md)
 
 [返回首页](/readme.md)
