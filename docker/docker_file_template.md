@@ -76,4 +76,4 @@ dockerFile.withWriter('UTF-8') { writer ->
 
 * 执行推送新版本到docker hub：mvn clean package docker:build docker:push
 
-https://github.com/springframeworkguru/spring-boot-docker/tree/dockertemplate
+https://github.com/qiujiahong/spring-boot-docker/tree/dockertemplate
