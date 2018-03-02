@@ -10,7 +10,5 @@ df: 未处理文件系统
 
 ```
 [root@localhost ~]# mv /etc/mtab /etc/mtab.old
-```
-```
 [root@localhost ~]# ln -s /proc/mounts /etc/mtab
 ```
