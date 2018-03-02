@@ -42,6 +42,11 @@ calibre：PDF格式电子书转换需要；
 	git config --global user.name "xxx"
 	git config --global user.password "xxx"
 	```
+* 设置关闭自动转换行符,git 开启了自动转换字符的操作，导致脚本文件到服务器无法运行，关闭该配置如下图；
+
+```
+git config --global core.autocrlf false
+```
 
 * 管理员执行命令，安装gitbook
 ```
