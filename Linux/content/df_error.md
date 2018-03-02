@@ -1,6 +1,12 @@
-# df无法查看磁盘状态的解决办法
+# df查看磁盘提示“未处理文件系统”的解决办法
 
-C
-111
+在LINUX系统中，用df -h查看会出现如下错误：
+```
+[root@localhost ~]# df -h
+df: 未处理文件系统
+```
 
-111
+解决的办法是：
+``mv /etc/mtab /etc/mtab.old``
+``ln -s /proc/mounts /etc/mtab``
+
