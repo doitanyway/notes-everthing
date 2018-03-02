@@ -7,5 +7,8 @@ df: 未处理文件系统
 ```
 
 解决的办法是：
-``mv /etc/mtab /etc/mtab.old``
-``ln -s /proc/mounts /etc/mtab``
+
+```
+[root@localhost ~]# mv /etc/mtab /etc/mtab.old
+[root@localhost ~]# ln -s /proc/mounts /etc/mtab
+```
