@@ -8,6 +8,7 @@
     * [cat查看文件](./content/commands/cat.md)
     * [tar解压压缩](./content/commands/tar.md)
     * [scp](./content/commands/scp.md)
+    * [ssh](./content/commands/ssh.md)
     
 * [logrotate日志管理](content/log_management.md)
 * [系统时间设置](content/system_time.md)

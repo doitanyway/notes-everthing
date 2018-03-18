@@ -1,5 +1,7 @@
 # scp
 
+## 常见用法
+
 * 上传本地文件到服务器
 ```
 scp /path/filename username@servername:/path/
@@ -29,3 +31,16 @@ scp -r username@servername:/var/www/remote_dir/（远程目录） /var/www/local
 scp -r local_dir username@servername:remote_dir
 ```
 例如：scp -r test root@192.168.0.101:/var/www/ 把当前目录下的test目录上传到服务器的/var/www/ 目录
+
+* 指定端口
+```
+scp -P 16022 file user@host:/dir
+```
+
+## 错误
+
+* 如果提示找不到scp命令，则可以在服务器端执行命令安装
+```
+yum install openssh-server
+yum install openssh-clients 
+```
