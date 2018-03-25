@@ -1,6 +1,11 @@
 # 添加fabric插件到plugin
 
 
+* 插件名： docker-maven-plugin
+
+
+## 添加到项目
+
 * 准备一个spring boot maven 工程
 
 * pom.xml 中添加docker-maven-plugin以及一些变量
