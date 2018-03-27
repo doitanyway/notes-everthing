@@ -55,7 +55,7 @@ rpm -ivh numactl-2.0.9-2.el6.x86_64.rpm
 
 * 启动mysql服务进程
 ```
-[linux]# service start mysql
+[linux]# service mysql start
 ```
 
 * 重置密码
