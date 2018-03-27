@@ -25,6 +25,7 @@
 [linux]# wget https://dev.mysql.com/get/Downloads/MySQL-5.6/MySQL-5.6.38-1.el6.x86_64.rpm-bundle.tar
 [linux]# tar -xvf MySQL-5.6.38-1.el6.x86_64.rpm-bundle.tar
 [linux]# wget http://mirror.centos.org/centos/6/os/i386/Packages/libaio-0.3.107-10.el6.i686.rpm
+[linux]# wget http://mirror.centos.org/centos/6/os/x86_64/Packages/numactl-2.0.9-2.el6.x86_64.rpm
 ```
 这里注意:el6是针对centos6版本，7是真的centos7版本
 
@@ -38,6 +39,7 @@
 * 按照依赖包
 ```
 rpm -ivh libaio-0.3.107-10.el6.i686.rpm
+rpm -ivh numactl-2.0.9-2.el6.x86_64.rpm 
 ```
 
 * 安装clint和server
