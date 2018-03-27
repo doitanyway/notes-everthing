@@ -164,3 +164,9 @@ mysql56-community/x86_64          MySQL 5.6 Community Server                 199
 ```
 # mysql_secure_installation
 ```
+
+## 创建数据库
+
+```sql
+CREATE DATABASE IF NOT EXISTS my_db default charset utf8 COLLATE utf8_general_ci; 
+```
