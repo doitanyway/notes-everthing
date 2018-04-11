@@ -163,3 +163,8 @@ services:
   redis:
     image: "redis:alpine"
 ```
+
+*  相关资源  
+  * 该文翻译：https://docs.docker.com/compose/gettingstarted/
+  * docker-compose 相关命令： https://docs.docker.com/compose/reference/
+  
