@@ -16,7 +16,7 @@
 * [Linux](/Linux/readme.md)
 * [docker](/docker/readme.md)
 * [J2ee](/j2ee/readme.md)
-  * [jhipster](/jhipster/readme.md)
+* [jhipster](/jhipster/readme.md)
 * [js](/js/readme.md)
 * [MYSQL](/mysql/readme.md)
 * [前端](/web_font/readme.md)
