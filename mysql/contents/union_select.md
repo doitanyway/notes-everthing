@@ -122,7 +122,7 @@ FULL OUTER JOIN B ON (A.id = B.id);
 ![](./assets/2018-03-30-19-27-22.png)  
 
 >  全外连接查询就字面意思也不难看出是查询出两表（A、B）中的所有记录信息。 
-注：MySQL中不支持全外连接（但是可以union来实现，后面会介绍）。
+注：MySQL中不支持全外连接（但是可以union来实现）。
 
 #### 交叉连接（Cross Join）  
 
