@@ -28,9 +28,7 @@ Non Heap：常量
 * 年轻代
 ```
 年轻代是所有新对象产生的地方。当年轻代内存空间被用完时，就会触发垃圾回收。这个垃圾回收叫做Minor GC。年轻代被分为3个部分——Enden区和两个Survivor区。
-
 年轻代空间的要点：
-
 大多数新建的对象都位于Eden区。
 当Eden区被对象填满时，就会执行Minor GC。并把所有存活下来的对象转移到其中一个survivor区。
 Minor GC同样会检查存活下来的对象，并把它们转移到另一个survivor区。这样在一段时间内，总会有一个空的survivor区。
@@ -45,18 +43,14 @@ Minor GC同样会检查存活下来的对象，并把它们转移到另一个sur
 * Stop the World事件
 ```
 所有的垃圾收集都是“Stop the World”事件，因为所有的应用线程都会停下来直到操作完成（所以叫“Stop the World”）。
-
 因为年轻代里的对象都是一些临时（short-lived ）对象，执行Minor GC非常快，所以应用不会受到（“Stop the World”）影响。
-
 由于Major GC会检查所有存活的对象，因此会花费更长的时间。应该尽量减少Major GC。因为Major GC会在垃圾回收期间让你的应用反应迟钝，所以如果你有一个需要快速响应的应用发生多次Major GC，你会看到超时错误。
-
 垃圾回收时间取决于垃圾回收策略。这就是为什么有必要去监控垃圾收集和对垃圾收集进行调优。从而避免要求快速响应的应用出现超时错误。
 ```
 
 * 永久代
 ```
 永久代或者“Perm Gen”包含了JVM需要的应用元数据，这些元数据描述了在应用里使用的类和方法。注意，永久代不是Java堆内存的一部分。
-
 永久代存放JVM运行时使用的类。永久代同样包含了Java SE库的类和方法。永久代的对象在full GC时进行垃圾收集。
 ```
 
@@ -80,8 +74,6 @@ Minor GC同样会检查存活下来的对象，并把它们转移到另一个sur
 * 在tomcat目录下catalina.sh文件中添加
 ```
 JAVA_OPTS="-Djava.rmi.server.hostname=127.0.0.1 -Dcom.sun.management.jmxremote.port=8099 -Dcom.sun.management.jmxremote.rmi.port=8099 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false"  
-```
-```
 PS:其中127.0.0.1一定要改成本机物理IP地址不能使用127.0.0.1
 如果 -Dcom.sun.management.jmxremote.authenticate设置为false则不需要输入用户和密码
 ```
