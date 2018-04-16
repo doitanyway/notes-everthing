@@ -140,7 +140,7 @@ $ docker rm -f myfirstapp           # 强制删除镜像
 
 * FROM 位于Dockerfile的开始位置，Dockerfile都必须从FROM命令开始.镜像是按层建立的意味着我们可以在一个镜像的基础上建立另外一个镜像.FROM就帮我们定义了一个基础景象，参数是基础镜像的名字，此外我们可以添加Docker cloud用户名，以及维护者以及镜像版本;格式为``username/imagename:version``.
 
-* RUN 是用赖建设我们创造的镜像，对于每个RUN命令，Docker将会执行命令，然后创建一个新的层的镜像，这种机制下我们可以很容易的回滚镜像的状态，RUN的格式是RUN命令加上一个完整格式的shell命令(e.g., RUN mkdir /user/local/foo). 这将会自动在/bin/sh shell中执行，我们可以定义一个不同的Shell，方法如: RUN /bin/bash -c 'mkdir /user/local/foo'
+* RUN 是用赖建设我们创造的镜像，对于每个RUN命令，Docker将会执行命令，然后创建一个新的层的镜像，这种机制下我们可以很容易的回滚镜像的状态，RUN的格式是RUN命令加上一个完整格式的shell命令(e.g., RUN mkdir /user/local/foo). 这将会自动在/bin/sh shell中执行，我们可以定义一个不同的Shell，方法如: RUN /bin/bash -c 'mkdir /user/local/foo'。如果需要执行多个命令可以``RUN /bin/sh -c 'cd /usr/share/nginx/html/ && npm install'``,如果需要加更多命令，直接在末尾``'``前添加``&& your cmd``即可。
 
 * COPY 复制本地文件到容器中去；
 

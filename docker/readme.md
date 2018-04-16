@@ -11,8 +11,5 @@
 * [Section5FlashCards.pdf](Section5FlashCards.pdf)
 * [从maven运行docker](./docker_from_maven.md)
 * [docker常用命令](./docker_commands.md)
-<<<<<<< HEAD
-=======
 * [docker compose快速开始](./content/docker_compose_quick.start.md)
 * [在Docker中使用 Java Spring Boot 框架](./content/spring_boot_in_docker.md)
->>>>>>> d1323fdc04b086ef3db801a18334a3197e65aa7f
