@@ -11,18 +11,19 @@
 ## 2.JAVA虚拟机内存结构
 
 ![](./assets/b41e6ae786440fa12cb33ea3a5bc70ce.png)
+
 ```
 Stack(栈):存储线程运行的局部变量及对象的引用
-```
 Heap (堆):对象的实例
-```
 eg：Persion p = new Persion
 new Persion存放堆&p存放在栈
 Non Heap：常量
 ```
 
 ## 3.Java（JVM）内存模型
+
 ![](./assets/ba45c5c11b55f2cc224cd098e7f4b038.png)
+
 
 * 年轻代
 ```
@@ -35,10 +36,12 @@ Non Heap：常量
 Minor GC同样会检查存活下来的对象，并把它们转移到另一个survivor区。这样在一段时间内，总会有一个空的survivor区。
 经过多次GC周期后，仍然存活下来的对象会被转移到年老代内存空间。通常这是在年轻代有资格提升到年老代前通过设定年龄阈值来完成的。
 ```
+
 * 老年代
 ```
 年老代内存里包含了长期存活的对象和经过多次Minor GC后依然存活下来的对象。通常会在老年代内存被占满时进行垃圾回收。老年代的垃圾收集叫做Major GC。Major GC会花费更多的时间。
 ```
+
 * Stop the World事件
 ```
 所有的垃圾收集都是“Stop the World”事件，因为所有的应用线程都会停下来直到操作完成（所以叫“Stop the World”）。
@@ -49,6 +52,7 @@ Minor GC同样会检查存活下来的对象，并把它们转移到另一个sur
 
 垃圾回收时间取决于垃圾回收策略。这就是为什么有必要去监控垃圾收集和对垃圾收集进行调优。从而避免要求快速响应的应用出现超时错误。
 ```
+
 * 永久代
 ```
 永久代或者“Perm Gen”包含了JVM需要的应用元数据，这些元数据描述了在应用里使用的类和方法。注意，永久代不是Java堆内存的一部分。
@@ -77,9 +81,12 @@ Minor GC同样会检查存活下来的对象，并把它们转移到另一个sur
 ```
 JAVA_OPTS="-Djava.rmi.server.hostname=127.0.0.1 -Dcom.sun.management.jmxremote.port=8099 -Dcom.sun.management.jmxremote.rmi.port=8099 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false"  
 ```
+```
 PS:其中127.0.0.1一定要改成本机物理IP地址不能使用127.0.0.1
 如果 -Dcom.sun.management.jmxremote.authenticate设置为false则不需要输入用户和密码
+```
 
 * 在JDK中打开Jconsol \JDK\jdk1.7.0_67\bin
+
 ![](./assets/20180416083459.png)
 ![](./assets/20180416083654.png)
