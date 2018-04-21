@@ -21,6 +21,7 @@
 * [MYSQL](/mysql/readme.md)
 * [前端](/web_font/readme.md)
 * [工作技巧](/work_skill/readme.md)
+* [第三方知识集](/KnowledgeCollection/wxGetCode.md)
 
 
 
