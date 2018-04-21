@@ -111,5 +111,6 @@
   * openid:用户的唯一标识
   * lang:返回国家地区语言版本，zh_CN 简体，zh_TW 繁体，en 英语
 * 返回说明:
-  ![](/assets/2018-04-21-02.png)
+  ![](/assets/2018-04-21-02.png)  
+	
 ## 更多精彩请关注微信公众平台：  [微信公众平台](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)
