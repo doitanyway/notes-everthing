@@ -18,11 +18,12 @@
 * 用户同意授权后,如果用户同意授权，页面将跳转至 redirect_uri/?code=CODE&state=STATE。页面会自带上code；我们需要获取页面上的code。
 * 代码示例：
 
-  * js部分代码  
-	```javascript
-      //    snsapi_base  snsapi_userinfo 第一步用户授权，跳转目标页，在下一页得到code
-    var redirect_urls= encodeURIComponent("http://weixin3.szfangle.com/wxapp/roadOutSide/view/Payment.html");
-	var urls =  "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd6c8775dcf404c1f&redirect_uri="+redirect_urls+"&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
+  * js部分代码   
+ 
+	```javascript 
+     //    snsapi_base  snsapi_userinfo 第一步用户授权，跳转目标页，在下一页得到code
+     var redirect_urls= encodeURIComponent("http://weixin3.szfangle.com/wxapp/roadOutSide/view/Payment.html");
+	 var urls =  "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd6c8775dcf404c1f&redirect_uri="+redirect_urls+"&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
     ```
 
     ```javascript
