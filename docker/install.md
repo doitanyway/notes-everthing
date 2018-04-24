@@ -13,16 +13,23 @@
 
 ## 在centos 上安装docker
 
-参考：https://docs.docker.com/install/linux/docker-ce/centos/
-
+* 官方参考：https://docs.docker.com/install/linux/docker-ce/centos/
+```
+ 示例rpm包安装：
+ 1.新建文件夹： mkdir /home/software
+ 2.下载rpm包：wget https://download.docker.com/linux/centos/7/x86_64/stable/Packages/ 
+ 3.yum安装：yum install /path/to/package.rpm
+ 4.启动docker:systemctl start docker
+ 5.测试安装是否成功： 
+   docker run hello-world  ##会自动下载hello-world镜像
+```
 
 ## docker 加速
 
 由于国内网络原因，DOCKER访问docker hub经常超时，为了能够给DOCKER加速，我们可使用国内DOCKER镜像；``vi /etc/docker/daemon.json ``
 
-
 ```json
 {
-"registry-mirrors": [ "https://registry.docker-cn.com"]
+"registry-mirrors": [ "你的阿里云加速地址"]
 }
 ```
