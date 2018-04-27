@@ -47,7 +47,7 @@ pptpd要求Linux内核支持mppe，一般来说CentOS安装时已经包含了。
    启动pptp vpn的命令如下：
    #/sbin/service pptpd start 或者 #service pptpd start  
    经过前面步骤，我们的VPN已经可以拨号登录了，但是还不能访问任何网页。最后一步就是添加iptables转发规则了。我的规则如下：  
-   <code>iptables -t nat -A POSTROUTING -o eth0 -s 192.168.1.1/24 -j SNAT --to-source 211.141.133.8</code>  
+   #允许外网vpn连接  
    <code>iptables -I INPUT 1 -p gre -j ACCEPT</code>  
    <code>iptables -I INPUT 1 -p tcp -m tcp --dport 1723 -j ACCEPT</code>  
    <code>iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT</code> （一般不执行，防火墙默认设置）  
