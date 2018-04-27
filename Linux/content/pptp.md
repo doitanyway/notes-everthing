@@ -18,7 +18,7 @@ pptpd要求Linux内核支持mppe，一般来说CentOS安装时已经包含了。
      <code>wget http://poptop.sourceforge.net/yum/stable/packages/pptpd-1.4.0-1.el6.x86_64.rpm</code> // 下载pptpd  
      <code>rpm -ivh pptpd-1.4.0-1.el6.x86_64.rpm</code> //安装pptpd  
      
-<h2>第三步:修改配置文件</h2>
+<h2>第三步：修改配置文件</h2>
 1. 配置文件/etc/ppp/options.pptpd，命令如下所示：
 <code>#cp /etc/ppp/options.pptpd /etc/ppp/options.pptpd.bak</code>  
      <code>#vi /etc/ppp/options.pptpd</code>  
@@ -43,11 +43,30 @@ pptpd要求Linux内核支持mppe，一般来说CentOS安装时已经包含了。
    保存修改的文件，然后执行如下命令：  
    <code>#/sbin/sysctl -p</code>
 
-<h2>第四步:启动pptp vpn服务和iptables</h2>
+<h2>第四步：启动pptp vpn服务和iptables</h2>
    启动pptp vpn的命令如下：
    #/sbin/service pptpd start 或者 #service pptpd start  
    经过前面步骤，我们的VPN已经可以拨号登录了，但是还不能访问任何网页。最后一步就是添加iptables转发规则了。我的规则如下：  
    <code>iptables -t nat -A POSTROUTING -o eth0 -s 192.168.1.1/24 -j SNAT --to-source 211.141.133.8</code>  
+   <code>iptables -I INPUT 1 -p gre -j ACCEPT</code>  
+   <code>iptables -I INPUT 1 -p tcp -m tcp --dport 1723 -j ACCEPT</code>  
+   <code>iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT</code> （一般不执行，防火墙默认设置）  
+   <code>iptables -A FORWARD -s 192.168.1.0/24 -o eth0 -j ACCEPT</code>  
+   <code>iptables -A FORWARD -d 192.168.1.0/24 -i eth0 -j ACCEPT</code>    
+   注意上面规则添加中的eth0这个是网卡，不同的电脑是不相同的，可以使用命令ifconfig查看得到。规则添加完毕之后，先保存一下添加的规则，然后再启动iptables了。命令如下：
+   <code>/etc/init.d/iptables save</code>
+   <code>service iptables start</code>
+   最后，我们可以设置pptpd和iptables随系统自启动。命令如下图所示：  
+   <code>chkconfig pptpd on</code>  
+   <code>chkconfig iptables on</code>  
+   e到此为止，PPTP VPNe服务器的配置完成了。
+   
+ 
+<h2>第五步：Win10连接PPTP</h2>
+1. 
+
+
+
 
 
 
