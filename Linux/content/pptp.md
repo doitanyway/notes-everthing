@@ -59,7 +59,7 @@ pptpd要求Linux内核支持mppe，一般来说CentOS安装时已经包含了。
    最后，我们可以设置pptpd和iptables随系统自启动。命令如下图所示：  
    <code>chkconfig pptpd on</code>  
    <code>chkconfig iptables on</code>  
-   到此为止，PPTP VPNe服务器的配置完成了。
+   到此为止，PPTP VPN服务器的配置完成了。
    
  
 <h2>第五步：Win10连接PPTP</h2>
