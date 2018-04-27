@@ -1,4 +1,4 @@
-CentOS服务器（64位）版本信息为：CentOS release 6.9（Final）
+<h1>CentOS服务器（64位）版本信息为：CentOS release 6.9（Final）</h1>
 第一步：检测是否符合PPTP的搭建环境的要求：
   1. #modprobe ppp-compress-18 && echo ok 
      这条指令执行之后，显示“ok”则表明通过。
