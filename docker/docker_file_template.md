@@ -77,3 +77,23 @@ dockerFile.withWriter('UTF-8') { writer ->
 * 执行推送新版本到docker hub：mvn clean package docker:build docker:push
 
 https://github.com/qiujiahong/spring-boot-docker/tree/dockertemplate
+
+# 构建redis镜像的dockerfile案例1
+```
+FROM centos
+#WORKDIR /usr/local/rediscluster
+ADD redis-2.8.16.tar.gz /usr/local/rediscluster
+RUN \
+   # mkdir /usr/local/rediscluster2&&\
+   # cd /usr/local/rediscluster2&&\
+   # wget http://download.redis.io/redis-stable.tar.gz && \
+    cd /usr/local/rediscluster2/redis-2.8.16 &&\
+    yum -y install gcc automake autoconf libtool make &&\
+    make &&\
+    makeinstall
+
+WORKDIR /usr/local/rediscluster2
+#COPY redis.sh /usr/local/redis.sh
+EXPOSE 6379 6479 6579 26379
+
+```
