@@ -23,17 +23,10 @@
 id_rsa		id_rsa.pub	known_hosts	y		y.pub
 ```
 
-* 上传工钥文件``id_rsa.pub``到server
+* 上传密钥到服务器
 ```
-scp id_rsa.pub root@192.168.1.147:/root/.ssh/   # 如果服务器没有.ssh文件则可以登陆创建
+ssh-copy-id  root@192.168.1.147
 ```
 
-* 登陆server，生成工钥文件，修改文件权限；
-```
-# ssh root@192.168.1.147        # client 上运行改命令登陆server，需输入server密码
-# cd .ssh/
-# cat id_rsa.pub >> authorized_keys
-# chmod 700 ~/.ssh/
-# chmod 600 ~/.ssh/*
-# systemctl restart sshd.service
-```
+
+> 完成上诉步骤之后，在服务器的/root/.ssh/authorized_keys目录下将会有如下文件。
