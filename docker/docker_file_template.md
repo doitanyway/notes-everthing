@@ -77,8 +77,8 @@ dockerFile.withWriter('UTF-8') { writer ->
 * 执行推送新版本到docker hub：mvn clean package docker:build docker:push
 
 https://github.com/qiujiahong/spring-boot-docker/tree/dockertemplate
-
-# 构建redis镜像的dockerfile案例1
+# 构建redis镜像的dockerfile详解
+## 1 构建redis镜像的dockerfile编写
 ```
 FROM centos
 #WORKDIR /usr/local/rediscluster
@@ -95,5 +95,23 @@ RUN \
 WORKDIR /usr/local/rediscluster2
 #COPY redis.sh /usr/local/redis.sh
 EXPOSE 6379 6479 6579 26379
+CMD ...
+```
+## 2 redis.conf配置文件加载
+  ### 方式一：修改好redis.conf后通过dockerfile的ADD指令加入容器中
+  ```
+
+  ```
+  
+  ###方式二：在dockerfile的RUN指令中通过命令修改容器的redis.conf配置内容
+  ```
+
+   ```
+## 3 如何将容器中的redis数据挂载到宿主机，保证容器的高可用
+```angularjs
+
+```
+## 4 如何启动一个redis容器
+```angularjs
 
 ```
