@@ -82,36 +82,51 @@ https://github.com/qiujiahong/spring-boot-docker/tree/dockertemplate
 ```
 FROM centos
 #WORKDIR /usr/local/rediscluster
+
 ADD redis-2.8.16.tar.gz /usr/local/rediscluster
+ADD redis.conf /usr/local/rediscluster
+ADD redis2.conf /usr/local/rediscluster
+ADD redis3.conf /usr/local/rediscluster
+ADD sentinel.conf /usr/local/rediscluster
+ADD redis.sh /usr/local/rediscluster
+ENV REDISPATH /usr/local/rediscluster
+WORKDIR $REDISPATH
 RUN \
-   # mkdir /usr/local/rediscluster2&&\
-   # cd /usr/local/rediscluster2&&\
+    mkdir /var/redis/data &&\
+   # cd /usr/local/rediscluster&&\
    # wget http://download.redis.io/redis-stable.tar.gz && \
-    cd /usr/local/rediscluster2/redis-2.8.16 &&\
+    chmod +x /usr/local/rediscluster/redis.sh
+    cd /usr/local/rediscluster/redis-2.8.16 &&\
     yum -y install gcc automake autoconf libtool make &&\
     make &&\
-    makeinstall
+    make install
 
-WORKDIR /usr/local/rediscluster2
+#http://download.redis.io/releases/redis-2.8.16.tar.gz
+#RUN tar xvf -C redis-2.8.16.tar.gz
+#-C /usr/local/ && mv /usr/local/redis-2.8.16/ /usr/local/redis
+#RUN wget http://code.taobao.org/svn/openclouddb/downloads/old/MyCat-Sever-1.2/Mycat-server-1.2-GA-linux.tar.gz
 #COPY redis.sh /usr/local/redis.sh
+
 EXPOSE 6379 6479 6579 26379
-CMD ...
+#ENTRYPOINT ["redis.sh"]
+#ENTRYPOINT ["redis-server", "/etc/redis/sentinel.conf", "--sentinel"]
+#CMD /bin/sh
+CMD ["sh","redis.sh"]
 ```
-## 2 redis.conf配置文件加载
-  ### 方式一：修改好redis.conf后通过dockerfile的ADD指令加入容器中
+## 2 redis.sh
   ```
-
+#!/bin/sh
+exec /usr/local/bin/redis-server /usr/local/rediscluster/redis.conf &
+exec /usr/local/bin/redis-server /usr/local/rediscluster/redis2.conf &
+exec /usr/local/bin/redis-server /usr/local/rediscluster/redis3.conf &
+exec /usr/local/bin/redis-server /usr/local/rediscluster/sentinel.conf --sentinel
   ```
-  
-  ###方式二：在dockerfile的RUN指令中通过命令修改容器的redis.conf配置内容
-  ```
-
-   ```
-## 3 如何将容器中的redis数据挂载到宿主机，保证容器的高可用
-```angularjs
-
+## 3 建立镜像
 ```
-## 4 如何启动一个redis容器
-```angularjs
+docker build -it redis2.8:v1 .
+```
+## 4 启动容器
+```
+docker run --name redis_v1 -it [redis镜像id]
 
 ```
