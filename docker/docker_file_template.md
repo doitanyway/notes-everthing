@@ -130,3 +130,11 @@ docker build -it redis2.8:v1 .
 docker run --name redis_v1 -it [redis镜像id]
 
 ```
+## 进入容器内部，启动redis.sh脚本。一般来说，不应在进入容器内部操作，但应个人能力有限，暂时未找到其它的解决方案。
+```
+- docker exec -ti 容器ID /bin/bash 
+- cd /usr/local/rediscluster
+- ./redis.sh
+
+```
+
