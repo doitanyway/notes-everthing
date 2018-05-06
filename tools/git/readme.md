@@ -60,7 +60,7 @@ core.quotepath设为false的话，就不会对0x80以上的字符进行quote。�
 ```
 cnpm install gitbook-cli -g --save
 ```
-* 安装calibre
+* 安装calibre,mac版本安装完毕需要执行``ln -s /Applications/calibre.app/Contents/MacOS/ebook-convert /usr/local/bin``
 到[官网](https://calibre-ebook.com/download_windows)下载安装；
 
 
