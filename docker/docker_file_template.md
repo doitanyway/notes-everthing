@@ -137,4 +137,6 @@ docker run --name redis_v1 -it [redis镜像id]
 - ./redis.sh
 
 ```
+## 注意事项
+docker搭建redis注意事项[https://segmentfault.com/a/1190000004478606]
 
