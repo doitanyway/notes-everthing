@@ -17,8 +17,8 @@
 ```
  示例rpm包安装：
  1.新建文件夹： mkdir /home/software
- 2.下载rpm包：wget https://download.docker.com/linux/centos/7/x86_64/stable/Packages/
- 3.yum安装rpm：yum install /path/to/package.rpm
+ 2.下载rpm包：wget https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-18.03.0.ce-1.el7.centos.x86_64.rpm   
+ 3.yum安装rpm：yum install /path/to/docker-ce-18.03.0.ce-1.el7.centos.x86_64.rpm
  4.启动docker:systemctl start docker
  5.测试安装是否成功： 
    docker run hello-world  ##会自动下载hello-world镜像
