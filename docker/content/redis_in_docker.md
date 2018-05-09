@@ -62,7 +62,7 @@ docker run --name redis_v1 -it [redis镜像id]
 docker搭建redis注意事项[https://segmentfault.com/a/1190000004478606]
 
 # redis哨兵搭建方式二
- ## sentinel实例的dockerfile
+## sentinel实例的dockerfile
  ```
  #基础镜像使用官方redis:3.2
  FROM redis:3.2
