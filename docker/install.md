@@ -39,6 +39,7 @@
 2.进入https://cr.console.aliyun.com/#/accelerator
 ```
 ## 安装dockercompose
+
 ```
 [root@bogon ]# yum install -y epel-release
 [root@bogon ]# yum install -y python-pip
