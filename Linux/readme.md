@@ -18,5 +18,6 @@
 * [windows下生成的sh文件不能执行](content/no_such_file.md)
 * [ssh免密登陆](content/ssh_no_password_login.md)
 * [PPTP](content/pptp.md)
+* [shell脚本编写](content/shell.md)
   
 [返回首页](/readme.md)
