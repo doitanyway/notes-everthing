@@ -144,7 +144,7 @@ done
 echo "Finished processing the file"
 ```
 
-# case 条件   
+## case 条件   
 
 ```sh
 #!/bin/bash
@@ -166,6 +166,9 @@ read -p "Please enter your name: " name
 case $name in
         nick|n)
         echo "hi Nick"
+        ;;
+        e*)
+        echo "hello elaine"
         ;;
         *)
         echo "who are you?"
