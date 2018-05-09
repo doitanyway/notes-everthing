@@ -221,13 +221,13 @@ echo "global=$result"
 
 ## 脚本传入参数
 
-``sh
+```sh
 #!/bin/bash
 echo $0
 echo $1
-``
+```
 
-执行：  
+执行：    
 ```sh
 [root@bogon ssh]# ./param.sh 122
 ./param.sh
