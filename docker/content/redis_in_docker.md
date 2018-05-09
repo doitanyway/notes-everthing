@@ -111,6 +111,7 @@ sentinel parallel-syncs mymaster 1
 
 sentinel failover-timeout mymaster $SENTINEL_FAILOVER
 ```
+
 ##docker-compose.yml
   - 在这里我构建了1个master,1个slave,分别使用6379和6479映射出去
   - sentinel实例监控master和slave
@@ -137,7 +138,6 @@ sentinel:
     - slave
   ports:
     - "26379:26379"
-
 ```
 ## 构建sentinel镜像
 ```
