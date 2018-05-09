@@ -38,6 +38,7 @@
 1.你得首先注册阿里云账号
 2.进入https://cr.console.aliyun.com/#/accelerator
 ```
+
 ## 安装dockercompose
 
 ```
@@ -45,5 +46,4 @@
 [root@bogon ]# yum install -y python-pip
 [root@bogon ]# pip install docker-compose
 [root@bogon ]# docker-compose --version
-
 ```
