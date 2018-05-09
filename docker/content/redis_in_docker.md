@@ -116,6 +116,7 @@ sentinel failover-timeout mymaster $SENTINEL_FAILOVER
   - 在这里我构建了1个master,1个slave,分别使用6379和6479映射出去
   - sentinel实例监控master和slave
   - environment定义全局变量，可以sentinel-entrypoint.sh使用
+ 
 ```
 master:
   image: redis:3.2
