@@ -39,3 +39,14 @@ CMD ["./var/tmp/tomcat/apache-tomcat-8.5.8/bin/catalina.sh","run"] && tail -f /v
 #docker build -t tomcat_jdk:0.1 .
 #docker run -it -p 8080:8080 --name=tomcat8-jdk1.8  镜像id
 ```
+## 修改server.xml的8080端口，protocol改为NIO模式
+```
+<Connector port="8080" protocol="org.apache.coyote.http11.Http11NioProtocol"
+               connectionTimeout="20000"
+               redirectPort="8443" />
+```
+
+## 修改catalina.sh,增加如下配置，优化JVM
+```
+JAVA_OPTS="-server -Xms1G -Xmx2G -Xss256K -XX:PermSize=128M -XX:MaxPermSize=256M"
+```
