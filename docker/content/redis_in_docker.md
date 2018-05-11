@@ -34,6 +34,33 @@ EXPOSE 6379 6479 6579 26379
 #CMD /bin/sh
 CMD ["sh","redis.sh"]
 ```
+### 还有一种方式
+```
+#redis2.8专用dockerfile
+FROM   centos
+
+# OS环境配置
+RUN yum install -y wget
+RUN yum -y install gcc automake autoconf libtool make
+# 下载安装redis
+RUN mkdir -p /home/redis
+RUN cd /home/redis/
+RUN wget http://download.redis.io/releases/redis-2.8.13.tar.gz
+RUN tar -xzf redis* -C /home/redis && rm -rf redis-2.8.13.tar.gz
+ENV REDIS_HOME /home/redis/redis-2.8.13/src
+WORKDIR $REDIS_HOME
+RUN make && make install
+#RUN cd /home/redis/redis-2.8.13/src
+#RUN &&　make && make install
+#RUN make && make install
+
+EXPOSE 6379
+
+ADD redis.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/redis.sh
+ENTRYPOINT ["/usr/local/bin/redis-server","/home/redis/redis-2.8.13/redis.conf","--sentinel"]
+
+```
 ## 2 redis.sh
   ```
 #!/bin/sh
@@ -149,3 +176,4 @@ docker build -t redis_sentinel:0.1 .
 ```
 docker-compose up
 ```
+#redis哨兵模式方案三
