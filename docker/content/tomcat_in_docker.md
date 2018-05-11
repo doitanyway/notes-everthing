@@ -18,6 +18,7 @@ RUN wget -P  /var/tmp/tomcat http://archive.apache.org/dist/tomcat/tomcat-8/v8.5
 RUN tar xzf /var/tmp/tomcat/apache-tomcat-8.5.8.tar.gz -C /var/tmp/tomcat && rm -rf /var/tmp/tomcat/apache-tomcat-8.5.8.tar.gz
 #优化tomcat并发和JVM，使用修改后的server.xml和catalina.sh文件替换原有的tomcat同名文件
 ```
+https://blog.csdn.net/boling_cavalry/article/details/70184605
 ```
 #设置环境变量
 ENV JAVA_HOME /var/tmp/jdk/jdk1.8.0_141
