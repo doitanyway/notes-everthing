@@ -16,7 +16,9 @@ RUN tar xzf /var/tmp/jdk/jdk* -C /var/tmp/jdk && rm -rf /var/tmp/jdk/jdk-8u141-l
 RUN mkdir /var/tmp/tomcat
 RUN wget -P  /var/tmp/tomcat http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.8/bin/apache-tomcat-8.5.8.tar.gz
 RUN tar xzf /var/tmp/tomcat/apache-tomcat-8.5.8.tar.gz -C /var/tmp/tomcat && rm -rf /var/tmp/tomcat/apache-tomcat-8.5.8.tar.gz
-#优化tomcat
+#优化tomcat并发和JVM，使用修改后的server.xml和catalina.sh文件替换原有的tomcat同名文件
+```
+```
 #设置环境变量
 ENV JAVA_HOME /var/tmp/jdk/jdk1.8.0_141
 ENV CATALINA_HOME /var/tmp/tomcat/apache-tomcat-8.5.8
@@ -50,3 +52,4 @@ CMD ["./var/tmp/tomcat/apache-tomcat-8.5.8/bin/catalina.sh","run"] && tail -f /v
 ```
 JAVA_OPTS="-server -Xms1G -Xmx2G -Xss256K -XX:PermSize=128M -XX:MaxPermSize=256M"
 ```
+## 使用创建的tomcat_jdk镜像，使用自己修改的tomcat启动文件去覆盖tomcat_jdk镜像的tomcat文件
