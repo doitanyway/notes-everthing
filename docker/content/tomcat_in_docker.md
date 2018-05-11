@@ -1,5 +1,5 @@
 # 构建tomcat8+jdk1.8基础镜像
-##dockerfile
+## dockerfile
 ```
 FROM centos
 
@@ -34,7 +34,7 @@ EXPOSE 8080
 CMD ["./var/tmp/tomcat/apache-tomcat-8.5.8/bin/catalina.sh","run"] && tail -f /var/tmp/tomcat/apache-tomcat-8.5.8/logs/catalina.out
 
 ```
-##启动容器
+## 启动容器
 ```
 #docker build -t tomcat_jdk:0.1 .
 #docker run -it -p 8080:8080 --name=tomcat8-jdk1.8  镜像id
