@@ -129,7 +129,7 @@ exec docker-entrypoint.sh redis-server /etc/redis/sentinel.conf --sentinel
 port 26379
 
 dir /tmp
-#redis-master就是master的ip别名，定义在docker-compose.yml中
+#监控的master IP,redis-master就是master的ip别名，定义在docker-compose.yml中，你也可以使用"docker inspection 容器id" 来查看redis master容器的ip,注意这里不能写127.0.0.1
 sentinel monitor mymaster redis-master 6379 $SENTINEL_QUORUM
 
 sentinel down-after-milliseconds mymaster $SENTINEL_DOWN_AFTER
