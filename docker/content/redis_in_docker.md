@@ -1,40 +1,5 @@
-# 构建redis镜像的dockerfile详解
-## 1 构建redis镜像的dockerfile编写
-```
-FROM centos
-#WORKDIR /usr/local/rediscluster
-
-ADD redis-2.8.16.tar.gz /usr/local/rediscluster
-ADD redis.conf /usr/local/rediscluster
-ADD redis2.conf /usr/local/rediscluster
-ADD redis3.conf /usr/local/rediscluster
-ADD sentinel.conf /usr/local/rediscluster
-ADD redis.sh /usr/local/rediscluster
-ENV REDISPATH /usr/local/rediscluster
-WORKDIR $REDISPATH
-RUN \
-    mkdir /var/redis/data &&\
-   # cd /usr/local/rediscluster&&\
-   # wget http://download.redis.io/redis-stable.tar.gz && \
-    chmod +x /usr/local/rediscluster/redis.sh
-    cd /usr/local/rediscluster/redis-2.8.16 &&\
-    yum -y install gcc automake autoconf libtool make &&\
-    make &&\
-    make install
-
-#http://download.redis.io/releases/redis-2.8.16.tar.gz
-#RUN tar xvf -C redis-2.8.16.tar.gz
-#-C /usr/local/ && mv /usr/local/redis-2.8.16/ /usr/local/redis
-#RUN wget http://code.taobao.org/svn/openclouddb/downloads/old/MyCat-Sever-1.2/Mycat-server-1.2-GA-linux.tar.gz
-#COPY redis.sh /usr/local/redis.sh
-
-EXPOSE 6379 6479 6579 26379
-#ENTRYPOINT ["redis.sh"]
-#ENTRYPOINT ["redis-server", "/etc/redis/sentinel.conf", "--sentinel"]
-#CMD /bin/sh
-CMD ["sh","redis.sh"]
-```
-### 还有一种方式
+# 方案一：使用dockerfile构建redis镜像
+## 1 dockerfile编写
 ```
 #redis2.8专用dockerfile
 FROM   centos
@@ -56,11 +21,26 @@ RUN make && make install
 
 EXPOSE 6379
 
-ADD redis.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/redis.sh
-ENTRYPOINT ["/usr/local/bin/redis-server","/home/redis/redis-2.8.13/redis.conf","--sentinel"]
+#ADD redis.sh /usr/local/bin/
+#RUN chmod +x /usr/local/bin/redis.sh
+#ENTRYPOINT ["/usr/local/bin/redis-server","/home/redis/redis-2.8.13/redis.conf","--sentinel"]
+ENTRYPOINT ["/usr/local/bin/redis-server","/home/redis/redis-2.8.13/redis.conf"]
 
 ```
+## 生成镜像
+```
+[root@localhost redis4]#docker build -t myredis:2.8 .
+[root@localhost redis4]#docker images
+```
+![](.redis_in_docker_images\redis_in_docker_1.png)
+
+## 启动容器
+```
+[root@localhost redis4]#docker run --name myredis2.8 -p 6379:6379 -it myredis:2.8
+```
+![](.redis_in_docker_images\redis_in_docker_2.png)
+## 使用Redis DeskTop Manager连接redis容器
+![](.redis_in_docker_images\702646d8.png)
 ## 2 redis.sh
   ```
 #!/bin/sh
