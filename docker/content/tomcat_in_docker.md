@@ -37,7 +37,7 @@ EXPOSE 8080
 CMD ["./var/tmp/tomcat/apache-tomcat-8.5.8/bin/catalina.sh","run"] && tail -f /var/tmp/tomcat/apache-tomcat-8.5.8/logs/catalina.out
 
 ```
-## 启动容器
+## 构建镜像，启动容器
 ```
 #docker build -t tomcat_jdk:0.1 .
 #docker run -it -p 8080:8080 --name=tomcat8-jdk1.8  镜像id
@@ -53,4 +53,4 @@ CMD ["./var/tmp/tomcat/apache-tomcat-8.5.8/bin/catalina.sh","run"] && tail -f /v
 ```
 JAVA_OPTS="-server -Xms1G -Xmx2G -Xss256K -XX:PermSize=128M -XX:MaxPermSize=256M"
 ```
-## 使用创建的tomcat_jdk镜像，使用自己修改的tomcat启动文件去覆盖tomcat_jdk镜像的tomcat文件
+## 使用修改后catalina.sh和server.xml，去覆盖tomcat_jdk镜像中的Tomcat同名文件
