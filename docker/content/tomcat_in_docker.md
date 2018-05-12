@@ -15,6 +15,12 @@ RUN tar xzf /var/tmp/jdk/jdk-8u141-linux-x64.tar.gz -C /var/tmp/jdk && rm -rf /v
 RUN mkdir /var/tmp/tomcat
 RUN wget -P  /var/tmp/tomcat http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.8/bin/apache-tomcat-8.5.8.tar.gz
 RUN tar xzf /var/tmp/tomcat/apache-tomcat-8.5.8.tar.gz -C /var/tmp/tomcat && rm -rf /var/tmp/tomcat/apache-tomcat-8.5.8.tar.gz
+RUN cp /var/tmp/tomcat/apache-tomcat-8.5.8/conf/server.xml /var/tmp/tomcat/apache-tomcat-8.5.8/conf/server.xml.bak && rm -rf /var/tmp/tomcat/apache-tomcat-8.5.8/conf/server.xml
+RUN cp /var/tmp/tomcat/apache-tomcat-8.5.8/bin/catalina.sh /var/tmp/tomcat/apache-tomcat-8.5.8/bin/catalina.sh.bak && rm -rf /var/tmp/tomcat/apache-tomcat-8.5.8/bin/catalina.sh
+#优化tomcat并发和JVM，使用修改后的server.xml和catalina.sh文件替换原有的tomcat同名文件
+COPY server.xml /var/tmp/tomcat/apache-tomcat-8.5.8/conf/server.xml
+COPY catalina.sh /var/tmp/tomcat/apache-tomcat-8.5.8/bin/catalina.sh
+RUN chmod +x /var/tmp/tomcat/apache-tomcat-8.5.8/bin/catalina.sh
 
 #优化tomcat并发和JVM，使用修改后的server.xml和catalina.sh文件替换原有的tomcat同名文件
 #COPY server.xml /var/tmp/tomcat/conf/server.xml
@@ -41,7 +47,7 @@ CMD ["./var/tmp/tomcat/apache-tomcat-8.5.8/bin/catalina.sh","run"] && tail -f /v
 ## 构建镜像，启动容器
 ```
 #docker build -t tomcat_jdk:0.1 .
-#docker run -it -p 8080:8080 --name=tomcat8-jdk1.8  镜像id
+#docker run -it -p 8080:8080 --name=tomcat8-jdk1.8  镜像id /bin/bash
 ```
 ## 修改server.xml的8080端口，protocol改为NIO模式
 ```
