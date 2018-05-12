@@ -41,34 +41,11 @@ ENTRYPOINT ["/usr/local/bin/redis-server","/home/redis/redis-2.8.13/redis.conf"]
 ![](.redis_in_docker_images\redis_in_docker_2.png)
 ## 使用Redis DeskTop Manager连接redis容器
 ![](.redis_in_docker_images\702646d8.png)
-## 2 redis.sh
-  ```
-#!/bin/sh
-exec /usr/local/bin/redis-server /usr/local/rediscluster/redis.conf &
-exec /usr/local/bin/redis-server /usr/local/rediscluster/redis2.conf &
-exec /usr/local/bin/redis-server /usr/local/rediscluster/redis3.conf &
-exec /usr/local/bin/redis-server /usr/local/rediscluster/sentinel.conf --sentinel
-  ```
-## 3 建立镜像
-```
-docker build -it redis2.8:v1 .
-```
-## 4 启动容器
-```
-docker run --name redis_v1 -it [redis镜像id]
 
-```
-## 进入容器内部，启动redis.sh脚本。一般来说，不应在进入容器内部操作，但应个人能力有限，暂时未找到其它的解决方案。
-```
-- docker exec -ti 容器ID /bin/bash
-- cd /usr/local/rediscluster
-- ./redis.sh
-
-```
 ## 注意事项
 docker搭建redis注意事项[https://segmentfault.com/a/1190000004478606]
 
-# redis哨兵搭建方式二
+# redis哨兵:此处使用官方的redis3.2镜像，你可以使用方案一搭建的redis2.8
 ## sentinel实例的dockerfile
  ```
  #基础镜像使用官方redis:3.2
