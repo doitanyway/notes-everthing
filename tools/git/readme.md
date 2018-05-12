@@ -48,6 +48,12 @@ calibre：PDF格式电子书转换需要；
 git config --global core.autocrlf false
 ```
 
+* 保存用户名密码
+
+```
+git config --global credential.helper store
+```
+
 * 解决中文乱码问题
 
 git 默认中文文件名是 \xxx\xxx 等八进制形式是因为 对0x80以上的字符进行quote只需要   
