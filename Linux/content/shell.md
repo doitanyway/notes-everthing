@@ -233,3 +233,10 @@ echo $1
 ./param.sh
 122
 ```
+
+## 获取日期
+
+```SH
+var=$(date "+%Y-%m-%d %H:%M:%S")
+echo ${var}
+```
