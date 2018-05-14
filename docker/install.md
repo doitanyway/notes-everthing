@@ -26,9 +26,7 @@
 
 ```shell
 # bin/bash
-
 rm -rf /usr/local/bin/docker-compose
-
 sudo yum remove -y docker \
                   docker-client \
                   docker-client-latest \
