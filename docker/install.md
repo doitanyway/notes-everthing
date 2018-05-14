@@ -24,6 +24,29 @@
    docker run hello-world  ##会自动下载hello-world镜像
 ```
 
+```shell
+# bin/bash
+
+sudo yum remove -y docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine
+
+sudo yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+
+sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+sudo yum install -y docker-ce.x86_64 0:18.03.1.ce-1.el7.centos
+
+```
+
 ## docker 加速
 
 * 由于国内网络原因，DOCKER访问docker hub经常超时，为了能够给DOCKER加速，我们可使用国内DOCKER镜像；``vi /etc/docker/daemon.json ``
