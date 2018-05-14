@@ -27,6 +27,8 @@
 ```shell
 # bin/bash
 
+rm -rf /usr/local/bin/docker-compose
+
 sudo yum remove -y docker \
                   docker-client \
                   docker-client-latest \
@@ -45,6 +47,8 @@ sudo yum install -y yum-utils \
 sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 sudo yum install -y docker-ce.x86_64 0:18.03.1.ce-1.el7.centos
 
+curl -L https://get.daocloud.io/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
 ```
 
 ## docker 加速
