@@ -69,6 +69,6 @@ chmod +x /usr/local/bin/docker-compose
 ```
 [root@bogon ]# yum install -y epel-release
 [root@bogon ]# yum install -y python-pip
-[root@bogon ]# pip install docker-compose
+[root@bogon ]# pip install docker-compose==1.21.2
 [root@bogon ]# docker-compose --version
 ```
