@@ -51,7 +51,7 @@ chmod +x /usr/local/bin/docker-compose
 
 ## docker 加速
 
-* 由于国内网络原因，DOCKER访问docker hub经常超时，为了能够给DOCKER加速，我们可使用国内DOCKER镜像；``vi /etc/docker/daemon.json ``
+* 由于国内网络原因，DOCKER访问docker hub经常超时，为了能够给DOCKER加速，我们可使用国内DOCKER镜像：``vi /etc/docker/daemon.json ``
 
 ```json
 {
