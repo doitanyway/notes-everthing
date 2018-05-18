@@ -49,3 +49,10 @@ chmod +x /usr/local/bin/docker-compose
 "registry-mirrors": [ "https://registry.docker-cn.com"]
 }
 ```
+
+* 重启docker 
+
+```
+systemctl daemon-reload 
+systemctl restart docker
+```
