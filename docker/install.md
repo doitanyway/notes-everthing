@@ -13,7 +13,7 @@
 
 ## 在centos 上安装docker
 
-* 新建安装脚本``vim docker.sh`` 
+* 新建安装脚本``vim docker.sh``   ``chmod +x install.sh``
 
 ```shell
 # bin/bash
