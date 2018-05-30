@@ -1,4 +1,4 @@
-# 构建tomcat8+jdk1.8基础镜像
+# 手动构建tomcat8+jdk1.8基础镜像
 ## dockerfile
 ```
 FROM centos
@@ -61,4 +61,24 @@ CMD ["./var/tmp/tomcat/apache-tomcat-8.5.8/bin/catalina.sh","run"] && tail -f /v
 export JAVA_OPTS="-server -Xms1600M -Xmx1600M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:MaxTenuringThreshold=31 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true"
 ```
 ![](.tomcat_in_docker_images\0c0930e6.png)
-## 使用修改后catalina.sh和server.xml，去覆盖tomcat_jdk镜像中的Tomcat同名文件
+## 使用修改后catalina.sh和server.xml，去覆盖tomcat_jdk镜像中的Tomcat同名文件(见上方dockerfile),启动容器既可
+
+# 使用官方镜像构建Tomcat+jdk容器
+## 优化Tomcat  
+ 
+ - 官方给出两个途径去优化，run的时候指定环境参数或者docker-compose.yml中指定 
+ 
+![](.tomcat_in_docker_images\docker_tomcat_1.png)
+
+```
+ docker run  -p 8080:8080 -e JAVA_OPTS='-Xms800m -Xmx800m -XX:PermSize=128M -XX:MaxNewSize=256m'
+```
+或者
+```
+ web:
+    build: ./web/
+    ports:
+     - "8888:8080" # 第一个端口是宿主机端口，第二个是docker内的端口
+    environment:
+     - JAVA_OPTS= '-Xms800m -Xmx800m -XX:PermSize=128M -XX:MaxNewSize=256m XX:MaxPermSize=256m'
+```
