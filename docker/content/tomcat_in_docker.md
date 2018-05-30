@@ -73,7 +73,7 @@ export JAVA_OPTS="-server -Xms1600M -Xmx1600M -Xss512k -XX:+AggressiveOpts -XX:+
 ```
  docker run  -p 8080:8080 -e JAVA_OPTS='-Xms800m -Xmx800m -XX:PermSize=128M -XX:MaxNewSize=256m'
 ```
-或者
+或者在docker-compose.yml中指定
 ```
  web:
     build: ./web/
@@ -82,3 +82,4 @@ export JAVA_OPTS="-server -Xms1600M -Xmx1600M -Xss512k -XX:+AggressiveOpts -XX:+
     environment:
      - JAVA_OPTS= '-Xms800m -Xmx800m -XX:PermSize=128M -XX:MaxNewSize=256m XX:MaxPermSize=256m'
 ```
+- Tomcat的运行模式不同更改，官方默认的就是APR模式
