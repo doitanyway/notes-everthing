@@ -78,8 +78,8 @@ export JAVA_OPTS="-server -Xms1600M -Xmx1600M -Xss512k -XX:+AggressiveOpts -XX:+
  web:
     build: ./web/
     ports:
-     - "8888:8080" # 第一个端口是宿主机端口，第二个是docker内的端口
-    environment:
-     - JAVA_OPTS= '-Xms800m -Xmx800m -XX:PermSize=128M -XX:MaxNewSize=256m XX:MaxPermSize=256m'
+     - "8888:8080" 
+    environment:  # 变量值千万不能加单引号
+     - JAVA_OPTS= -Xms800m -Xmx800m -XX:PermSize=128M -XX:MaxNewSize=256m XX:MaxPermSize=256m
 ```
 - Tomcat的运行模式不同更改，官方默认的就是APR模式
