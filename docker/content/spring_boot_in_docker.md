@@ -87,7 +87,7 @@ http://127.0.0.1:8080
 docker build -t docker-demo-spring-boot .             # 编译镜像
 docker run -d -p 8080:8080 docker-demo-spring-boot    # 运行镜像
 ```
-
+* 参考文档，http://guide.daocloud.io/dcs/docker-java-spring-boot-9153934.html，本文主要是该文的读书笔记。
 
 
 
