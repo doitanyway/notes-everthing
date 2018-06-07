@@ -1,6 +1,7 @@
 # 介绍J2EE的一些知识
 
 * [介绍](readme.md)
+* [安装jdk](install_jdk.md)
 * [visualvm项目调优](install_jvisualvm.md)
 * [spring](spring/readme.md)
 * [gradle](gradle/readme.md)
