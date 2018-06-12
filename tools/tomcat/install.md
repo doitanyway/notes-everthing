@@ -22,6 +22,9 @@
     * 在文件内搜索http协议的``Connector``，修改端口``<Connector port="80" protocol="HTTP/1.1" connectionTimeout="20000 redirectPort="8443"/>``
     * 其他Connector的端口保持与其他应用不重复即可；
 
+* 清空{tomcat dir}/webapps目录,``rm -rf webapps/*``
+* 上传工程war包到{tomcat dir}/webapps目录
+
 * 测试启动tomcat
 ```
 [linux]# cd {tomcat dir}
@@ -34,6 +37,8 @@
 [linux]# cd {tomcat dir}
 [linux]# ./bin/startup.sh 
 ```
+
+注意： {tomcat dir}/webapps目录下的默认工程，在实际使用中需要删除；
 
 ## Trouble shooting
 
