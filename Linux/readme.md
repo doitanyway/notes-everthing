@@ -19,6 +19,6 @@
 * [ssh免密登陆](content/ssh_no_password_login.md)
 * [PPTP](content/pptp.md)
 * [shell脚本编写](content/shell.md)
-* [iptables](content/iptables.md)
+* [linux防火墙](content/iptables.md)
   
 [返回首页](/readme.md)
