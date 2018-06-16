@@ -21,7 +21,7 @@
 
 * 修改配置文件``redis-7000.conf``
     ```
-    port redis-7000
+    port 7000
     daemonize yes
     pidfile /var/run/redis-7000.pid
     logfile "7000.log"
@@ -30,7 +30,7 @@
 
 * 修改配置文件``redis-7001.conf``
     ```
-    port redis-7001
+    port 7001
     daemonize yes
     pidfile /var/run/redis-7001.pid
     logfile "7001.log"
@@ -40,7 +40,7 @@
 
 * 修改配置文件``redis-7002.conf``
     ```
-    port redis-7002
+    port 7002
     daemonize yes
     pidfile /var/run/redis-7002.pid
     logfile "7002.log"
