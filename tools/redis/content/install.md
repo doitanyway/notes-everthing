@@ -18,19 +18,20 @@ wget http://download.redis.io/releases/redis-4.0.9.tar.gz
 tar -xzvf redis-4.0.9.tar.gz 
 cd redis-4.0.9
 make
-make PREFIX=/usr/local/redis/redis install
+make PREFIX=/usr/local/redis install
 ```
 
-* 启动redis服务
+* 添加redis命令到path环境变量中,``vim ~/.bash_profile`` ,在``export PATH``下面添加如下语句，添加后执行命令生效配置``source  ~/.bash_profile``
 ```
-cd /usr/local/redis/redis/bin       
-./redis-server 
+PATH=$PATH:/usr/local/redis/bin/
+export PATH
 ```
+
+* 启动redis服务``redis-server``
 
 * 新建一个控制台窗口，启动客户端，测试
 ```
-cd /usr/local/redis/redis/bin/
-./redis-cli 
+redis-cli 
 127.0.0.1:6379> set name nick
 OK
 127.0.0.1:6379> get name 
@@ -42,9 +43,9 @@ OK
     * 进入刚才服务器启动窗口，按``ctl+c``
     * ``cd /usr/local/redis-4.0.9``
     * ``cp redis.conf /usr/local/redis/redis/bin``
-    * ``cd /usr/local/redis/redis/bin``
+    * ``cd /usr/local/redis/bin``
     * ``vim redis.conf``,修改``daemonize no``为``daemonize yes``
-    * 启动redis,``./redis-server redis.conf``
+    * 启动redis,``redis-server redis.conf``
 
 
 
@@ -64,7 +65,7 @@ root      3472    15  0 01:59 pts/1    00:00:00 grep --color=auto redis
 * shutdown
 
 ```
-[root@bcc2e7849402 bin]# ./redis-cli shutdown
+[root@bcc2e7849402 bin]# redis-cli shutdown
 [root@bcc2e7849402 bin]# ps -ef | grep redis
 ```
 
