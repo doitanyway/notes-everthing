@@ -6,6 +6,9 @@
 
 
 ## 代码 还未测试通过
+有没有可能是redis太新了不兼容？
+https://lanjingling.github.io/2015/12/29/redis-sentinel-jedis-shizhan/
+
 ```java
 public class RedisSentinelFailoverTest {
     private static Logger logger = LoggerFactory.getLogger(RedisSentinelFailoverTest.class);
