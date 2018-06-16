@@ -42,7 +42,7 @@ OK
 * 设置redis服务自启动
     * 进入刚才服务器启动窗口，按``ctl+c``
     * ``cd /usr/local/redis-4.0.9``
-    * ``cp redis.conf /usr/local/redis/redis/bin``
+    * ``cp redis.conf /usr/local/redis/bin``
     * ``cd /usr/local/redis/bin``
     * ``vim redis.conf``,修改``daemonize no``为``daemonize yes``
     * 启动redis,``redis-server redis.conf``
