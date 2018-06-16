@@ -79,6 +79,7 @@
 * 修改文件``vim redis-sentinel-26379.conf``    
     ```
     port 26379
+    protected-mode no
     daemonize yes
     dir /opt/soft/redis/data
     logfile "26379.log"
@@ -121,6 +122,4 @@
     master0:name=mymaster,status=ok,address=127.0.0.1:7000,slaves=2,sentinels=3
     ```
 
-
-* 实际应该开启多机
-* 详细的配置节点 
+* 如果redis需要除了本机以外的其他端口访问，则需要打开相应端口（7000,7001,7002,26379,26380,26381），打开对应端口访问方法请参考[linux防火墙](/Linux/content/iptables.md)
