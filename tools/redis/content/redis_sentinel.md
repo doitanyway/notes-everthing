@@ -16,7 +16,7 @@
 
 ### 配置开启主从节点；
 
-* 创建文件夹``mkdir  /opt/soft/redis/data``
+* 创建文件夹``mkdir  /opt/soft/redis/data`` ``mkdir -p /var/log/redis/``
 * 在redis安装包下面找到redis.conf文件，复制出三个文件，作为主从节点的配置文件``redis-7000.conf``,``redis-7001.conf``,``redis-7002.conf``；
 
 * 修改配置文件``redis-7000.conf``
