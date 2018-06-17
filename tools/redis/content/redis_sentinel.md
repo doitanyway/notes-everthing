@@ -19,50 +19,50 @@
 * 创建文件夹``mkdir  /opt/soft/redis/data`` ``mkdir -p /var/log/redis/``
 * 在redis安装包下面找到redis.conf文件，复制出三个文件，作为主从节点的配置文件``redis-7000.conf``,``redis-7001.conf``,``redis-7002.conf``；
 
-* 修改配置文件``redis-7000.conf``
+* 修改配置文件``6379.conf``
     ```
-    port 7000
+    port 6379
     daemonize yes
-    pidfile /var/run/redis-7000.pid
-    logfile "7000.log"
+    pidfile /var/run/redis-6379.pid
+    logfile "/var/log/redis/6379.log"
     dir /opt/soft/redis/data/
     ```
 
-* 修改配置文件``redis-7001.conf``
+* 修改配置文件``6380.conf``
     ```
-    port 7001
+    port 6380
     daemonize yes
-    pidfile /var/run/redis-7001.pid
-    logfile "7001.log"
+    pidfile /var/run/redis-6380.pid
+    logfile "/var/log/redis/6380.log"
     dir /opt/soft/redis/data/
-    slaveof 127.0.0.1 7000
+    slaveof 192.168.3.52 6380
     ```
 
-* 修改配置文件``redis-7002.conf``
+* 修改配置文件``6381.conf``
     ```
-    port 7002
+    port 6381
     daemonize yes
-    pidfile /var/run/redis-7002.pid
-    logfile "7002.log"
+    pidfile /var/run/redis-6381.pid
+    logfile "/var/log/redis/6381.log"
     dir /opt/soft/redis/data/
-    slaveof 127.0.0.1 7000
+    slaveof 192.168.3.52 7000
     ```
 
 * 启动三个节点    
     ````
-    redis-server redis-7000.conf
-    redis-server redis-7001.conf
-    redis-server redis-7002.conf
+    redis-server 6379.conf
+    redis-server 6380.conf
+    redis-server 6381.conf
     ````
 
 * 验证主从节点是否安装好   
     ```shell
-    [root@bogon conf]# redis-cli -p 7000 info replication
+    [root@bogon conf]# redis-cli -p 6379 info replication
     # Replication
     role:master
     connected_slaves:2
-    slave0:ip=127.0.0.1,port=7001,state=online,offset=98,lag=0
-    slave1:ip=127.0.0.1,port=7002,state=online,offset=98,lag=0
+    slave0:ip=192.168.3.52,port=6380,state=online,offset=98,lag=0
+    slave1:ip=192.168.3.52,port=6381,state=online,offset=98,lag=0
     master_replid:b891df80a8b879c7ca8385b91721d3df0da76b25
     master_replid2:0000000000000000000000000000000000000000
     master_repl_offset:98
@@ -83,7 +83,7 @@
     daemonize yes
     dir /opt/soft/redis/data
     logfile "26379.log"
-    sentinel monitor mymaster 127.0.0.1 7000 2
+    sentinel monitor mymaster 192.168.3.52 6379 2
     sentinel down-after-milliseconds mymaster 30000
     sentinel parallel-syncs mymaster 1
     sentinel failover-timeout mymaster 180000
@@ -119,11 +119,11 @@
     sentinel_running_scripts:0
     sentinel_scripts_queue_length:0
     sentinel_simulate_failure_flags:0
-    master0:name=mymaster,status=ok,address=127.0.0.1:7000,slaves=2,sentinels=3
+    master0:name=mymaster,status=ok,address=192.168.3.52:6379,slaves=2,sentinels=3
     ```
 
-* 如果redis需要除了本机以外的其他端口访问，则需要打开相应端口（7000,7001,7002,26379,26380,26381），打开对应端口访问方法请参考[linux防火墙](/Linux/content/iptables.md)
+* 如果redis需要除了本机以外的其他端口访问，则需要打开相应端口（6379,6380,6381,26379,26380,26381），打开对应端口访问方法请参考[linux防火墙](/Linux/content/iptables.md)
 
 ## 补充说明
 
-[配置文件](../redis.zip)
+[配置文件](../redis)
