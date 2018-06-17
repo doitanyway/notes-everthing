@@ -5,22 +5,20 @@
 本文介绍如何使用java连接高可用redis哨兵。
 
 
-## 代码 还未测试通过
-有没有可能是redis太新了不兼容？
-https://lanjingling.github.io/2015/12/29/redis-sentinel-jedis-shizhan/
+## 代码 
 
 ```java
 public class RedisSentinelFailoverTest {
-    private static Logger logger = LoggerFactory.getLogger(RedisSentinelFailoverTest.class);
-    public static  void main(String [] args){
-        Set<String> sentinels = new HashSet<String>();
-        sentinels.add("192.168.1.222:26379");
-        sentinels.add("192.168.1.222:26380");
-        sentinels.add("192.168.1.222:26381");
 
+    private static Logger logger = LoggerFactory.getLogger(RedisSentinelFailoverTest.class);
+
+    public static void main(String[] args) throws InterruptedException {
+        Set<String> sentinels = new HashSet<String>();
+        sentinels.add("192.168.3.52:26379");
+        sentinels.add("192.168.3.52:26380");
+        sentinels.add("192.168.3.52:26381");
         JedisSentinelPool jedisSentinelPool = new JedisSentinelPool("mymaster", sentinels);
         Jedis jedis = null;
-
         while (true) {
             try {
                 jedis = jedisSentinelPool.getResource();
@@ -35,6 +33,7 @@ public class RedisSentinelFailoverTest {
                 TimeUnit.MILLISECONDS.sleep(1000);
             } catch (Exception e) {
                 System.out.println(e);
+                TimeUnit.MILLISECONDS.sleep(1000);
             } finally {
                 if (jedis != null)
                     try {
@@ -45,6 +44,10 @@ public class RedisSentinelFailoverTest {
             }
         }
     }
-}
 
+}
 ```
+
+## 测试
+
+可进入服务器，杀死mast进程或者slave进程，可观察到，服务器等一段时间就恢复了。
