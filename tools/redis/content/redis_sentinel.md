@@ -17,7 +17,7 @@
 ### 配置开启主从节点；
 
 * 创建文件夹``mkdir  /opt/soft/redis/data`` ``mkdir -p /var/log/redis/``
-* 在redis安装包下面找到redis.conf文件，复制出三个文件，作为主从节点的配置文件``redis-7000.conf``,``redis-7001.conf``,``redis-7002.conf``；
+* 在redis安装包下面找到redis.conf文件，复制出三个文件，作为主从节点的配置文件``6379.conf``,``6380.conf``,``6381.conf``；
 
 * 修改配置文件``6379.conf``
     ```
@@ -75,14 +75,14 @@
 
 ### 配置开启sentinel控制节点（sentinel是特殊的redis）
 
-* 在redis安装包下面找到sentinel.conf文件，复制出文件``redis-sentinel-26379.conf``  
-* 修改文件``vim redis-sentinel-26379.conf``    
+* 在redis安装包下面找到sentinel.conf文件，复制出文件``26379.conf``  
+* 修改文件``vim 26379.conf``    
     ```
     port 26379
     protected-mode no
     daemonize yes
     dir /opt/soft/redis/data
-    logfile "26379.log"
+    logfile "/var/log/redis/26379.log"
     sentinel monitor mymaster 192.168.3.52 6379 2
     sentinel down-after-milliseconds mymaster 30000
     sentinel parallel-syncs mymaster 1
@@ -91,8 +91,8 @@
 
 * 新建另外2个哨兵配置文件
     ```
-    sed "s/26379/26380/g" redis-sentinel-26379.conf > redis-sentinel-26380.conf
-    sed "s/26379/26381/g" redis-sentinel-26379.conf > redis-sentinel-26381.conf
+    sed "s/26379/26380/g" 26379.conf > redis-sentinel-26380.conf
+    sed "s/26379/26381/g" 26379.conf > redis-sentinel-26381.conf
     ```
 
 * 删除2个新的配置文件，以下一行``sentinel myid 32bdc836a3f3b4a45b0e6ee0e7b209648109ec32``
