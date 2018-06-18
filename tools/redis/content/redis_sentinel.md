@@ -17,7 +17,7 @@
 
 ### 配置开启主从节点；
 
-* 创建文件夹``mkdir  /opt/soft/redis/data`` ``mkdir -p /var/log/redis/``
+* 创建文件夹``mkdir -p  /opt/soft/redis/data`` ``mkdir -p /var/log/redis/``
 * 在redis安装包下面找到redis.conf文件，复制出三个文件，作为主从节点的配置文件``6379.conf``,``6380.conf``,``6381.conf``；
 
 * 修改配置文件``6379.conf``
