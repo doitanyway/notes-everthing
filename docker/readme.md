@@ -4,6 +4,7 @@
 * [开始使用](./get_start.md)
 * [containers & images](./containers_images.md)
 * [centos](./centos.md)
+* [容器指定ip](./fixed_ip.md) 
 * [上传镜像到docker hub](./upload_image.md)
 * [Dockerfile](./content/Dockerfile.md)
 * [使用docker file template](./docker_file_template.md)
