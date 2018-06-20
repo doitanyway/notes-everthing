@@ -6,7 +6,8 @@
 
 ## 准备工作
 
-* 新建一个java gradle项目；build.gradle内容如下；      
+* 新建一个java gradle项目；build.gradle内容如下；     
+
 ```
 plugins {
     id 'java'
