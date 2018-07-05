@@ -346,3 +346,4 @@
   * 在``Swagger2Set``类中读取配置：  
     例：  
     ![](assets/2018-07-0504.png)  
+# 本文只是九牛一毛，更多精彩请关注:https://swagger.io/
