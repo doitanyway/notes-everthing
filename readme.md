@@ -13,6 +13,7 @@
   * [eclipse](/tools/eclipse/readme.md)
   * [idea](/tools/idea/readme.md)
   * [redis](/tools/redis/readme.md)
+  * [RabbitMQ](/MQ/RabbitMQ)
 * [Linux](/Linux/readme.md)
 * [docker](/docker/readme.md)
 * [J2ee](/j2ee/readme.md)
