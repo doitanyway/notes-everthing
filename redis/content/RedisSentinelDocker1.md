@@ -1,6 +1,18 @@
 # 前言：这里我们开始使用docker搭建redis的sentinel模式，使用scale扩容
 # 1.新建一个sentinel文件夹，包含以下文件
+![](./assets/2018-07-12-17-57-39.png)
 ## 1.1编写一个Dockerfile,用于生成sentinel镜像
+```
+FROM redis:4
+EXPOSE 16379
+#替换原有的sentinel.conf文件,默认在etc/redis/中
+ADD sentinel.conf /etc/redis/sentinel.conf
+RUN chown redis:redis /etc/redis/sentinel.conf
+ADD sentinel-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/sentinel-entrypoint.sh
+#定义启动容器时自动执行的脚本
+ENTRYPOINT ["sentinel-entrypoint.sh"]
+```
 ## 1.2自定义sentinel.conf
 ```
 port 26379
