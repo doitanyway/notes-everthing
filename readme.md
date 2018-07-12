@@ -12,7 +12,7 @@
   * [tomcat](/tools/tomcat/readme.md)
   * [eclipse](/tools/eclipse/readme.md)
   * [idea](/tools/idea/readme.md)
-  * [redis](/tools/redis/readme.md)
+  * [redis](/redis/readme.md)
   * [RabbitMQ](/MQ/RabbitMQ)
 * [Linux](/Linux/readme.md)
 * [docker](/docker/readme.md)
