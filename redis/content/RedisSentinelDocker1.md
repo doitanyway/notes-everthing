@@ -1,4 +1,5 @@
 # 前言：这里我们开始使用docker搭建redis的sentinel模式，使用scale扩容
+* [参考文章](https://blog.csdn.net/boling_cavalry/article/details/78995407),本文修改部分内容，减少采坑
 # 1.新建一个sentinel文件夹，包含以下文件
 ![](./assets/2018-07-12-17-57-39.png)
 ## 1.1编写一个Dockerfile,用于生成sentinel镜像
