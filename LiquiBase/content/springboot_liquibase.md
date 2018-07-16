@@ -43,3 +43,8 @@ liquibase:
 ```
 # 启动springboot,自动建表
 ![](./assets/2018-07-13-19-59-16.png)
+
+# 方式2，加入插件
+## maven(https://github.com/albanyqq/liquibase)
+## gradle插件，[参考](https://cloud.tencent.com/developer/ask/122838)
+
