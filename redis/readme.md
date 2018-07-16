@@ -6,3 +6,4 @@
 * [redis高可用java连接](./content/redis_sentinel_java.md)
 * [redis哨兵搭建1：基于scale扩展](./content/RedisSentinelDocker1)
 * [redis哨兵搭建2：自定义手工制作](./content/RedisSentinelDocker2)
+* [redis添加开机启动服务](./content/redis_startup.md)
