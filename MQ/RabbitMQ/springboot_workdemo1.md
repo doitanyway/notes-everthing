@@ -30,16 +30,19 @@ import java.util.Date;
 public class Sender {
     @Autowired
     private AmqpTemplate rabbitTemplate;
-
     public void send() {
-        String context = "hello " + new Date();
-        System.out.println("Sender : " + context);
-        this.rabbitTemplate.convertAndSend("hello", context);
+        for (int i=0;i<100;i++){
+            String context = "hello,---------> " + i;
+            System.out.println("Sender : " + context);
+            this.rabbitTemplate.convertAndSend("hello", context);
+        }
+
     }
 }
 
 ```
-#  4.消息消费者
+#  4.消息消费者1和消息消费者2
+消息消费者1
 ```
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -50,7 +53,18 @@ import org.springframework.stereotype.Component;
 public class Receiver1 {
     @RabbitHandler
     public void process(String hello) {
-        System.out.println("Receiver  : " + hello);
+        System.out.println("Receiver1  : " + hello);
+    }
+}
+```
+消息消费者2
+```
+@Component
+@RabbitListener(queues = "hello")
+public class Receiver1 {
+    @RabbitHandler
+    public void process(String hello) {
+        System.out.println("Receiver2  : " + hello);
     }
 }
 ```
@@ -69,3 +83,8 @@ public class RabbitTest {
     }
 }
 ```
+![](./assets/2018-07-16-19-43-21.png)
+![](./assets/2018-07-16-19-43-43.png)
+
+# 普通work模式总结
+* 同一个队列的消息消费者将会均匀得到消息
