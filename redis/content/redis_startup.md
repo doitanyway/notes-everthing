@@ -5,12 +5,12 @@ cd /etc/rc.d/init.d/
 ```
 给脚本赋可执行权限
 ```
-chmod +x autostart.sh
+chmod +x redis
 ```
 将服务脚本加入到系统启动队列
 ```
-chkconfig autostarton  #服务脚本加入到系统启动队列
-chkconfig --list  autostart#检查 oracle服务是否已经生效
+chkconfig redis  #服务脚本加入到系统启动队列
+chkconfig --list  redis#检查 oracle服务是否已经生效
 ```
 
 # redis_6379
