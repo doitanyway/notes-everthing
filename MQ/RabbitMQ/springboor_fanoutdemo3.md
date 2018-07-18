@@ -100,7 +100,7 @@ public class Receiver1 {
 }
 ```
 # 测试结果
-- 所有队列都获得了相同的消息
 ![](./assets/2018-07-17-14-21-30.png)
+- 所有队列都获得了相同的消息
 # fanoutExchange模式特点
 * 就是发布-订阅模式，只要订阅的队列都属于一个fanoutExchange，都会获得相同的消息
