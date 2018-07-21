@@ -26,7 +26,7 @@ CREATE TABLE `sys_menu` (
   * 格式：'--changeset author:id attribute1:value1 attribute2:value2 [...]'
   * 属性：
  ![](assets/2018-07-21-15-11-46.png)
-## 2.在变更集中引入
+### 1.3在变更集中引入
 ```
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
@@ -40,7 +40,7 @@ CREATE TABLE `sys_menu` (
 
 </databaseChangeLog>
 ```
-## 执行变更，更新数据库
+### 1.4执行变更，更新数据库
 ```mvn liquibase:update
 ```
 ![](assets/2018-07-21-15-19-35.png)
