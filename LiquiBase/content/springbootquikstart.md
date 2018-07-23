@@ -1,5 +1,5 @@
 # 1导入插件
-## 1.1maven-lugin
+## 1.1maven-plugin
 ```
 <!--lquibase-->
             <plugin>
@@ -28,7 +28,7 @@
 				</executions>
 			</plugin>
 ```
-## 1.2gradle plusin
+## 1.2gradle-plugin
 ### 1.2.1gradle插件集成
 * [参考文章](https://github.com/liquibase/liquibase-gradle-plugin)
 * 注意plugins{}块需要放到build.gradle文件的最顶端
@@ -106,6 +106,7 @@ liquibase {
 </databaseChangeLog>
 ```
 # 4.数据库版本管理
+* 在这里介绍maven工程下的命令，在gradle工程下请参考[这里](https://github.com/stevesaliman/liquibase-workshop)
 ### 4.1更新
 ```
 mvn liquibase:update
