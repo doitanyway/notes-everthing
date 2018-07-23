@@ -29,8 +29,13 @@
 			</plugin>
 ```
 ## 1.2gradle plusin
+* 注意plugins{}块需要放到build.gradle文件的最顶端
 ```
+plugins{
+	id 'org.liquibase.gradle' version '2.0.0'
+}
 ```
+![](./assets/2018-07-23-14-34-39.png)
 # 2.建立changelog-master.xml文件，他是一个变更集，管理所有变更文件
 ```
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
