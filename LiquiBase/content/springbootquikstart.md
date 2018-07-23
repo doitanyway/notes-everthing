@@ -34,6 +34,7 @@
 plugins{
 	id 'org.liquibase.gradle' version '2.0.0'
 }
+apply plugin: 'org.liquibase.gradle'
 ```
 ![](./assets/2018-07-23-14-34-39.png)
 # 2.建立changelog-master.xml文件，他是一个变更集，管理所有变更文件
