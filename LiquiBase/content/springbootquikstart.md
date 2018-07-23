@@ -29,6 +29,8 @@
 			</plugin>
 ```
 ## 1.2gradle plusin
+### 1.2.1gradle插件集成
+* [参考文章](https://github.com/liquibase/liquibase-gradle-plugin)
 * 注意plugins{}块需要放到build.gradle文件的最顶端
 ```
 plugins{
@@ -37,6 +39,28 @@ plugins{
 apply plugin: 'org.liquibase.gradle'
 ```
 ![](./assets/2018-07-23-14-34-39.png)
+###1.2.2配置plugin的activities，在里面指定变更集的位置和数据库连接信息
+```
+liquibase {
+    activities {
+        main {
+            changeLogFile "src/main/resources/web-bundle-config/liquibase/main-changelog.xml"
+            url "jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=utf-8"
+            username "root"
+            password "yourpass"
+        }
+        test {
+            main {
+                changeLogFile "src/main/resources/web-bundle-config/liquibase/main-test-changelog.xml"
+                url "jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=utf-8"
+                username "root"
+                password "yourpass"
+            }
+        }
+        runList = project.ext.runList
+    }
+}
+```
 # 2.建立changelog-master.xml文件，他是一个变更集，管理所有变更文件
 ```
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
