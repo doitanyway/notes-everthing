@@ -15,7 +15,7 @@ abbitmq:
       username: admin
       password: 888888
       publisher-confirms: true
-      virtual-host: /
+      virtual-host: /s
 ```
 # 2.Rabbitmq配置类，根据自己的工程灵活配置,在这里配置队列名
 ![](./assets/2018-07-16-19-23-01.png)
