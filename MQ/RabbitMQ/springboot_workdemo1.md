@@ -1,5 +1,6 @@
 # 1.这个是一个普通的工作模式demo
 * [参考文章](http://www.rabbitmq.com/api-guide.html)
+* [参考项目](https://github.com/wulinfeng2/spring-boot-rabbitmq)
 ## 1.1导包，后面的demo就不写了
 ```
 <dependency>
