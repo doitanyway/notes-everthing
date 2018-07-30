@@ -77,6 +77,10 @@
 
 ## https 
 
+### 原理
+
+[一篇介绍文章](https://www.cnblogs.com/zhangshitong/p/6478721.html)
+
 ### 解决问题
 
 * 防监听，数据是加密的，所以监听得到的数据是密文，hacker看不懂。
