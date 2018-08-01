@@ -87,6 +87,6 @@ line 3
 
 * 替换匹配行,替换以APPMCHID开始的行为``APPMCHID=1222222222``
 
-···
+```
 sed 's/^APPMCHID.*$/APPMCHID=1222222222/g' filename
-···
+```
