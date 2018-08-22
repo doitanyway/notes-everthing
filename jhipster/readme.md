@@ -1,5 +1,5 @@
 # jhipster
-
+* [参考](https://blog.csdn.net/u010209217/article/details/79544357#%E5%AE%89%E8%A3%85jhipster)
 jhipster 并不是一个框架，而是一个代码的最佳体验。
 
 ## 客户端使用技术

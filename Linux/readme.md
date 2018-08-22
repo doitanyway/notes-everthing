@@ -21,5 +21,6 @@
 * [PPTP](content/pptp.md)
 * [shell脚本编写](content/shell.md)
 * [linux防火墙](content/iptables.md)
+* [安装node](content/install-node.md)
   
 [返回首页](/readme.md)

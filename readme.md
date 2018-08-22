@@ -17,6 +17,7 @@
 * [Linux](/Linux/readme.md)
 * [LiQuibase](/LiquiBase/readme.md)
 * [docker](/docker/readme.md)
+* [kubernetes](/kubernetes/readme.md)
 * [J2ee](/j2ee/readme.md)
 * [jhipster](/jhipster/readme.md)
 * [js](/js/readme.md)
