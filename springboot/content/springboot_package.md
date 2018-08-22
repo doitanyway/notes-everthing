@@ -30,3 +30,42 @@
 ![](./assets/2018-08-20-17-01-11.png)
 ### 2.配置文件如何从外部获取
 ## war包部署
+* 第一步，jar包改成war包
+```
+<packaging>war</packaging>
+```
+* 第二步，引入tomcat依赖
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-tomcat</artifactId>
+    <scope>provided</scope>
+</dependency>
+```
+* 第三步，排除内置的tomcat
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+```
+* 第四步，启动类修改,继承SpringBootServletInitializer
+```
+public class Application extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(Application.class);
+    }
+    
+    public static void main(String[] args) {
+        new SpringApplicationBuilder(Application.class).web(true).run(args);
+    }
+}
+```
