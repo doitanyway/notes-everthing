@@ -36,12 +36,20 @@ calibre：PDF格式电子书转换需要；
 * [官网](https://git-scm.com/downloads)下载git安装。如果是在windows下安装，请选择安装LINUX命令，这将对你以后的研发很有帮助。  
 ![](assets/markdown-img-paste-20170813103947623.png)
 
-* 设置用户名、邮箱
+* 全局设置用户名、邮箱
 	```
 	git config --global user.email "xxx@szfangle.com"
 	git config --global user.name "xxx"
 	git config --global user.password "xxx"
 	```
+* 单独设置单个项目的用户名、邮箱
+
+````
+git config user.name "qiujiahong"
+git config user.email "qiujiahongde@163.com"
+git config user.password "xxx"
+````
+
 * 设置关闭自动转换行符,git 开启了自动转换字符的操作，导致脚本文件到服务器无法运行，关闭该配置如下图；
 
 ```
