@@ -2,14 +2,12 @@
 
 ## 前言
 
-通过本文，读者可以知道怎么让TOMCAT使用，指定版本的JDK运行程序。本文的运行环境是CENTOS 6。
+通过本文，读者可以知道怎么让TOMCAT使用，指定版本的JDK运行程序。本文的运行环境是CENTOS 6或者CENTOS 7。
 
 ## 下载JDK
 
 ```
 wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz"
-
-
 ```
 
 ## 安装文件
