@@ -7,15 +7,19 @@
 ## 下载JDK
 
 ```
-[linux]# wget http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-x64.rpm
+wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz"
+
+
 ```
 
 ## 安装文件
 
-执行下面命令安装，安装好之后jdk默认在目录``/usr/java/jdk1.8.0_151``
+执行下面命令安装，安装好之后jdk默认在目录``/usr/java/jdk1.8.0_181``
 
 ```
-[linux]# rpm -ivh jdk-8u151-linux-x64.rpm
+tar xzvf jdk-8u181-linux-x64.tar.gz 
+mkdir /usr/java/
+mv jdk1.8.0_181/ /usr/java/
 ```
 
 ## 配置jdk
@@ -24,7 +28,7 @@
 [linux]# cd {tomcat dir}
 [linux]# vim bin/catalina.sh
 ```
-在文件的开始位置，添加``export JAVA_HOME="/usr/java/jdk1.8.0_151/"``,版本号和路径以实际为准。
+在文件的开始位置，添加``export JAVA_HOME="/usr/java/jdk1.8.0_181/"``,版本号和路径以实际为准。
 
 ## 启动验证
 
