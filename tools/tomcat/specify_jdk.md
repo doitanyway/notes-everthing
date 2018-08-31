@@ -20,7 +20,7 @@ mkdir /usr/java/
 mv jdk1.8.0_181/ /usr/java/
 ```
 
-## 配置jdk
+## 配置tomcat的jdk路径
 
 ```
 [linux]# cd {tomcat dir}
