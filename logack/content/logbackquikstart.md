@@ -83,7 +83,7 @@
             <charset>UTF-8</charset>
         </encoder>
     </appender>
-
+    <--! 如果想要阻断层级间的继承可以为logger设置additivity="false"属性,不会向上继承-->
     <logger name="heartbeat_report" additivity="true">
         <appender-ref ref="HEART_FILE"/>
     </logger>
