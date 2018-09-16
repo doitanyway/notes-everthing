@@ -13,6 +13,10 @@
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 26379 -j ACCEPT
 ```
 
+```
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 80 -j ACCEPT
+```
 * 执行命令``service iptables restart``,重启iptables生效新的规则；
 
 ### 向某些IP打开某些端口的访问权限
