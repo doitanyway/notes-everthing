@@ -154,3 +154,37 @@ SELECT * FROM A UNION SELECT * from B;
 
 > Union是把2个Select结果集进行合并，由查询结果也不难看出，A、B两表的结果数据进行了合并，并且都被查询出来了。 如果2个Select结果集中存在相同的结果，用Union则会把相同的记录进行合并，查询结果中仅仅会显示一条。那么如果想都显示出来，把Union换成Union All 即可。
 
+```sql
+
+drop table  if EXISTS recharge_records;
+CREATE TABLE recharge_records(
+	id int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+	time TIMESTAMP  DEFAULT CURRENT_TIMESTAMP COMMENT '充值时间',
+	fee int(11) DEFAULT 0 COMMENT '费用',
+	PRIMARY KEY (id)
+);
+
+INSERT INTO recharge_records (time,fee) VALUES ("2018-09-08 08:00:00",10);
+INSERT INTO recharge_records (time,fee) VALUES ("2018-09-08 10:00:00",20);
+
+drop table  if EXISTS consume_records;
+CREATE TABLE consume_records(
+	id int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+	time TIMESTAMP  DEFAULT CURRENT_TIMESTAMP COMMENT '充值时间',
+	fee int(11) DEFAULT 0 COMMENT '费用',
+	PRIMARY KEY (id)
+);
+
+INSERT INTO consume_records (time,fee) VALUES ("2018-09-08 09:00:00",30);
+INSERT INTO consume_records (time,fee) VALUES ("2018-09-08 12:00:00",40);
+
+
+-- 联合查询
+SELECT "消费记录"  type,time,fee FROM recharge_records UNION SELECT "充值记录"  type ,time,fee FROM consume_records;
+
+-- 联合查询并且排序
+SELECT a.type,a.time,a.fee FROM (
+SELECT "消费记录" type,time,fee FROM recharge_records UNION 
+SELECT "充值记录" type,time,fee FROM consume_records) AS a ORDER BY time;
+```
+
