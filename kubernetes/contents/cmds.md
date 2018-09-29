@@ -10,8 +10,11 @@
 * ``minikube start``
   启动minikube
 
-
 ### kubectl 
+
+
+* ``kubectl --help`` 
+查看相关帮助
 
 * ``kubectl version``
   获取kubectl的版本号
@@ -30,6 +33,10 @@ $ kubectl get nodes
 NAME       STATUS    ROLES     AGE       VERSION
 minikube   Ready     <none>    37s       v1.10.0
 ```
+
+* `` kubectl api-versions ``
+
+查看api的版本
 
 ## 使用kubectl创建deployment
 
@@ -82,3 +89,8 @@ kubectl logs $POD_NAME     # 查看对应pod日志
 * kubectl exec - execute a command on a container in a pod
 
 
+
+## 命令管理应用统计
+
+
+![](./assets/2018-09-30-07-41-01.png)
