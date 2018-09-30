@@ -20,3 +20,4 @@
 * [python](/python/readme.md)
 * [微信网页授权](/knowledgeCollection/wxGetCode.md)
 * [kubenetes](/kubernetes/readme.md)
+* [ansible](/ansible/readme.md)
