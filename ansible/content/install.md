@@ -43,10 +43,11 @@ ssh-copy-id root@$IP
 * 测试是否联通
 
 ```
-fangleMac:~ fangle$ ansible all -m ping --ask-pass
+fangleMac:~ fangle$ ansible all -m ping 
 SSH password: 
 192.168.1.196 | SUCCESS => {
     "changed": false, 
     "ping": "pong"
 }
 ```
+
