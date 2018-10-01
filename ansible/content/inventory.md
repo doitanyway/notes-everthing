@@ -5,7 +5,7 @@
 ansible inventory（清单、目录），配置主机关系，主要是针对``/etc/ansible/hosts`` 文件的配置。
 
 
-### 文件格式
+### 基本格式
 
 ```
 192.168.1.1
@@ -36,3 +36,26 @@ web1 | SUCCESS => {
 }
 ```
 
+
+
+### 变量
+
+* 可以给主机分配变量，生成的变量可以在playbook中使用。
+
+```
+[atlanta]
+host1 http_port=80 maxRequestsPerChild=808
+host2 http_port=303 maxRequestsPerChild=909
+```
+
+* 也可以定义一个组的变量，在足内都可以使用
+
+```
+[atlanta]
+host1
+host2
+
+[atlanta:vars]
+ntp_server=ntp.atlanta.example.com
+proxy=proxy.atlanta.example.com
+```
