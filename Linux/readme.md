@@ -23,5 +23,6 @@
 * [shell脚本编写](content/shell.md)
 * [linux防火墙](content/iptables.md)
 * [安装node](content/install-node.md)
+* [vim自动显示行号](content/vim_line.md)
   
 [返回首页](/readme.md)
