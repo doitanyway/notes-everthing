@@ -29,6 +29,7 @@ ssh-keygen -t rsa -b 2048 回车 回车 回车
 ssh-copy-id root@$IP 
 ```
 > #$IP为需要控制机器的ip地址，按照提示输入yes 和root密码
+> 更多ssh key设置见[github文章](https://www.jianshu.com/p/d5a6d15a1f84)
 
 ### 验证
 
