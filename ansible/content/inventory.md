@@ -26,6 +26,13 @@ web1
 
 * 可以如上先定义主机取别名，再分组，也可以直接分组；
 
+* 验证配置
 
-
+```
+fangleMac:ansible fangle$ ansible webs -m ping 
+web1 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+```
 
