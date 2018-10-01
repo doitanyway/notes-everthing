@@ -47,3 +47,21 @@ changed: [web1]
 PLAY RECAP ****************************************************************************************************************************
 web1                       : ok=2    changed=1    unreachable=0    failed=0  
 ```
+
+
+
+### 变量
+
+```
+---
+- hosts: webs
+  remote_user: root
+  vars:
+      path: /root
+  tasks: 
+  - name: Hello world 
+    shell: ls {{path}}
+```
+
+> 如上图所示，程序声明了一个变量path,声明在vars对象下，使用直接用2个花括号包含即可；
+> 需要注意的是如果这里变量直接声明为``/root``,那么shell后面的语句需要整个用引号包含起来，不然会报错；``shell: "{{path}}"``
