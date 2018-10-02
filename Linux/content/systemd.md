@@ -16,7 +16,7 @@ cmd=$1
 
 function stop(){
   echo 'stop cmd'
-  ps -ef | grep ping | grep -v grep | awk '{print $2}'|xargs kill -9
+  ps -ef | grep ping | grep -v grep | awk '{print $2}'|xargs --no-run-if-empty kill -9
   return ;
 }
 
