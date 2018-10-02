@@ -19,6 +19,10 @@ iptables -A OUTPUT -p tcp --sport 80 -j ACCEPT
 ```
 * 执行命令``service iptables restart``,重启iptables生效新的规则；
 
+> 除了以上方法，还可以使用如下命令
+> /sbin/iptables -I INPUT -p tcp -dport 6379 -j ACCEPT
+> /etc/rc.d/init.d/iptables save
+
 ### 向某些IP打开某些端口的访问权限
 
 ```
