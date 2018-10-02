@@ -77,7 +77,9 @@ systemctl start pin.service
 ```
 
 
-### 补充说明 依赖关系
+### 补充说明 
+
+#### 依赖关系
 
 [Unit]段可以加配置设置一些依赖关系
 
@@ -88,5 +90,10 @@ systemctl start pin.service
   * Wants=sshd-keygen.service  ， 弱依赖关系，如果"sshd-keygen.service"启动失败或停止运行，不影响sshd.service继续执行。
   * Requires=sshd-keygen.service，强依赖关系，如果该服务启动失败或异常退出，那么sshd.service也必须退出。
 
+#### stop函数
 
-  
+stop 函数关键代码如下，需要注意该kill只能不能把脚本运行程序也给杀死了，本例专门给脚本名命名为pin_test.sh,少了个g也是这个原因。
+
+```bash
+ps -ef | grep ping | grep -v grep | awk '{print $2}'|xargs kill -9
+```
