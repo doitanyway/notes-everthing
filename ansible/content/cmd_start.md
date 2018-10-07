@@ -1,4 +1,4 @@
-##  ansible命令入门
+##  ansible命令入门
 
 * /etc/ansible/hosts
 
