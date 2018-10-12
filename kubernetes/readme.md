@@ -8,3 +8,4 @@
 * [service的管理](contents/service_man.md)
 * [service的服务发现](contents/service_discovery.md)
 * [服务发布NodePort](contents/NodePort.md)
+* [volume](contents/volume.md)
