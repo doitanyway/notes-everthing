@@ -76,6 +76,22 @@ cnpm install gitbook-cli -g --save
 ```
 * 安装calibre,mac版本安装完毕需要执行``ln -s /Applications/calibre.app/Contents/MacOS/ebook-convert /usr/local/bin``
 到[官网](https://calibre-ebook.com/download_windows)下载安装；
+* gitbook init 后执行gitbook serve/html/pdf等命令如果出现如下错误
+```
+Error: ENOENT: no such file or directory, stat 'C:\Users\Gentel\AppData\Local\Temp\tmp-19940wjcOPLdpzM59\gitbook\ebook.css'
+```
+可尝试修改C:\Users\XXX\.gitbook\versions\3.2.3\lib\output\website下的copyPluginAssets.js文件,将112行注释掉。
+```
+    return fs.copyDir(
+        assetsFolder,
+        assetOutputFolder,
+        {
+            deleteFirst: false,
+            overwrite: true,
+            //confirm: true
+        }
+    );
+```
 
 
 ## 常用命令
