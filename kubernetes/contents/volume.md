@@ -87,7 +87,7 @@ root@nginx-pod:/# ls /test-pd/
 
 ### nfs
 
-* 挂载nfs之前需要先安装nfs服务器
+* 挂载nfs之前需要先安装nfs服务器,nfs服务器的安装，请参考[该文章](https://www.jianshu.com/p/c4baebb724b6)
 
 * 运行创建如下nginx deployment ``kubectl apply -f nginx-deployment.yaml ``
 
