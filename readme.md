@@ -30,7 +30,5 @@
 * [react](/react/readme.md)
 
 
-## 目录必须只有两层，全部展示出来；不然淹没在路径中，两三分钟内找不到，就失去了笔记价值，还不如去搜索与本地保存
-
 更多markdown.md语法，请参考“https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/”
 
