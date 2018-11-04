@@ -3,7 +3,7 @@
 
 ### 准备工作
 
-* 准备一个glusterfs集群,集群信息如下:
+* [安装一个glusterfs集群](https://www.jianshu.com/p/a06bad72b2b2),集群信息如下:
 
 ```bash
 [root@node1 ~]# gluster info 
