@@ -14,6 +14,7 @@
   * [idea](/tools/idea/readme.md)
   * [redis](/redis/readme.md)
   * [RabbitMQ](/MQ/RabbitMQ)
+  * [emq](/tools/emq/readme.md)
 * [Linux](/Linux/readme.md)
 * [LiQuibase](/LiquiBase/readme.md)
 * [docker](/docker/readme.md)

@@ -63,3 +63,11 @@ firewall-cmd --reload
 ![](./assets/2018-11-04-07-58-21.png)
 
 
+
+
+### 系统调优
+
+这里以centos 7 为例,参考官网  http://www.emqtt.com/docs/v3/tune.html#linux。
+
+
+
