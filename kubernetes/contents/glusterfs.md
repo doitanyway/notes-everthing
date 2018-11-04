@@ -162,3 +162,7 @@ spec:
 ```
 
 > 如果要修改volumes，需要先删除，再重建；
+
+### 测试
+
+可以使用``kubectl exec -it glusterfs bash``命令进入容器，在目录下/mnt/glusterfs新建，编辑文件，会自动同步到gluster集群的所有主机上；
