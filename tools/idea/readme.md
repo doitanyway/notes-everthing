@@ -26,3 +26,4 @@
 
     <img src="show6.gif"  height="300" width="495">
 
+## [IDEA打开多个项目](ideaOpenpro.md)
