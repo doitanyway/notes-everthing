@@ -33,53 +33,22 @@ yum -y install glusterfs glusterfs-fuse
 
 ### 配置文件
 
-* 创建endpoints, ``kubectl apply -f  glusterfs-endpoints.json``    
-```json 
-{
-  "kind": "Endpoints",
-  "apiVersion": "v1",
-  "metadata": {
-    "name": "glusterfs-cluster"
-  },
-  "subsets": [
-    {
-      "addresses": [
-        {
-          "ip": "192.168.3.101"
-        }
-      ],
-      "ports": [
-        {
-          "port": 1
-        }
-      ]
-    },
-    {
-      "addresses": [
-        {
-          "ip": "192.168.3.102"
-        }
-      ],
-      "ports": [
-        {
-          "port": 1
-        }
-      ]
-    },
-    {
-      "addresses": [
-        {
-          "ip": "192.168.3.103"
-        }
-      ],
-      "ports": [
-        {
-          "port": 1
-        }
-      ]
-    }
-  ]
-}
+* 创建endpoints, ``kubectl apply -f  glusterfs-endpoints.yaml``      
+
+```yaml
+apiVersion: v1
+kind: Endpoints
+metadata: 
+  name: glusterfs-cluster
+subsets:
+- addresses:
+  - {ip: 192.168.1.237}
+  ports:
+  - {port: 1}
+- addresses:
+  - {ip: 192.168.1.204}
+  ports:
+  - {port: 1}
 ```
 
 * 创建服务  `` kubectl apply -f glusterfs-service.yaml ``
