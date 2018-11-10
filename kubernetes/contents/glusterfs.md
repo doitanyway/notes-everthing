@@ -102,45 +102,8 @@ yum -y install glusterfs glusterfs-fuse
 }
 ```
 
-* 创建pod ``kubectl apply -f glusterfs-pod.json ``
+* 创建pod ``kubectl apply  -f glusterfs-pod.yaml``:      
 
-```json 
-{
-    "apiVersion": "v1",
-    "kind": "Pod",
-    "metadata": {
-        "name": "glusterfs"
-    },
-    "spec": {
-        "containers": [
-            {
-                "name": "glusterfs",
-                "image": "nginx",
-                "volumeMounts": [
-                    {
-                        "mountPath": "/mnt/glusterfs",
-                        "name": "glusterfsvol"
-                    }
-                ]
-            }
-        ],
-        "volumes": [
-            {
-                "name": "glusterfsvol",
-                "glusterfs": {
-                    "endpoints": "glusterfs-cluster",
-                    "path": "models",
-                    "readOnly": true
-                }
-            }
-        ]
-    }
-}
-```
-
-> 上面spec.volumes[x].glusterfs.path值等于``gluster volume create``创建的卷名，如果不记得卷名，可以使用``gluster volume info``命令获取
-
-> 如果要使用yaml格式，请用如下文件,``kubectl apply  -f glusterfs-pod.yaml``:   
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -160,6 +123,9 @@ spec:
       path: vo1
       # readOnly: true
 ```
+
+
+> 上面spec.volumes[x].glusterfs.path值等于``gluster volume create``创建的卷名，如果不记得卷名，可以使用``gluster volume info``命令获取
 
 > 如果要修改volumes，需要先删除，再重建；
 
