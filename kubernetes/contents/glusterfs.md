@@ -31,7 +31,7 @@ performance.client-io-threads: off
 * node节点安装客户端软件
 
 ```
-yum -y install openssh-server wget fuse fuse-libs openib libibverbs
+yum -y install glusterfs glusterfs-fuse
 ```
 
 ### 配置文件
@@ -140,7 +140,7 @@ yum -y install openssh-server wget fuse fuse-libs openib libibverbs
 
 > 上面spec.volumes[x].glusterfs.path值等于``gluster volume create``创建的卷名，如果不记得卷名，可以使用``gluster volume info``命令获取
 
-> 如果要使用yaml格式，请用如下文件:   
+> 如果要使用yaml格式，请用如下文件,``kubectl apply  -f glusterfs-pod.yaml``:   
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -157,9 +157,8 @@ spec:
   - name: glusterfsvol
     glusterfs:
       endpoints: glusterfs-cluster
-      path: models
+      path: vo1
       # readOnly: true
-    
 ```
 
 > 如果要修改volumes，需要先删除，再重建；
