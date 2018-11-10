@@ -6,21 +6,18 @@
 * [安装一个glusterfs集群](https://www.jianshu.com/p/a06bad72b2b2),集群信息如下:
 
 ```bash
-[root@node1 ~]# gluster info 
-unrecognized word: info (position 0)
-[root@node1 ~]# gluster volume info 
+[root@gfs1 peers]# gluster volume  info 
  
-Volume Name: models
+Volume Name: vo1
 Type: Replicate
-Volume ID: e00e5fa8-fae8-485b-9230-bea79124d4ad
+Volume ID: 467e59ab-9131-4609-93ff-e10ec70ec7fe
 Status: Started
 Snapshot Count: 0
-Number of Bricks: 1 x 3 = 3
+Number of Bricks: 1 x 2 = 2
 Transport-type: tcp
 Bricks:
-Brick1: 192.168.3.101:/opt/gluster/data
-Brick2: 192.168.3.102:/opt/gluster/data
-Brick3: 192.168.3.103:/opt/gluster/data
+Brick1: 192.168.1.237:/opt/gluster/data
+Brick2: 192.168.1.204:/opt/gluster/data
 Options Reconfigured:
 transport.address-family: inet
 nfs.disable: on
