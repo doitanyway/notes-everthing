@@ -154,11 +154,12 @@ spec:
     - mountPath: /mnt/glusterfs
       name: glusterfsvol
   volumes:
-  - glusterfs:
+  - name: glusterfsvol
+    glusterfs:
       endpoints: glusterfs-cluster
       path: models
       # readOnly: true
-    name: glusterfsvol
+    
 ```
 
 > 如果要修改volumes，需要先删除，再重建；
