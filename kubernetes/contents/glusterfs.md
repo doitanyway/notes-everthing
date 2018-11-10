@@ -82,21 +82,16 @@ yum -y install glusterfs glusterfs-fuse
 }
 ```
 
-* 创建服务  `` kubectl apply -f glusterfs-service.json ``
+* 创建服务  `` kubectl apply -f glusterfs-service.yaml ``
 
-```json
-{
-  "kind": "Service",
-  "apiVersion": "v1",
-  "metadata": {
-    "name": "glusterfs-cluster"
-  },
-  "spec": {
-    "ports": [
-      {"port": 1}
-    ]
-  }
-}
+```yaml
+apiVersion: v1
+kind: Service
+metadata: 
+  name: glusterfs-cluster
+spec:
+  ports:
+  - {port: 1}
 ```
 
 * 创建pod ``kubectl apply  -f glusterfs-pod.yaml``:      
