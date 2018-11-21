@@ -2,7 +2,7 @@
 
 * [安装](install.md)
 * [手动备份系统](backup.md)
-* [备份数据]
+* [备份数据](backupData.md)
 * [还原系统](recover.md)
 * [克隆系统](clone.md)
 * [比较数据库结构](compare_dbs.md)

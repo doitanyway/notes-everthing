@@ -1,6 +1,4 @@
-作者：LoveEmperor
-
-###  MySQLdump笔记
+#  MySQLdump笔记
 
 * 备份本地数据
     * cmd进入到MySQL的bin目录下，执行命令：
