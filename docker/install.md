@@ -50,7 +50,17 @@ chmod +x /usr/local/bin/docker-compose
 }
 ```
 
-* 设置私有仓库   
+* 重启docker 
+
+```
+systemctl daemon-reload 
+systemctl restart docker
+```
+
+
+## 设置私有仓库方法(可选)  
+
+* ``vim /etc/docker/daemon.json ``
 
 ```json 
 
@@ -62,7 +72,6 @@ chmod +x /usr/local/bin/docker-compose
     "20.250.204.146:6110"
   ]
 }
-
 ```
 
 * 重启docker 
@@ -71,3 +80,6 @@ chmod +x /usr/local/bin/docker-compose
 systemctl daemon-reload 
 systemctl restart docker
 ```
+
+* ``docker login 20.250.204.146:6110``
+
