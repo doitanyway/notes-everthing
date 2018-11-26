@@ -50,6 +50,21 @@ chmod +x /usr/local/bin/docker-compose
 }
 ```
 
+* 设置私有仓库   
+
+```json 
+
+{
+  "registry-mirrors" : [
+    "https://registry.docker-cn.com"
+  ],
+  "insecure-registries" : [
+    "20.250.204.146:6110"
+  ]
+}
+
+```
+
 * 重启docker 
 
 ```
