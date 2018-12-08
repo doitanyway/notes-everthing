@@ -30,7 +30,6 @@ root@redis-pod:/data# mount | grep cache
 /dev/mapper/centos-root on /cache type xfs (rw,relatime,attr2,inode64,noquota)
 ```
 
-<<<<<<< HEAD
 
 ### hostPath
 
@@ -215,5 +214,3 @@ nginx-service       172.20.0.15:80,172.20.0.16:80,172.20.0.17:80   46m
 
 ```
 ```
-=======
->>>>>>> 4a524cdb2162e1c875a64d25523673466f944341
