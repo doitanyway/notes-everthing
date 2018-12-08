@@ -13,6 +13,7 @@
 * [volume 3.nfs](contents/nfs.md)
 * [volume 4.glusterfs](contents/glusterfs.md)
 * [PersistentVolume && PersistentVolumeClaim](contents/PersistentVolumeClaim.md)
+* [affinity/亲和性](contents/affinity.md)
 
 * 应用举例
   * [部署guestbook](contents/deploy_guestbook.md)
