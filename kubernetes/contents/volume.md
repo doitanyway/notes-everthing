@@ -150,3 +150,79 @@ nginx-service   ClusterIP   10.68.19.152   <none>        80/TCP    4m2s
 ```
 
 * 可以登陆nfs服务器，修改文件，重新curl 访问该服务；
+
+
+## glusterfs
+
+https://github.com/kubernetes/kubernetes/tree/8fd414537b5143ab039cb910590237cabf4af783/examples/volumes/glusterfs
+
+### glusterfs部署
+
+* 2个节点分别是192.168.3.92,192.168.3.92
+* 2个存储卷
+  * /opt/gluster/data  对应 models 
+  * /opt/gluster/data1  对应 models1 
+
+
+### 操作步骤
+
+* 创建glusterfs endpoints  ``kubectl create -f glusterfs-endpoints.json``
+
+```
+{
+  "kind": "Endpoints",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "glusterfs-cluster"
+  },
+  "subsets": [
+    {
+      "addresses": [
+        {
+          "ip": "192.168.3.92"
+        }
+      ],
+      "ports": [
+        {
+          "port": 1
+        }
+      ]
+    },
+    {
+      "addresses": [
+        {
+          "ip": "192.168.3.93"
+        }
+      ],
+      "ports": [
+        {
+          "port": 1
+        }
+      ]
+    }
+  ]
+}
+```
+  
+
+* 创建gluster fs service ``kubectl create -f glusterfs-service.json``
+
+* 查看service 和endpoints
+
+```bash
+[root@localhost ~]# kubectl get svc 
+NAME                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+glusterfs-cluster   ClusterIP   10.68.183.98   <none>        1/TCP     118s
+kubernetes          ClusterIP   10.68.0.1      <none>        443/TCP   5h2m
+nginx-service       ClusterIP   10.68.19.152   <none>        80/TCP    46m
+[root@localhost ~]# kubectl get endpoints 
+NAME                ENDPOINTS                                      AGE
+glusterfs-cluster   192.168.3.92:1                                 3m45s
+kubernetes          192.168.3.91:6443                              5h2m
+nginx-service       172.20.0.15:80,172.20.0.16:80,172.20.0.17:80   46m
+```
+
+* 创建应用
+
+```
+```
