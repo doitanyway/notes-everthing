@@ -3,7 +3,7 @@
 ## 在mac 上安装docker
 参考：https://docs.docker.com/docker-for-mac/install/
 
-* 下载docker安装文件：[稳定版](https://download.docker.com/mac/stable/Docker.dmg),[最新版](https://download.docker.com/mac/edge/Docker.dmg)
+* 下载docker安装文件：[稳定版](https://download.docker.com/mac/stable/Docker.dmg), [最新版](https://download.docker.com/mac/edge/Docker.dmg)
 * 安装运行docker  
 ![](./assets/2018-02-17-08-57-08.png)
 * 申请自己的docker id，登陆；
@@ -56,3 +56,30 @@ chmod +x /usr/local/bin/docker-compose
 systemctl daemon-reload 
 systemctl restart docker
 ```
+
+
+## 设置私有仓库方法(可选)  
+
+* ``vim /etc/docker/daemon.json ``
+
+```json 
+
+{
+  "registry-mirrors" : [
+    "https://registry.docker-cn.com"
+  ],
+  "insecure-registries" : [
+    "20.250.204.146:6110"
+  ]
+}
+```
+
+* 重启docker 
+
+```
+systemctl daemon-reload 
+systemctl restart docker
+```
+
+* ``docker login 20.250.204.146:6110``
+

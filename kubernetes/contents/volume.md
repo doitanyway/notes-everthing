@@ -1,17 +1,5 @@
-## volume
-
-### volume类型
-
-* emptyDir , 临时目录，和pod相同生命周期。如pod之间的数据共享
-
-* hostPath, 主机目录挂到集群中
-
-* nfs 
-
-* glusterfs
-
-### emptyDir
-
+## volume emptyDir
+ 
 * 资源定义文件``emptyDir.yaml``
 
 ```yaml
@@ -42,6 +30,7 @@ root@redis-pod:/data# mount | grep cache
 /dev/mapper/centos-root on /cache type xfs (rw,relatime,attr2,inode64,noquota)
 ```
 
+<<<<<<< HEAD
 
 ### hostPath
 
@@ -226,3 +215,5 @@ nginx-service       172.20.0.15:80,172.20.0.16:80,172.20.0.17:80   46m
 
 ```
 ```
+=======
+>>>>>>> 4a524cdb2162e1c875a64d25523673466f944341
