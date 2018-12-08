@@ -12,8 +12,8 @@
 
 * 为项目创建文件夹  
 ```
-$ mkdir composetest
-$ cd composetest
+mkdir composetest
+cd composetest
 ```
 
 * 创建python 文件，``vim app.py``

@@ -30,24 +30,9 @@ fangledeMacBook-Pro:~ fangle$
     ![](./assets/2018-02-17-09-26-56.png)
 
 * 停止并删除容器和镜像
-    至此nginx webserver 将会持续在你的电脑上运行，直到你停止以及/或者删除该容器；如果需要停止webserver，可以键入命令``docker container stop webserver``
+    至此nginx webserver 将会持续在你的电脑上运行，直到你停止以及/或者删除该容器；如果需要停止webserver，可以键入命令``docker stop webserver``
     ![](./assets/2018-02-17-09-33-50.png)  
     停止了的容器将不会在``docker ps``命令中显示，我们可以使用``docker ps -a``命令查看。  
-    如果需要删除容器，执行命令``docker container rm -f webserver``,这条命了将会删除容器，但是不会删除镜像，于是我们下次使用的时候将不会在docker hub上获取，而直接使用本地的镜像。要删除该镜像执行命令``docker image rm nginx``
+    如果需要删除容器，执行命令``docker rm -f webserver``,这条命了将会删除容器，但是不会删除镜像，于是我们下次使用的时候将不会在docker hub上获取，而直接使用本地的镜像。要删除该镜像执行命令``docker image rm nginx``
 
-
-## kitematic 
-
-kitematic 是一个docker容器的gui管理器；
-
-* 安装
-    * 点击kitematic，弹出窗口安装kitematic
-    ![](./assets/2018-02-17-15-28-53.png)
-    ![](./assets/2018-02-17-15-30-02.png)
-* 截图
-    ![](./assets/2018-02-17-15-36-14.png)
-
-## 更多常用的docker命令 
-
-https://springframework.guru/docker-cheat-sheet-for-spring-devlopers/
 
