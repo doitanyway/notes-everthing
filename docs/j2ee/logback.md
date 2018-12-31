@@ -240,4 +240,11 @@ public class Test {
 
 * logback支持自动压缩文件，只需要 在fileNamePattern值的末尾加上.gz即可，如： ${log_dir}/tomcat.%d{yyyy-MM-dd}.log.gz
 * 输出日志格式详见[官方相关文档](https://logback.qos.ch/manual/layouts.html)
+* tomcat的catalina.out日志关闭,找到tomcat下的bin/catalina.sh;找到下面这一段,把#CATALINA_OUT="$CATALINA_HOME"/logs/catalina.out 注释掉,改为CATALINA_OUT=/dev/null,
 
+```
+if [ -z "$CATALINA_OUT" ] ; then
+  #CATALINA_OUT="$CATALINA_HOME"/logs/catalina.out
+  CATALINA_OUT=/dev/null
+fi
+```
