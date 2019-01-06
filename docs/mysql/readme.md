@@ -13,5 +13,6 @@
 * [基于现在的表创建新表](crate_new_table.md)
 * [数据库联合查询](./contents/union_select.md)
 * [数据库分表分库基本概念](数据库分库分表.md)
+* [mysql做主从备份](./contents/master_slave.md)
 * TrubleShooting
   * [mysql 使用JDBC查询无效的问题](select_mysql_invalied.md)
