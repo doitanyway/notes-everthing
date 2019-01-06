@@ -168,12 +168,9 @@ mysql> show slave status\G;
 链接主库，新建数据库，表格，从库会自动刷新。
 
 
-## 补充说明
+## 清理log
 
-```
-mysql> show variables like 'expire_logs_days';
-mysql> show variables like 'max_binlog_size';
-```
+### 手动清理 
 
 * 手动执行清理log 
 ```
@@ -191,4 +188,26 @@ mysql>purge binary logs to 'bin.000055';
 
 ```
 mysql>purge binary logs before '2017-05-01 13:09:51';
+```
+
+
+###  设置自动清理binlog 
+
+15天，最大1g。
+
+```
+expire_logs_days = 15
+max_binlog_size = 1073741824
+```
+
+### 主从备份下如何清理log
+
+* ``mysql  -u root -p`` 进入从服务器mysql控制台 ``show slave status\G;`` 检查从服务器正在读取哪个日志，有多个从服务器，选择时间最早的一个做为目标日志。
+
+* 进入主服务器mysql控制台
+
+
+```
+show master logs;      #获得主服务器上的一系列日志
+PURGE MASTER LOGS TO 'binlog.000058';   #删除binlog.000005之前的，不包括binlog.000058
 ```
