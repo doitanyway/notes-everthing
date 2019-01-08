@@ -63,7 +63,7 @@ spec:
   - {port: 1}
 ```
 
-* 创建pod ``kubectl apply  -f glusterfs-pod.yaml``:      
+* 创建pod ``kubectl apply  -f glusterfs-pod.yaml``    
 
 ```yaml
 apiVersion: v1
