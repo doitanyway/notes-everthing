@@ -9,6 +9,7 @@
 * [service-1.ClusterIP](contents/service_man.md)
 * [service-2.NodePort](contents/NodePort.md)
 * [service-3.ExternalName](contents/ExternalName.md)
+* [service-4.ingress](contents/ingress.md)
 * [volume 1.emptyDir](contents/volume.md)
 * [volume 2.hostPath](contents/hostPath.md)
 * [volume 3.nfs](contents/nfs.md)
