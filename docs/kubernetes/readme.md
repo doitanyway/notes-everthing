@@ -8,6 +8,7 @@
 * [service的服务发现](contents/service_discovery.md)
 * [service-1.ClusterIP](contents/service_man.md)
 * [service-2.NodePort](contents/NodePort.md)
+* [service-3.ExternalName](contents/ExternalName.md)
 * [volume 1.emptyDir](contents/volume.md)
 * [volume 2.hostPath](contents/hostPath.md)
 * [volume 3.nfs](contents/nfs.md)
