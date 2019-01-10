@@ -1,6 +1,7 @@
 # service-5.ingress使用
 
 
+
 ## ingress 快速使用
 
 * 一个简单的完整配置,发布一个nginx,再发布一个其对应的service,再发布ingress指向该service。
@@ -60,7 +61,7 @@ spec:
         - containerPort: 80
 ```
 
-## service-5.ingress分发
+## ingress分发
 
 根据url的不同，分发给不同的服务器
 
@@ -93,3 +94,63 @@ spec:
 ```
 
 
+## 基于域名的虚拟主机
+
+同一个ip，不同域名访问到不同的service
+
+```
+foo.bar.com --|                 |-> foo.bar.com s1:80
+              | 178.91.123.132  |
+bar.foo.com --|                 |-> bar.foo.com s2:80
+```
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: name-virtual-host-ingress
+spec:
+  rules:
+  - host: foo.bar.com
+    http:
+      paths:
+      - backend:
+          serviceName: service1
+          servicePort: 80
+  - host: bar.foo.com
+    http:
+      paths:
+      - backend:
+          serviceName: service2
+          servicePort: 80
+```
+
+## 指向ip的ingress  
+
+如果ingress定义中没有host，则会指向ip地址，如下当使用ip地址访问服务的时候将会被指向service3.
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: name-virtual-host-ingress
+spec:
+  rules:
+  - host: first.bar.com
+    http:
+      paths:
+      - backend:
+          serviceName: service1
+          servicePort: 80
+  - host: second.foo.com
+    http:
+      paths:
+      - backend:
+          serviceName: service2
+          servicePort: 80
+  - http:
+      paths:
+      - backend:
+          serviceName: service3
+          servicePort: 80
+```

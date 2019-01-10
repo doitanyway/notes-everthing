@@ -17,7 +17,11 @@
 
 ## 部署
 
-[官方说明](https://github.com/kubernetes/ingress-nginx/blob/master/docs/deploy/index.md)
+为了运行ingress资源集群必须有一个ingress控制器正在运行，它和其他的控制器不同，会在集群启动的时候自动启动，目前可用的ingress方案有多种，kubernetes项目目前支持GCE和Nginx控制器。
+其他更多的控制器，可以查看[官方说明](https://github.com/kubernetes/ingress-nginx/blob/master/docs/deploy/index.md)
+
+
+本文使用nginx控制器。
 
 修改官方的文件，使用主机网络``hostNetwork: true``,还有如果网络不好，国外镜像拉不到，可以先传到自己的私有镜像，再修改镜像地址。
 
