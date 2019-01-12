@@ -1,23 +1,6 @@
 # 配置自定义数据 {ignore=true}
 
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-<!-- code_chunk_output -->
-
-* [使用场景](#使用场景)
-* [原理](#原理)
-* [设置agent](#设置agent)
-	* [设置本地脚本](#设置本地脚本)
-	* [配置agent](#配置agent)
-* [设置server](#设置server)
-	* [测试客户端设置](#测试客户端设置)
-	* [配置item](#配置item)
-	* [添加图片](#添加图片)
-* [完成效果图](#完成效果图)
-
-<!-- /code_chunk_output -->
-
-
 
 ## 使用场景
 
