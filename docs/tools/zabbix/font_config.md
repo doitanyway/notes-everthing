@@ -26,8 +26,7 @@
 * ``vm.memory.size[available]`` 可用内存,定义见该[文章](https://www.zabbix.com/documentation/current/manual/appendix/items/vm.memory.size_params)
 * ``system.cpu.num``  cpu数量
 * ``system.cpu.load[,avg5]``  5分钟内的cpu平均负载；
-* ``vfs.fs.size[/dev/sda1,free]`` 空闲磁盘；
-* ``vfs.fs.size[/dev/sda1,total]`` 总磁盘；
+* ``vfs.fs.size[/,pfree]`` 空闲磁盘百分比；
 
 
 > 更多参数参考[官网](https://www.zabbix.com/documentation/current/manual/config/items/itemtypes/zabbix_agent)：
