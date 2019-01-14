@@ -21,7 +21,7 @@ docker run -d --name some-zabbix-appliance  \
 
 ## 安装zabbix-agent
 
-安装zabbix-agent安装在被安装电脑上
+安装zabbix-agent安装在被监控电脑上
 
 
 ### 安装仓库配置包  
