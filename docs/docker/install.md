@@ -81,5 +81,9 @@ systemctl daemon-reload
 systemctl restart docker
 ```
 
-* ``docker login 20.250.204.146:6110``
+*  登陆
+
+```
+docker login -u name -p pasword 20.250.204.146:6110
+```
 
