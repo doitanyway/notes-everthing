@@ -113,6 +113,8 @@ Connection closed by foreign host.
 * 在客户端运行   
 
 ```
+rpm -ivh http://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-get-4.0.3-1.el7.x86_64.rpm
+yum install zabbix-get
 zabbix_get -s 127.0.0.1 -k "vfs.fs.size[/,total]"
 ```
 
