@@ -58,6 +58,19 @@ systemctl daemon-reload
 systemctl restart docker
 ```
 
+## 指定容器运行根目录(可选)
+
+* vi /etc/docker/daemon.json
+
+```json
+{
+  "registry-mirrors" : [
+    "https://registry.docker-cn.com"
+  ],
+  "data-root" : "/home/vagrant/data"
+}
+```
+
 
 ## 设置私有仓库方法(可选)  
 
