@@ -45,6 +45,14 @@ curl -L https://get.daocloud.io/docker/compose/releases/download/1.21.2/docker-c
 chmod +x /usr/local/bin/docker-compose
 ```
 
+## 重启docker 
+
+```
+systemctl enable docker
+systemctl daemon-reload 
+systemctl restart docker
+```
+
 ## docker 加速
 
 * 由于国内网络原因，DOCKER访问docker hub经常超时，为了能够给DOCKER加速，我们可使用国内DOCKER镜像：``vim /etc/docker/daemon.json ``
@@ -55,13 +63,7 @@ chmod +x /usr/local/bin/docker-compose
 }
 ```
 
-* 重启docker 
 
-```
-systemctl enable docker
-systemctl daemon-reload 
-systemctl restart docker
-```
 
 ## 指定容器运行根目录(可选)
 
@@ -93,12 +95,7 @@ systemctl restart docker
 }
 ```
 
-* 重启docker 
 
-```
-systemctl daemon-reload 
-systemctl restart docker
-```
 
 *  登陆
 
