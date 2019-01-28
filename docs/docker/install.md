@@ -53,6 +53,7 @@ chmod +x /usr/local/bin/docker-compose
 * 重启docker 
 
 ```
+systemctl enable docker
 systemctl daemon-reload 
 systemctl restart docker
 ```
