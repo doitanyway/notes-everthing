@@ -56,5 +56,5 @@ id	mobile	group_concat(c.license)
 * 加筛选条件
 
 ```sql
-SELECT u.id,u.mobile,c.license,c.auto_pay FROM app_users u LEFT JOIN cars c on c.user_id=u.id WHERE u.mobile="18111111111";
+SELECT u.id,u.mobile,group_concat(c.license) FROM app_users u LEFT JOIN cars c on c.user_id=u.id WHERE u.mobile="18111111111" group by mobile;
 ```
