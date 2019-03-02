@@ -15,5 +15,6 @@
 * [数据库分表分库基本概念](数据库分库分表.md)
 * [mysql做主从备份](./contents/master_slave.md)
 * [mysql计算](./contents/computational.md)
+* [一对多查询](./contents/one_many.md)
 * TrubleShooting
   * [mysql 使用JDBC查询无效的问题](select_mysql_invalied.md)

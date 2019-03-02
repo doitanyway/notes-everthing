@@ -187,4 +187,3 @@ SELECT a.type,a.time,a.fee FROM (
 SELECT "消费记录" type,time,fee FROM recharge_records UNION 
 SELECT "充值记录" type,time,fee FROM consume_records) AS a ORDER BY time;
 ```
-
