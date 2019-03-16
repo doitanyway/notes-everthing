@@ -100,6 +100,19 @@ lower_case_table_names=1
 max_connections=1000
 ```
 
+* WINDOW下修改MYSQL字符集 修改my.ini文件
+
+```
+　　[client]
+
+　　default-character-set=utf8
+
+　　[mysqld]
+　　default-storage-engine=INNODB
+　　character-set-server=utf8
+　　# collation-server=utf8_general_ci
+```
+
 * 重启mysql,``service mysql restart``
 
 * 检查字符集是否生效
