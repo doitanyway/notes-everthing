@@ -14,6 +14,7 @@
 * [spring boot整合swagger](springboot-swagger.md)
 * [spring session](spring_session.md)
 * [logback](logback.md)
+* [mybatis generator](mybatis_generator.md)
 
 
 [返回](/readme.md)
