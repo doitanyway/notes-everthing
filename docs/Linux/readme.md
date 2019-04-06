@@ -3,6 +3,7 @@
 
 # 目录
 * [简介](readme.md)
+* [使用vagrant快速安装centos](./content/vagrant.md)
 * [安装](install.md)
 * [常用命令](./content/linux_commands/linux_commands.md)
     * [cat查看文件](./content/commands/cat.md)
