@@ -16,8 +16,8 @@ wget http://download.redis.io/releases/redis-4.0.14.tar.gz
 ```
 * 安装redis
 ```
-tar -xzvf redis-4.0.9.tar.gz 
-cd redis-4.0.9
+tar -xzvf redis-*.tar.gz 
+cd redis-4.0.14/
 make
 make PREFIX=/usr/local/redis install
 ```
@@ -28,9 +28,19 @@ PATH=$PATH:/usr/local/redis/bin/
 export PATH
 ```
 
-* 启动redis服务``redis-server``
+*  redis 配置文件
 
-* 新建一个控制台窗口，启动客户端，测试
+```
+cd /usr/local/redis-4.0.14
+mkdir /etc/redis 
+cp redis.conf /etc/redis/
+# 修改redis.conf 中的  ``daemonize no``为``daemonize yes``,改为后台启动模式
+cp sentinel.conf /etc/redis/
+```
+
+* 启动redis服务``redis-server /etc/redis/redis.conf``
+
+* 新建一个控制台窗口，启动客户端，测试。
 ```
 redis-cli 
 127.0.0.1:6379> set name nick
@@ -39,16 +49,6 @@ OK
 "nick"
 127.0.0.1:6379> 
 ```
-
-* 设置redis服务自启动
-    * 进入刚才服务器启动窗口，按``ctl+c``
-    * ``cd /usr/local/redis-4.0.9``
-    * ``cp redis.conf /usr/local/redis/bin``
-    * ``cd /usr/local/redis/bin``
-    * ``vim redis.conf``,修改``daemonize no``为``daemonize yes``
-    * 启动redis,``redis-server redis.conf``
-
-
 
 ## 关闭redis
 
