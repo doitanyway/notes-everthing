@@ -25,5 +25,5 @@ end
 
 ## 常用命令 
 
-* vagrant up 
-* 
+* vagrant up         ,启动
+* vagrant destroy    ,关闭并销毁
