@@ -11,7 +11,8 @@
 * 下载redis    
 ```
 cd /usr/local
-wget http://download.redis.io/releases/redis-4.0.9.tar.gz
+# wget http://download.redis.io/releases/redis-4.0.9.tar.gz
+wget http://download.redis.io/releases/redis-4.0.14.tar.gz
 ```
 * 安装redis
 ```
