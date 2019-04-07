@@ -36,7 +36,10 @@ export PATH
 cd /usr/local/redis-4.0.14
 mkdir /etc/redis 
 cp redis.conf /etc/redis/6379.conf
-# 修改6379.conf 中的  ``daemonize no``为``daemonize yes``,改为后台启动模式
+# 修改6379.conf 
+# ``daemonize no``为``daemonize yes``,改为后台启动模式
+# 如果不要密码验证``protected-mode yes``修改为``protected-mode no``
+# 注释掉bind 127.0.0.1，如果可以任意地址访问
 cp sentinel.conf /etc/redis/
 ```
 
