@@ -24,9 +24,10 @@
 * [PPTP](content/pptp.md)
 * [shell脚本编写](content/shell.md)
 * [linux防火墙](content/iptables.md)
-* [安装node](content/install-node.md)
 * [vim自动显示行号](content/vim_line.md)
 * [centos 7开机启动](content/systemd.md)
-* [安装jdk8](content/install/jdk8.md)
+* [常用软件安装]()
+  * [安装node](content/install-node.md)
+  * [安装jdk8](content/install/jdk8.md)
   
 [返回首页](/readme.md)
