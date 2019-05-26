@@ -24,3 +24,8 @@ ssh-keygen -f test   -C "test key"
 
 如果没有指定文件名，会询问你输入文件名.(直接使用``ssh-keygen ``命令)
 
+## 例子
+
+```
+ssh-keygen -t rsa -b 2048 
+```
