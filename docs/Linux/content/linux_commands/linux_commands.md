@@ -11,3 +11,4 @@
 * [chown](./content/commands/chown.md)
 * [ssh-copy-id](./content/commands/ssh-copy-id.md)
 * [ssh-keygen](./content/commands/ssh-keygen.md)
+* [df](./content/commands/df.md)
