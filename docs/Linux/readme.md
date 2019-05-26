@@ -3,18 +3,8 @@
 
 # 目录
 * [简介](readme.md)
-* [使用vagrant快速安装centos](./content/vagrant.md)
 * [安装](install.md)
 * [常用命令](./content/linux_commands/linux_commands.md)
-    * [cat查看文件](./content/commands/cat.md)
-    * [tar解压压缩](./content/commands/tar.md)
-    * [scp](./content/commands/scp.md)
-    * [ssh](./content/commands/ssh.md)
-    * [netstat](./content/commands/netstat.md)
-    * [sed](./content/commands/sed.md)
-    * [chown](./content/commands/chown.md)
-    * [ssh-copy-id](./content/commands/ssh-copy-id.md)
-    * [ssh-keygen](./content/commands/ssh-keygen.md)
 * [logrotate日志管理](content/log_management.md)
 * [系统时间设置](content/system_time.md)
 * [VMWARE克隆LINUX系统网卡设置](content/clone_linux_network.md)
@@ -26,7 +16,8 @@
 * [linux防火墙](content/iptables.md)
 * [vim自动显示行号](content/vim_line.md)
 * [centos 7开机启动](content/systemd.md)
-* [常用软件安装]()
+* [常用软件安装](content/install/help.md)
+  * [vagrant安装centos](content/install/vagrant.md)
   * [安装node](content/install-node.md)
   * [安装jdk8](content/install/jdk8.md)
   
