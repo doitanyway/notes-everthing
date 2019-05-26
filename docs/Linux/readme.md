@@ -27,5 +27,6 @@
 * [安装node](content/install-node.md)
 * [vim自动显示行号](content/vim_line.md)
 * [centos 7开机启动](content/systemd.md)
+* [安装jdk8](content/install/jdk8.md)
   
 [返回首页](/readme.md)
