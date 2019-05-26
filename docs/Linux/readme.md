@@ -12,6 +12,7 @@
     * [ssh](./content/commands/ssh.md)
     * [netstat](./content/commands/netstat.md)
     * [sed](./content/commands/sed.md)
+    * [chown](./content/commands/chown.md)
     * [ssh-copy-id](./content/commands/ssh-copy-id.md)
     * [ssh-keygen](./content/commands/ssh-keygen.md)
 * [logrotate日志管理](content/log_management.md)
