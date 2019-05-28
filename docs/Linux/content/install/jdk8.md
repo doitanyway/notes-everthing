@@ -19,15 +19,11 @@ profile_path=/etc/profile
 
 
 # 获得参数传入,输入到 变量 java_home_var start 
-if test -z "$1"
+if test -n "$1"
 then
-  echo ""
-else
-  echo input : $1
   java_home_var=$1
 fi
 # 获得参数传入 end
-
 
 
 function handle_null(){
@@ -53,11 +49,12 @@ function handle_null(){
 }
 
 
+# main 主函数
 if test -z "$JAVA_HOME1"
 then
   handle_null
 else
-  echo have JAVA_HOME;
+  echo "have JAVA_HOME. Do nothing";
 fi
 
 echo done...
