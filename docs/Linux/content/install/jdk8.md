@@ -17,6 +17,19 @@ java_home_var=/app/java/
 profile_path=/etc/profile
 #profile_path=profile2
 
+
+# 获得参数传入,输入到 变量 java_home_var start 
+if test -z "$1"
+then
+  echo ""
+else
+  echo input : $1
+  java_home_var=$1
+fi
+# 获得参数传入 end
+
+
+
 function handle_null(){
   path_var="";
   echo JAVA_HOME null;
