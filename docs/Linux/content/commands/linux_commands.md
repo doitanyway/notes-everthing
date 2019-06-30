@@ -12,4 +12,5 @@
 * [ssh-copy-id](./ssh-copy-id.md)
 * [ssh-keygen](./ssh-keygen.md)
 * [df](./df.md)
+* [jar](./jar.md)
 
