@@ -302,7 +302,7 @@ kubectl create -f https://kubernetes.io/examples/pods/pod-multiple-configmap-env
 
 ### 配置configmap中所有的键值对为环境变量
 
-* configmap `` kubectl create -f configmap-multikeys.yaml``
+* configmap ``kubectl create -f configmap-multikeys.yaml``
 
 ```YAML
 apiVersion: v1
