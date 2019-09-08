@@ -79,6 +79,13 @@ kubectl logs $POD_NAME     # 查看对应pod日志
 * kubectl get pods 
   查看正在运行的pods 
 
+* 或者在命令后面加-o 来定义输出格式，常用有wide或者yaml，例如
+
+```bash
+kubectl get pods -o wide -n kube-system
+```
+
+
 * kubectl describe pods
   获取pods的详细信息
 
@@ -87,6 +94,7 @@ kubectl logs $POD_NAME     # 查看对应pod日志
 * kubectl describe - show detailed information about a resource
 * kubectl logs - print the logs from a container in a pod
 * kubectl exec - execute a command on a container in a pod
+
 
 
 
