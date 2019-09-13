@@ -6,6 +6,7 @@
 * [LiQuibase](/docs/LiquiBase/readme.md)
 * [docker](/docs/docker/readme.md)
 * [kubernetes](/docs/kubernetes/readme.md)
+* [helm](docs/helm/help.md)
 * [J2ee](/docs/j2ee/readme.md)
 * [jhipster](/docs/jhipster/readme.md)
 * [js](/docs/js/readme.md)
