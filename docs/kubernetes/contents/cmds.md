@@ -96,9 +96,17 @@ kubectl get pods -o wide -n kube-system
 * kubectl exec - execute a command on a container in a pod
 
 
+## 临时端口映射
+
+
+```
+kubectl port-forward $POD_NAME 8080:80
+```
+
 
 
 ## 命令管理应用统计
 
 
 ![](./assets/2018-09-30-07-41-01.png)
+
