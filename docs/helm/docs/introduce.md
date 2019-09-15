@@ -45,3 +45,4 @@ helm使用go语言实现，使用gRPC协议与tiller server通讯；
 Tiller server也使用go语言实现，提供了gRPC server去连接客户端，使用Kubernetes clinet liberary和kubernetes通讯，当前这个Library使用REST+JSON实现.
 
 Tiller server当前存储数据到kubernetes的configmap中去，不需要单独的数据库。
+
