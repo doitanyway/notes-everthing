@@ -1,5 +1,24 @@
 # helm命令
 
+
+
+      
+## helm install
+* 作用： 安装charts
+* 格式： helm install [CHART] [flags]
+* 例：
+  * helm install stable/mysqlha
+  * 使用文件传入参数：
+
+```BASH
+cat << EOF > config.yaml
+mariadbUser: user0
+mariadbDatabase: user0db
+EOF
+helm install -f config.yaml stable/mariadb
+```
+
+
 ## helm search 
 
 * 作用： 查询系统内配置的所有仓库的匹配的charts
@@ -21,20 +40,7 @@
 * 例： 
   * helm inspect stable/mysqlha
 
-## helm install
-* 作用： 安装charts
-* 格式： helm install [CHART] [flags]
-* 例：
-  * helm install stable/mysqlha
-  * 使用文件传入参数：
 
-```BASH
-cat << EOF > config.yaml
-mariadbUser: user0
-mariadbDatabase: user0db
-EOF
-helm install -f config.yaml stable/mariadb
-```
 
 ## helm upgrade
 
