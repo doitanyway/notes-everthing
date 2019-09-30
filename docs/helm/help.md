@@ -13,3 +13,7 @@
   * [helm search](docs/cmd_search.md)
   * [helm lint](docs/cmd_lint.md)
   * [helm package](docs/cmd_package.md)
+  * [helm dependency build](docs/cmd_d_build.md)
+  * [helm dependency list](docs/cmd_d_list.md)
+  * [helm dependency update](docs/cmd_d_update.md)
+* [helm依赖管理](docs/dependency.md)
