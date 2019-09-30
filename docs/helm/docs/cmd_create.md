@@ -1,4 +1,6 @@
-## helm create 
+# helm create 
+
+## 作用
 
 该命令创建一个chart目录，并创建相关的文件。
 
@@ -21,16 +23,19 @@
 
 'helm create'命令紧接着一个名字作为参数。如果文件不存在，helm将会创建。如果文件已经存在，那么冲突的文件将会被删除，其他文件保留。
 
-使用方法:
+
+
+## 格式
 ```BASH
   helm create NAME [flags]
 ```
 
-* Flags:
+```
+Flags:
   -h, --help             help for create
   -p, --starter string   the named Helm starter scaffold
 
-* 全局 Flags:
+全局 Flags:
       --debug                           enable verbose output
       --home string                     location of your Helm config. Overrides $HELM_HOME (default "/Users/nick/.helm")
       --host string                     address of Tiller. Overrides $HELM_HOST
@@ -38,3 +43,4 @@
       --kubeconfig string               absolute path to the kubeconfig file to use
       --tiller-connection-timeout int   the duration (in seconds) Helm will wait to establish a connection to tiller (default 300)
       --tiller-namespace string         namespace of Tiller (default "kube-system")
+```
