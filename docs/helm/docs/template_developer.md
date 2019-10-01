@@ -135,35 +135,82 @@ data:
 
 模板引擎将会把模板引用的内置对象替换成为对象的实际值，下面是一些内置对象的举例：
 
-* Release: This object describes the release itself. It has several  objects inside of it:
-  * Release.Name: The release name
-  * Release.Time: The time of the release
-  * Release.Namespace: The namespace to be released into (if the manifest doesn’t override)
-  * Release.Service: The name of the releasing service (always Tiller).
-  * Release.Revision: The revision number of this release. It begins at 1 and is incremented for each helm upgrade.
-  * Release.IsUpgrade: This is set to true if the current operation is an upgrade or rollback.
-  * Release.IsInstall: This is set to true if the current operation is an install.
+* Release: 该对象描述发布版本信息，该对象内部包含多个对象:
+  * Release.Name: 发布名
+  * Release.Time: 发布时间
+  * Release.Namespace: 发布版本到哪一个namespace中（manifest可以重写该值） 
+  * Release.Service: 发布服务的名字 (always Tiller).
+  * Release.Revision: 发布版本号，该数字从1开始，升级之后自增.
+  * Release.IsUpgrade: 如果该值为true,则该操作是升级或者回滚.
+  * Release.IsInstall: 如果当前操作为安装则该值为true。
 
-* Values: Values passed into the template from the values.yaml file and from user-supplied files. By default, Values is empty.
+* Values: Values的值来自于values.yaml文件，默认Values对象为空.
 
 
-* Chart: The contents of the Chart.yaml file. Any data in Chart.yaml will be accessible here. For example {{.Chart.Name}}-{{.Chart.Version}} will print out the mychart-0.1.0.
+* Chart: Chart上下文对象在 Chart.yaml文件中. Chart.yaml中的值将会被打包到该对象. 如 {{.Chart.Name}}-{{.Chart.Version}} 将会输出 mychart-0.1.0.
 
-* Files: This provides access to all non-special files in a chart. While you cannot use it to access templates, you can use it to access other files in the chart. See the section Accessing Files for more.
-  * Files.Get is a function for getting a file by name (.Files.Get config.ini)
-  * Files.GetBytes is a function for getting the contents of a file as an array of bytes instead of as a string. This is useful for things like images.
+* Files: 该对象提供了chart内访所有非特殊文件的方法. （不能用它来访问templates文件）
+  * Files.Get 通过文件名字获取文件的方法(.Files.Get config.ini)
+  * Files.GetBytes 函数获取文件内容保存到bytes数组内（可以用来读取图片）。
 
-* Capabilities: This provides information about what capabilities the Kubernetes cluster supports.
-  * Capabilities.APIVersions is a set of versions.
-  * Capabilities.APIVersions.Has $version indicates whether a version (e.g., batch/v1) or resource (e.g., apps/v1/Deployment) is available on the cluster. Note, resources were not available before Helm v2.15.
-  * Capabilities.KubeVersion provides a way to look up the Kubernetes version. It has the following values: Major, Minor, GitVersion, GitCommit, GitTreeState, BuildDate, GoVersion, Compiler, and Platform.
-  * Capabilities.TillerVersion provides a way to look up the Tiller version. It has the following values: SemVer, GitCommit, and GitTreeState.
-* Template: Contains information about the current template that is being executed
-  * Name: A namespaced filepath to the current template (e.g. mychart/templates/mytemplate.yaml)
-  * BasePath: The namespaced path to the templates directory of the current chart (e.g. mychart/templates).
+* Capabilities: 该对象提供了k8s集群支持的容量信息.
+  * Capabilities.APIVersions API版本
+  * Capabilities.APIVersions.Has $version 判断某一API版本(e.g., batch/v1)或者某一资源(e.g., apps/v1/Deployment) 是否在K8S集群内支持.
+  * Capabilities.KubeVersion 获取k8s版本. 值为: Major, Minor, GitVersion, GitCommit, GitTreeState, BuildDate, GoVersion, Compiler, 和 Platform.
+  * Capabilities.TillerVersion 获取tailler版本. 值为: SemVer, GitCommit, and GitTreeState.
+* Template: 包含当前执行的template的一些信息
+  * Name: 当前template的namespace(e.g. mychart/templates/mytemplate.yaml)
+  * BasePath:  The namespaced path to the templates directory of the current chart (e.g. mychart/templates).
 
-The values are available to any top-level template. As we will see later, this does not necessarily mean that they will be available everywhere.
+如上的值在任何顶级的模板都可用，但是并不是每个地方都可用，我们后续将会详细介绍。
 
-The built-in values always begin with a capital letter. This is in keeping with Go’s naming convention. When you create your own names, you are free to use a convention that suits your team. Some teams, like the Helm Charts team, choose to use only initial lower case letters in order to distinguish local names from those built-in. In this guide, we follow that convention.
+built-in values经常都是以大写字母开始，如果我们创建自己的names可以按自己的习惯来处理。
 
 ## Values 文件
+
+
+* 修改values.yaml
+```yaml
+favorite:
+  drink: coffee
+  food: pizza
+```
+
+* 修改configmap.yaml文件，引用values 
+```YAML
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  myvalue: "Hello World"
+  drink: {{ .Values.favorite.drink }}
+  food: {{ .Values.favorite.food }}
+```
+
+* 执行命令查看创建结果  
+```bash
+nicks-MacBook-Pro:helm nick$ helm install --debug --dry-run ./
+[debug] Created tunnel using local port: '56426'
+
+[debug] SERVER: "127.0.0.1:56426"
+
+[debug] Original chart version: ""
+[debug] CHART PATH: /Users/nick/Desktop/study/helm
+
+Error: no Chart.yaml exists in directory "/Users/nick/Desktop/study/helm"
+nicks-MacBook-Pro:helm nick$ helm install --debug --dry-run ./mychart/
+[debug] Created tunnel using local port: '56433'
+.....
+
+---
+# Source: mychart/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: manageable-horse-configmap
+data:
+  myvalue: "Hello World"
+  drink: coffee
+  food: pizza
+```
