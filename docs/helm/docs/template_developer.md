@@ -214,3 +214,215 @@ data:
   drink: coffee
   food: pizza
 ```
+
+* 删除默认值 
+
+如果我们需要删除一个默认值，可以在执行命令的时候设置Key的值为Null，这样helm将会合并命令传入的参数。 
+
+如：    
+```YAML
+livenessProbe:
+  httpGet:
+    path: /user/login
+    port: http
+  initialDelaySeconds: 120
+```
+
+执行命令  ``helm install stable/drupal --set image=my-registry/drupal:0.1.0 --set livenessProbe.exec.command=[cat,docroot/CHANGELOG.txt] --set livenessProbe.httpGet=null``
+
+合并后结果：
+
+```YAML
+livenessProbe:
+  httpGet:
+    path: /user/login
+    port: http
+  exec:
+    command:
+    - cat
+    - docroot/CHANGELOG.txt
+  initialDelaySeconds: 120
+```
+
+## 模板函数和管道
+
+
+* 目前我们通过对象重新渲染模板，但是对象通常都是未经任何修改放在模板文件中，这样并不是最佳实践，如我们在引用一个string对象的时候我们期望能够有个双引号把该对象包含起来，这个时候我们可以使用模板函数quote，用法如下。
+
+```YAML
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  myvalue: "Hello World"
+  drink: {{ quote .Values.favorite.drink }}
+  food: {{ quote .Values.favorite.food }}
+```
+
+> 模板方法用法``functionName arg1 arg2...``,如上使用了quote函数，传入的参数1为.Values.favorite.food
+
+
+helm支持60多个模板函数，一些是[Go template language](https://godoc.org/text/template)定义的，大多其他的函数是[ Sprig template library](https://godoc.org/github.com/Masterminds/sprig)
+
+
+* 管道，模板函数可以通过管道的方法引用(类似LINUX命令)，如下；  
+
+```YAML
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  myvalue: "Hello World"
+  drink: {{ .Values.favorite.drink | quote }}
+  # 参数可传递
+  food: {{ .Values.favorite.food | upper | quote }}
+```
+
+* 常用函数  
+  * quote 双引号     {{ .Values.favorite.drink | quote }}
+  * upper 大写  {{ .Values.favorite.food | upper  }}
+  * repeat 重复多次 {{ .Values.favorite.drink | repeat 5 | quote }}
+  * default 默认函数，参数未设置的时候默认值 {{ .Values.favorite.drink | default "tea" | quote }}
+  * 运算符支持eq, ne, lt, gt, and, or, not，通常这些操作符号都和if条件一起用，如下：  
+
+```YAML
+{{/* include the body of this if statement when the variable .Values.fooString exists and is set to "foo" */}}
+{{ if and .Values.fooString (eq .Values.fooString "foo") }}
+    {{ ... }}
+{{ end }}
+
+
+{{/* include the body of this if statement when the variable .Values.anUnsetVariable is set or .values.aSetVariable is not set */}}
+{{ if or .Values.anUnsetVariable (not .Values.aSetVariable) }}
+   {{ ... }}
+{{ end }}
+```
+
+## 流程控制  
+
+helm中提供了如下流控制结构： 
+
+* if/else 创建一个条件模块
+* with 定义一个范围（？scope） 
+* range, 提供一个for each循环
+
+此外，helm还提供了如下几个方法声明模块块:
+
+* define 在模板中定义一个新的名词模板
+* template 引入一个名称模板
+* block 定义一个特别的可填充的模板区域
+
+
+### IF/ELSE
+
+```YAML
+{{ if PIPELINE }}
+  # Do something
+{{ else if OTHER PIPELINE }}
+  # Do something else
+{{ else }}
+  # Default case
+{{ end }}
+```
+
+* 如下情况会被认为是false
+  * a boolean false
+  * a numeric zero
+  * an empty string
+  * a nil (empty or null)
+  * an empty collection (map, slice, tuple, dict, array)
+
+
+* 如： 
+```YAML
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  myvalue: "Hello World"
+  drink: {{ .Values.favorite.drink | default "tea" | quote }}
+  food: {{ .Values.favorite.food | upper | quote }}
+  {{ if and .Values.favorite.drink (eq .Values.favorite.drink "coffee") }}mug: true{{ end }}
+```
+
+* 上面一个列子，可读性不够，优化一下：  
+
+```YAML
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  myvalue: "Hello World"
+  drink: {{ .Values.favorite.drink | default "tea" | quote }}
+  food: {{ .Values.favorite.food | upper | quote }}
+  {{- if eq .Values.favorite.drink "coffee"}}
+  mug: true
+  {{- end}}
+```
+> 注意``{{-``代表忽略该语句前的空格，-后面有一个空格
+
+### with 
+
+其格式如下，用途类似于一个单独的IF没有ELSE的情况：
+
+```yaml
+{{ with PIPELINE }}
+  # restricted scope
+{{ end }}
+```
+
+* 如：
+```YAML
+ apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  myvalue: "Hello World"
+  {{- with .Values.favorite }}
+  drink: {{ .drink | default "tea" | quote }}
+  food: {{ .food | upper | quote }}
+  {{- end }}
+```
+
+### RANGE
+
+循环  
+
+* 如： 
+  * values.yaml
+```YAML
+pizzaToppings:
+  - mushrooms
+  - cheese
+  - peppers
+  - onions
+```
+  * template
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  myvalue: "Hello World"
+  toppings: |-
+    {{- range .Values.pizzaToppings }}
+    - {{ . | title | quote }}
+    {{- end }}
+```
+
+> toppings: |- 定义了一个多行string. 
+
+
+```YAML
+sizes: |-
+    {{- range list "small" "medium" "large" }}
+    - {{ . }}
+    {{- end }}
+```
