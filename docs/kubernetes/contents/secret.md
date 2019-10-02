@@ -13,6 +13,10 @@ kubectl create secret docker-registry <name> --docker-server=DOCKER_REGISTRY_SER
 # eg
 kubectl create secret docker-registry myregistrykey --docker-server=nick.com --docker-username=nick --docker-password=123 --docker-email=nick@12.com
 
+
+# kubectl create secret docker-registry crcloud --docker-server=registry.steam.crcloud.com \
+#      --docker-username=crcsoft-fr19 --docker-password=APAKYo3uM4RaHCZXFuKpnYFTqhd  --docker-email=nick@12.com
+
 ```
 
 * 设置secret 

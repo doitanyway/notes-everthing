@@ -20,6 +20,7 @@
 * [affinity/亲和性](contents/affinity.md)
 * [configmap](contents/configmap.md)
 * [secret](contents/secret.md)
+* [dns服务](contents/dns_server.md)
 
 * 应用举例
   * [部署guestbook](contents/deploy_guestbook.md)
