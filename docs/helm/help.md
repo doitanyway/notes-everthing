@@ -21,5 +21,8 @@
   * [helm repo](docs/cmd_repo.md)
   * [helm inspect](docs/cmd_inspect.md)
 * [chart模板开发](docs/template_developer.md)  
+  * [名称模板](docs/name_template.md)  
+  * [template中访问文件](docs/acess_file.md)  
+  * [NOTES.txt](docs/NOTES.md)  
 
 
