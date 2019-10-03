@@ -336,28 +336,43 @@ spec:
 
 ### 添加configmap data到指定的路径
 
-使用path去为configmap item 指定期望的文件路径， 如,  SPECIAL_LEVEL item 挂载为 config-volume 卷 到文件/etc/config/keys.
 
 ```YAML
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: testmap
+data:
+  test.file: |
+    this is a test strings
+  test.file2: |
+    this is the 2nd strings
+---
+apiVersion: v1
 kind: Pod
 metadata:
-  name: dapi-test-pod
+  name: pod-test
 spec:
   containers:
-    - name: test-container
-      image: k8s.gcr.io/busybox
-      command: [ "/bin/sh","-c","cat /etc/config/keys" ]
-      volumeMounts:
-      - name: config-volume
-        mountPath: /etc/config
+  - name: test
+    image: busybox
+    tty: true
+    command: ["sh"]
+    volumeMounts:
+    - name: testdir
+      mountPath: /root/test.map1
+      subPath: test.map1
+    - name: testdir
+      mountPath: /etc/test.map2
+      subPath: test.map2
   volumes:
-    - name: config-volume
-      configMap:
-        name: special-config
-        items:
-        - key: SPECIAL_LEVEL
-          path: keys
-  restartPolicy: Never
+  - name: testdir
+    configMap:
+      name: testmap
+      items:
+      - key: test.file
+        path: test.map1
+      - key: test.file2
+        path: test.map2
 ```
 
