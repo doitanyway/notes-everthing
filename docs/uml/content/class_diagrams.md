@@ -59,6 +59,7 @@
 ### 聚合 (aggreation)
 
 * 聚合关系用来描述整体和部分的关系，他是一种特殊的关联关系。在聚合关系中个体可以脱离整体存在；
+* 和关联关系的区别： 聚合关系的两个类之间关系为整体和局部，不再同一个层次上；关联关系的两个类再同一个层次上；
 
 * 聚合关系用下面的的箭头表示：   
 ![](./assets/2019-10-04-21-43-41.png)
@@ -69,6 +70,7 @@
 ### 组合 (Composition)
 
 * 组合也是整体和部分的关系，不同的是，部分不能脱离整体存在；
+* 和聚合关系的区别： 组合关系整体和局部强相关，整体没有了，局部也就没有任何意义；
 * 组合与聚合的线相同，只是箭头为实心；  
 
 ![](./assets/2019-10-04-21-49-23.png)
@@ -86,3 +88,100 @@
 * 一个购物网站的例子：  
 
 ![](./assets/2019-10-04-21-53-57.png)
+
+
+## 关系在代码中的体现
+
+### 依赖关系(Dependency)
+
+![](./assets/2019-10-05-10-19-37.png)
+
+Person 和 Computer之间是没有关系的，但是由于偶尔的需要，Person需要使用Computer，这时Person就依赖于Computer.  
+依赖关系是五种关系中耦合最小的一种关系。  
+类A要完成某个功能必须引用类B，则类A依赖类B 
+
+这种依赖关系有三种表现形式： 
+* 调用静态方法。
+```JAVA
+class Person {
+  public void Programing(){
+    Computer.Programing();
+  }
+}
+class Computer{
+  void Programing(){}
+}
+```
+* Computer类是Person类中某个方法的局部变量，则Person类可以调用它。代码如下：  
+```JAVA
+class Person {
+  public void Programing(){
+    Computer computer = new Computer();
+  }
+}
+```
+
+> 该情况持有Computer类的是一个方法，而不是对象
+* Computer类作为Person类某个方法的参数或者返回值：  
+```JAVA
+class Person{
+  public Computer Programing(Computer computer){
+    return null; 
+  }
+}
+```
+> Computer类被Person类的一个方法所持有，生命周期随着方法执行结束而结束。
+
+### 关联关系（Association）
+
+![](./assets/2019-10-05-10-26-37.png) 
+
+* 代码：  
+```JAVA
+class Water{
+  public Climate climate;
+  public Watter(){}
+}
+
+class Climate{
+  public Climate(){}
+}
+```
+> 关联和依赖的区别：
+> * 关联关系增加属性，依赖关系不增加属性；
+> * 关联关系与类的生命周期相同，依赖关系声明周期值存在方法调用期间。
+
+
+### 聚合(Aggreation)
+
+![](./assets/2019-10-05-11-14-52.png)
+
+
+```JAVA
+Class GooseGroup
+{
+    public List<Goose> gooses；
+    public GooseGroup(List<Goose> gs)
+    {
+        gooses=gs;
+    }
+}
+```
+
+> 如上所示，雁群包含大雁，但是如果雁群不存在了，大雁还可以单独存在。
+
+### 组合(Composition)  
+
+![](./assets/2019-10-05-11-17-31.png)
+
+```java
+Public class Goose {  
+   public Wings wings;  
+   public Goose() {  
+       wings = new Wings();  
+    }  
+}  
+```
+
+> 如上所示，翅膀和大雁的生命周期相同，如果大雁没有了翅膀也就没有意义了。  
+
