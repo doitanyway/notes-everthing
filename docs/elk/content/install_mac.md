@@ -23,10 +23,13 @@ tar -xzvf kibana-7.4.0-darwin-x86_64.tar.gz
 ## 启动es，检查日志输出没有错误
 cd elasticsearch-7.4.0
 ./bin/elasticsearch
+# 后台启动
+# ./bin/elasticsearch -d  
 # 启动Kibana，检查日志输出没有错误
 cd ../kibana-7.4.0-darwin-x86_64/
 ./bin/kibana
-# 启动
+# 后台启动
+# nohup ../bin/kibana &
 ```
 
 ## 检验 
