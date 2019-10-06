@@ -11,7 +11,11 @@
 
 ```bash
 # 下载软件
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.4.0-darwin-x86_64.tar.gz
+## linux
+# curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.4.0-linux-x86_64.tar.gz
+## mac
+curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.4.0-darwin-x86_64.tar.gz
+
 wget https://artifacts.elastic.co/downloads/kibana/kibana-7.4.0-darwin-x86_64.tar.gz
 # 解压软件 
 tar -xzvf elasticsearch-7.4.0-darwin-x86_64.tar.gz
@@ -49,3 +53,25 @@ PUT index/type/1
 // 读数据
 GET index/type/1
 ```
+
+
+## 补充说明
+
+* 启动2个es实例，必须在启动的时候指定一些特别的唯一变量
+```
+./elasticsearch -Epath.data=data2 -Epath.logs=log2
+./elasticsearch -Epath.data=data3 -Epath.logs=log3
+```
+
+* es的健康检查 
+
+```BASH 
+ nick@nicks-MacBook-Pro  ~  curl -X GET "localhost:9200/_cat/health?v&pretty"
+
+epoch      timestamp cluster       status node.total node.data shards pri relo init unassign pending_tasks max_task_wait_time active_shards_percent
+1570347393 07:36:33  elasticsearch yellow          1         1      5   5    0    0        1             0                  -                 83.3%
+```
+
+> green 状态良好，es有多个实例存储数据
+> yellow 状态正常，但是数据只有一个实例
+> red   状态异常，有数据不能访问
