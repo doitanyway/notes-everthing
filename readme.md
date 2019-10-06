@@ -30,6 +30,7 @@
 * [emq](/docs/tools/emq/readme.md)
 * [json-server](/docs/tools/json-server/json-server.md)
 * [uml](/docs/uml/help.md)
+* [elk](/docs/elk/help.md)
 
 更多markdown.md语法，请参考“https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/”
 
