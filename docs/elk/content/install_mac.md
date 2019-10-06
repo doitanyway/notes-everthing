@@ -78,3 +78,13 @@ epoch      timestamp cluster       status node.total node.data shards pri relo i
 > green 状态良好，es有多个实例存储数据
 > yellow 状态正常，但是数据只有一个实例
 > red   状态异常，有数据不能访问
+
+
+* 关闭kinaba 
+
+```bash
+[root@node1 ~]# ps -ef | grep node
+elastic    2192   2160  2 06:15 pts/1    00:00:44 bin/../node/bin/node --no-warnings bin/../src/cli
+root       2256   2235  0 06:51 pts/2    00:00:00 grep --color=auto node
+[root@node1 ~]# kill 2192
+```
