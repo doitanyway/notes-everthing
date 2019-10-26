@@ -1,7 +1,6 @@
 # 使用vagrant快速安装centos
 
 
-
 ## Vagrantfile
 
 ```
