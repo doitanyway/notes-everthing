@@ -44,3 +44,11 @@ end
 
 * vagrant up         ,启动
 * vagrant destroy    ,关闭并销毁
+* 设置Hosts  
+```bash
+cat << EOF >> /etc/hosts
+192.168.20.11   m1
+192.168.20.12   m2
+192.168.20.13   m3
+EOF
+```
