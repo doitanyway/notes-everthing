@@ -48,7 +48,7 @@ nexus 3安装好之后默认有三个maven仓库；
 
   <mirrors>
   <mirror>
-      <id>nexus_public</id>
+      <id>nexus</id>
       <mirrorOf>*</mirrorOf>
       <url>http://127.0.0.1:8081/repository/maven-public/</url>
     </mirror>
@@ -77,6 +77,7 @@ nexus 3安装好之后默认有三个maven仓库；
   </profiles>
 
 </settings>
+
 
 ```
 
