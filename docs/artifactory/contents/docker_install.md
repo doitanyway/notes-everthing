@@ -6,7 +6,7 @@
 ```BASH
 # 下载镜像
 docker pull docker.bintray.io/jfrog/artifactory-oss:6.12.1  
-# 1.运行镜像
+# 1.运行镜像,测试使用
 docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:6.12.1  
 
 # 2.设置JVM参数运行镜像
@@ -26,6 +26,7 @@ docker run --name artifactory-oss \
   -d -v /var/opt/jfrog/artifactory:/var/opt/jfrog/artifactory \
   -p 8081:8081 \
    docker.bintray.io/jfrog/artifactory-oss:6.12.1  
+# 服务器启动后，访问, http://localhost:8081/,默认用户名/密码： admin/password
 ```
 
 
