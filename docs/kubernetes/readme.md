@@ -12,6 +12,8 @@
 * [service-3.ExternalName](contents/ExternalName.md)
 * [service-4.ingress部署](contents/ingress.md)
 * [service-5.ingress使用](contents/ingress_use.md)
+* [service-6.配置https](contents/ingress_https.md)
+
 * [volume 1.emptyDir](contents/volume.md)
 * [volume 2.hostPath](contents/hostPath.md)
 * [volume 3.nfs](contents/nfs.md)
