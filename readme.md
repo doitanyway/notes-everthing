@@ -33,6 +33,8 @@
 * [elk](/docs/elk/help.md)
 * [Nexus3](/docs/Nexus3/help.md)
 * [artifactory](/docs/artifactory/help.md)   
+* [python](/docs/python/help.md)   
+
 
 更多markdown.md语法，请参考“https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/”
 
