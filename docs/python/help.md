@@ -8,4 +8,5 @@
 * 常用函数
   * [输出-print](content/print.md)
   * [输入-input](content/input.md)
+  * [字符个数-len](content/len.md)
   
