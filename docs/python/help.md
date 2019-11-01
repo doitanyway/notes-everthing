@@ -10,6 +10,7 @@
   * [编码](content/format.md)
   * [条件-if](content/if.md)
   * [循环-for & while](content/for.md)
+  * [dict](content/dict.md)
 * 常用函数
   * [输出-print](content/print.md)
   * [输入-input](content/input.md)
