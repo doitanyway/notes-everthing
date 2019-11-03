@@ -24,4 +24,8 @@
   * [字符个数-len](content/len.md)
   * [求绝对值-abs](content/abs.md)
   * [求16进制-hex](content/hex.md)
+  * [高阶函数-map](content/map.md)
+  * [高阶函数-reduce](content/reduce.md)
+  * [高阶函数-filter](content/filter.md)
+  * [高阶函数-sorted](content/sorted.md)
   
