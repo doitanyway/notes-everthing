@@ -14,6 +14,7 @@
   * [set](content/set.md)
   * [数据类型转换](content/typeConvert.md)
   * [函数](content/function.md)
+  * [切片](content/Slice.md)
 * 常用函数
   * [官方内置函数资料](https://docs.python.org/3/library/functions.html)
   * [输出-print](content/print.md)
