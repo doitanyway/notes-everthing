@@ -14,7 +14,7 @@
   * [set](content/set.md)
   * [数据类型转换](content/typeConvert.md)
   * [函数](content/function.md)
-  * [切片](content/Slice.md)md)
+  * [切片](content/Slice.md)
   * [列表生成式](content/list_maker.md)
   * [列表生成器](content/list_gen.md)
 * 常用函数
