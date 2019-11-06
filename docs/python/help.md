@@ -22,6 +22,8 @@
   * [偏函数](content/partial_fun.md)
   * [模块](content/module.md)
   * [作用域](content/area.md)
+  * [类](content/class.md)
+  
 * 常用函数
   * [官方内置函数资料](https://docs.python.org/3/library/functions.html)
   * [输出-print](content/print.md)
