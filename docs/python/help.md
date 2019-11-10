@@ -31,6 +31,8 @@
   * [字符个数-len](content/len.md)
   * [求绝对值-abs](content/abs.md)
   * [求16进制-hex](content/hex.md)
+  * [判断对象类型-type](content/type_fun.md)
+  * [判断对象类型-isinstance](content/isinstance.md)
   * [高阶函数-map](content/map.md)
   * [高阶函数-reduce](content/reduce.md)
   * [高阶函数-filter](content/filter.md)
