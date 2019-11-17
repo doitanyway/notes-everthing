@@ -7,7 +7,6 @@
   * [数据类型](content/type.md)
   * [list类型](content/list.md)
   * [tuple类型](contet/tuple.md)
-  * [编码](content/format.md)
   * [条件-if](content/if.md)
   * [循环-for & while](content/for.md)
   * [dict](content/dict.md)
@@ -33,8 +32,15 @@
   * [求16进制-hex](content/hex.md)
   * [判断对象类型-type](content/type_fun.md)
   * [判断对象类型-isinstance](content/isinstance.md)
+  * [字符串分割-partition/rpartition](content/partition.md)
+  * [字符串按行分割-splitlines](content/splitlines.md)
+  * [字符串替换-replace](content/replace.md)
+  * [对齐-ljust/rjust](content/ljust.md)
+  * [去除空格-strip](content/strip.md)
+  * [编码-format](content/format.md)
   * [高阶函数-map](content/map.md)
   * [高阶函数-reduce](content/reduce.md)
   * [高阶函数-filter](content/filter.md)
   * [高阶函数-sorted](content/sorted.md)
+
   
