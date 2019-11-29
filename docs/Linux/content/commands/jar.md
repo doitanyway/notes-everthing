@@ -20,3 +20,9 @@ jar -uvf file.jar  internal_filename
 ```
 
 > internal_filename是包内的全路径.
+
+* 添加文件到jar包
+
+```
+jar -uf file.jar add.file
+```
