@@ -35,7 +35,7 @@ docker rmi bd85e5bcffc5             # 注意这里是删除镜像，删除前对
 
 ## 补充
 
-```
+```bash
 ## Display Docker version and info
 docker --version
 docker version
@@ -46,4 +46,13 @@ docker build -t friendlyhello .  # Create image using this directory's Dockerfil
 docker tag <image> username/repository:tag  # Tag <image> for upload to registry
 docker push username/repository:tag            # Upload tagged image to registry
 docker run username/repository:tag                   # Run image from a registry
+
+## 提交一个正在运行的容器一个新镜像
+docker commit c16378f943fe username/repository:tag
+## 保存镜像到文件
+docker save 66bc0f66b7af >/tmp/mysql.tar
+docker save REPOSITORY:TAG>/tmp/mysql.tar
+## 加载镜像
+docker load < /tmp/new-image.tar
+docker load --input rocketmq.tar
 ```
