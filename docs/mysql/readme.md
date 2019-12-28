@@ -1,6 +1,7 @@
 # MYSQL 
 
 * [安装](install.md)
+* [二进制安装](install_bin.md)
 * [手动备份系统](backup.md)
 * [备份数据](backupData.md)
 * [还原系统](recover.md)
