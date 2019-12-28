@@ -24,27 +24,36 @@ set smtp-auth-password=ttt
 
 set smtp-auth=login
 ```
+
 * 创建mysql数据挂载文件夹，用于储存数据
 ```
 mkdir /home/mysql_data
 ```
+
 #### 启动docker
 * 启动server docker 容器,如下命令启动了一个appliance版本的zabbix,其包含了MySQL server, Zabbix server, Zabbix Java Gateway and Zabbix frontend基于Nginx web-server
 
 ```bash
+# docker pull zabbix/zabbix-appliance:centos-4.4.4
 docker run -d --name some-zabbix-appliance  \
         -p 80:80 -p 10051:10051  \
         -e PHP_TZ=Asia/Shanghai \
         -v /home/mail.sh:/usr/lib/zabbix/alertscripts/mail.sh \
         -v /home/mysql_data:/var/lib/mysql \
         -v /home/zabbix/mail.rc:/etc/mail.rc \
-        zabbix/zabbix-appliance:centos-4.0.3
+        zabbix/zabbix-appliance:centos-4.4.4
+
+
+docker run  --name some-zabbix-appliance  \
+        -p 900:80 -p 10051:10051  \
+        -e PHP_TZ=Asia/Shanghai \
+        zabbix/zabbix-appliance:centos-4.4.4
 ```
 
 * 在浏览器中输入地址``http://{ip_address}``,访问zabbix主页，如果能打开则安装成功。默认网页用户： Admin ，密码： zabbix
 
 
-## 安装zabbix-agent
+## yum安装zabbix-agent
 
 安装zabbix-agent安装在被监控电脑上
 
@@ -88,7 +97,6 @@ ServerActive=192.168.1.11
 
 ### 设置开机启动
 
-
 ```
 systemctl start zabbix-agent
 systemctl enable zabbix-agent
@@ -120,3 +128,80 @@ zabbix_get -s 127.0.0.1 -k "vfs.fs.size[/,total]"
 
 * 如果服务器也安装了zabbix_get也可在服务器运行验证；
 
+
+
+## 二进制安装zabbix
+
+* 创建用户  
+
+```bash 
+groupadd zabbix
+# 新建zabbix用户并将其加入到zabbix组，并将他设置为不可登录的类型的用户
+useradd -g zabbix zabbix -s /sbin/nologin  
+```
+
+* 选择对应版本的zabbix下载 https://www.zabbix.com/download_agents
+
+
+* 安装 
+
+```bash
+mkdir -p /usr/local/zabbix
+tar -xzvf  zabbix_agents-4.4.4-linux3.0-amd64-static.tar.gz -C /usr/local/zabbix
+
+
+ln -s /usr/local/zabbix/bin/zabbix_sender /usr/local/zabbix/bin/zabbix_get /usr/bin
+
+ln -s /usr/local/zabbix/sbin/zabbix_agentd /usr/sbin/
+# ln -s  /usr/local/zabbix/bin/zabbix_get 
+
+mv /usr/local/zabbix/conf/zabbix_agentd.conf  /usr/local/etc/
+
+
+```
+
+
+* 修改配置文件 ``vim /usr/local/etc/zabbix_agentd.conf``  
+
+```bash
+LogFile=/var/log/zabbix/zabbix_agentd.log
+#地址主动模式,填写Server的IP
+Server=127.0.0.1,10.200.203.31,10.200.203.28,10.200.203.26,10.200.203.25,10.200.203.23,10.200.203.21,10.200.203.15,10.200.203.13,10.200.203.62,10.200.203.59,10.200.203.6
+#修改为Server的IP地址
+ServerActive=127.0.0.1,10.200.203.31,10.200.203.28,10.200.203.26,10.200.203.25,10.200.203.23,10.200.203.21,10.200.203.15,10.200.203.13,10.200.203.62,10.200.203.59,10.200.203.6
+#重要：客户端的hostname，不配置则使用主机名
+# Hostname=Zabbix server    
+```
+
+* 创建文件赋权  
+```BASH
+mkdir -p /var/log/zabbix/
+chown zabbix:zabbix /var/log/zabbix/
+chmod 777 /var/log/zabbix/
+touch /var/log/zabbix/zabbix_agentd.log
+chmod 777 /var/log/zabbix/zabbix_agentd.log
+```
+
+* 修改文件``vim /etc/services``,末尾添加 
+
+```bash
+zabbix_agent 10050/tcp
+zabbix_agent 10050/udp
+```
+
+* 初始化文件  
+```bash 
+cp /usr/local/zabbix/sbin/zabbix_agentd /etc/init.d
+chmod a+x /etc/init.d/zabbix_agentd
+touch  /tmp/zabbix_agentd.pid
+chmod 777 /tmp/zabbix_agentd.pid
+# 启动并检查zabbix是否启动
+/etc/init.d/zabbix_agentd
+ps -ef | grep zabbix  
+```
+
+* 验证安装是否成功
+
+```
+/usr/local/zabbix/bin/zabbix_get -s 127.0.0.1 -k "vfs.fs.size[/,total]"
+```

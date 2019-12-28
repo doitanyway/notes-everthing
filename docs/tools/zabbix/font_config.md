@@ -25,9 +25,9 @@
 * ``vm.memory.size[free]``  内存能够立即被使用的
 * ``vm.memory.size[available]`` 可用内存,定义见该[文章](https://www.zabbix.com/documentation/current/manual/appendix/items/vm.memory.size_params)
 * ``system.cpu.num``  cpu数量
+* ``system.cpu.util[]``,cpu利用百分比,Type of information配置``Numberic(float)``,Units配置``%``
 * ``system.cpu.load[,avg5]``  5分钟内的cpu平均负载；
 * ``vfs.fs.size[/,pfree]`` 空闲磁盘百分比；
-
 
 > 更多参数参考[官网](https://www.zabbix.com/documentation/current/manual/config/items/itemtypes/zabbix_agent)：
 > 如果要验证item keys的正确性，可以在agent的主机上运行命令，``zabbix_get -s 127.0.0.1 -k "vfs.fs.size[/,total]"`` (替换-k的值)
@@ -40,5 +40,8 @@
 rpm -ivh http://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-get-4.0.3-1.el7.x86_64.rpm
 yum install zabbix-get
 zabbix_get -s 127.0.0.1 -k "vfs.fs.size[/,total]"
+zabbix_get -s 127.0.0.1 -k "vm.memory.size[pavailable]"
+zabbix_get -s 127.0.0.1 -k "vm.memory.size[available]"
+
 ```
 
