@@ -5,7 +5,7 @@
 * [手动备份系统](backup.md)
 * [备份数据-mysqldump](backupData.md)
 * [还原系统-cat&mysql](recover.md)
-* [备份-OUTFILE,还原-LOAD](backup_recover1.md)
+* [备份、还原指定表的数据](backup_recover1.md)
 * [克隆系统](clone.md)
 * [比较数据库结构](compare_dbs.md)
 * [数据类型](data_type.md)

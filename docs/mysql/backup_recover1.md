@@ -1,4 +1,12 @@
-# 备份-OUTFILE,还原-LOAD
+# 备份、还原指定表的数据
+
+## 前言
+
+本文使用了两种备份方法，和一种还原方法，读者可以自由选择使用哪一个备份方法：  
+* 备份方法：  
+   * SELECT INTO OUTFILE
+   * mysqldump 
+*  还原方法,load 
 
 ## 测试数据准备  
 
@@ -20,7 +28,7 @@ INSERT INTO `db1`.`user`(`id`, `email`, `name`, `age`) VALUES (3, 'lily@11.com',
 ```
 
 
-## 使用SELECT INTO OUTFILE命令导出数据
+## 使用``SELECT INTO OUTFILE``命令导出数据
 
 * SELECT 列1，列2 INTO OUTFILE '文件路径和文件名' FROM 表名字; 
 
