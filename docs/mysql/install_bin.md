@@ -166,12 +166,17 @@ myisam_repair_threads = 1
 interactive_timeout = 28800
 wait_timeout = 28800
 
+# 不限制导出文件路径  show variables like '%secure%';  命令检查 ,注意是中线 
+secure-file-priv=""
+
+
 [client]
 port=3306
 socket=/MySQL/my3306/run/mysql.sock
 
 [mysql]
 socket=/MySQL/my3306/run/mysql.sock
+
 ```
 
 
