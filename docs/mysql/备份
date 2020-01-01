@@ -1,0 +1,68 @@
+
+
+
+
+# 备份 
+
+124 上执行
+
+```bash 
+mysqldump -uroot -p'J&amp;5!9M1L*R' -t -T /tmp/ \
+  pasepd d_fact_snowb0_kpi  --fields-terminated-by=' ' --fields-enclosed-by='\"';
+```bash 
+
+
+
+# 还原  
+
+```
+mysql -ucrcpasepd -p'Crcportal_123' -h10.201.103.230 -P3307
+
+use seap;
+LOAD DATA local INFILE '/tmp/d_fact_snowb0_kpi.txt' INTO TABLE d_fact_snowb0_kpi 
+FIELDS TERMINATED BY ','
+ENCLOSED BY '\"';
+
+
+load DATA local INFILE 'd:\88\qq.txt' IGNORE INTO TABLE test CHARACTER SET 'gbk' FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n'(id,sid,asf) ;
+
+```
+
+
+* myccat 
+
+```bash
+ps -ef | grep mycat  | grep -v grep | awk '{print $2}' | xargs kill -9  
+sh /app/mycat/bin/startup_nowrap.sh  
+
+
+cat /data/morevalue.sql | mysql -ucrcpasepd  -h10.201.103.230 -p'Crcportal_123'  -P3307 seap
+
+```
+
+
+## 分割文件
+
+```
+# 4代表尾缀个数, 2-行一个文件  1128908
+split -l 2 data.log -d -a 4 data_
+
+# 查看文件有多少行
+wc -l filename
+# 11289086
+split -l 564454   morevalue.sql -d -a 4 data_
+
+
+
+cat /data/morevalue.sql | mysql -ucrcpasepd  -h10.201.103.230 -p'Crcportal_123'  -P3307 seap
+
+
+mysql -ucrcpasepd  -h10.201.103.230 -p'Crcportal_123'  -P3307 seap < data_0000
+
+
+mysql -ucrcpasepd  -h10.201.103.230 -p'Crcportal_123'  -P3307 seap < data_0001
+
+```
+
+
+crcloud
