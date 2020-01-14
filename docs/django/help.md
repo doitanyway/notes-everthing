@@ -1,15 +1,5 @@
 # django
 
 
-django可以帮我们快速完成web开发。它有如下特点：
-
-* 快速开发，django帮助我们快速把概念做成软件
-
-* 丰富的工具包，开箱即用
-
-* 默认安全策略，django已经帮助我们处理一些常见的安全问题
-
-* 使用django开发的站点具横向扩展能力
-
-* 应用广泛
-
+* [django简介](docs/introduce.md)
+* [安装与卸载](docs/install.md)
