@@ -37,6 +37,7 @@
 * [es](/docs/es/help.md)   
 * [zk](/docs/zk/help.md)   
 * [g cloud](/docs/g_cloud/help.md)
+* [django](/docs/django/help.md)
 
 更多markdown.md语法，请参考“https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/”
 
