@@ -34,7 +34,18 @@ trusted-host = mirrors.aliyun.com
 # pip3 install Django
 # 指定版本
 pip3 install Django==3.0.2
+
+# 验证安装
+nick@nicks-MacBook-Pro  ~/Desktop/study  python3
+Python 3.7.4 (default, Jul  9 2019, 18:13:23)
+[Clang 10.0.1 (clang-1001.0.46.4)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import django
+>>> print(django.get_version())
+3.0.2
+
 ```
+
 
 
 ## 卸载 
