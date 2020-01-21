@@ -9,3 +9,4 @@ https://github.com/qiujiahong/pythonsite
 * [创建第一个django站点-连接数据库](docs/connect_db.md)
 * [创建第一个django站点-创建视图](docs/view.md)
 * [创建第一个django站点-加入form，改良](docs/form.md)
+* [创建第一个django站点-自动化测试](docs/test.md)

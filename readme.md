@@ -38,6 +38,9 @@
 * [zk](/docs/zk/help.md)   
 * [g cloud](/docs/g_cloud/help.md)
 * [django](/docs/django/help.md)
+* [go](/docs/go/help.md)
+* [beego](/docs/beego/help.md)
+
 
 更多markdown.md语法，请参考“https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/”
 
