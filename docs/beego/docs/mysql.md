@@ -5,7 +5,9 @@
 本练习接上一章，[路由简介](./router.md),本章节将从mysql中使用sql语句直接读取数据。
 
 
+
 ## 详细说明
+
 
 * 新建一个名字为db1的数据库编码格式使用utf8 
 
@@ -20,6 +22,12 @@ CREATE TABLE `USER`(
 	PRIMARY KEY (`ID`)
 );
 INSERT INTO USER  (NAME,SEX)VALUES('邱家洪',1),('nick',1),('elaine',0);
+```
+
+* 安装依赖包  
+
+```bash 
+go get github.com/go-sql-driver/mysql
 ```
 
 * 新建一个模型文件``models/testuser.go``  
