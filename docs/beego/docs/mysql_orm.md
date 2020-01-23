@@ -34,9 +34,13 @@ type User struct {
 }
 
 func init()  {
+	// 注册一个default database,并且设置最大连接数是30
 	orm.RegisterDataBase("default","mysql",
 		"root:123456@tcp(127.0.0.1:3306)/db1?charset=utf8",30)
+	// 注册Model
 	orm.RegisterModel(new(User))
+	// 自动建表
+	orm.RunSyncdb("default",false,true)
 }
 
 func PrintUserByORM()  {
@@ -66,6 +70,7 @@ type User struct {
 }
 
 func init()  {
+	
 	orm.RegisterDataBase("default","mysql",
 		"root:123456@tcp(127.0.0.1:3306)/db1?charset=utf8",30)
 	orm.RegisterModel(new(User))
@@ -105,3 +110,40 @@ bee run
 
 ![](./assets/2020-01-23-15-11-09.png)
 
+
+
+## 补充说明 
+
+orm的其他用法。
+
+```go 
+
+func testORM()  {
+	//新建一个ORM对象，并且选中数据库
+	o := orm.NewOrm()
+	o.Using("default")
+
+	//插入一个数据
+	user := User{Id: 20, Name:"Nick1", Sex:1}
+	o.Insert(&user)
+
+
+	//更新一个数据
+	user.Sex = 0
+	o.Update(&user)
+
+	//读name是Nick1的用户
+	user.Name = "Nick1"
+	o.Read(&user,"name")
+
+	//删除ID为1的用户
+	o.Delete(&User{Id: 1})
+
+	//原生支持，待验证
+	ids := []int{1,2,3}
+	users := o.Raw("SELECT name FROM user WHERE id IN (?,?,?)",ids)
+
+	println(users)
+
+}
+```
