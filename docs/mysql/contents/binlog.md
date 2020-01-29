@@ -9,6 +9,8 @@ binlog用来存储数据的数据库的写日志，通常用在数据备份和�
 * ``vim /etc/mysql/my.cnf``,``[mysqld]``下面添加入下一行，重启mysql
 
 ```bash 
+# 服务器唯一ID
+server-id=1   
 # 设置日志格式 STATEMENT、ROW、MIXED 
 binlog_format = mixed
 log-bin=mysql-bin
