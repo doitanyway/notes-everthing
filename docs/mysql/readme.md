@@ -18,5 +18,6 @@
 * [mysql做主从备份](./contents/master_slave.md)
 * [mysql计算](./contents/computational.md)
 * [一对多查询](./contents/one_many.md)
+* [mysql binlog](./contents/binlog.md)
 * TrubleShooting
   * [mysql 使用JDBC查询无效的问题](select_mysql_invalied.md)
