@@ -17,46 +17,9 @@
 * 执行如下脚本即可  
 
 ```bash 
-#!/bin/bash
-# 安装docker 
-wget https://download.docker.com/linux/static/stable/x86_64/docker-18.03.1-ce.tgz
-tar -xvf docker-18.03.1-ce.tgz
-chmod +x docker-18.03.1-ce/*
-cp docker-18.03.1-ce/* /usr/local/bin/
-cat > /usr/lib/systemd/system/docker.service <<"EOF"
-[Unit]
-Description=Docker Application Container Engine
-Documentation=http://docs.docker.io
 
-[Service]
-Environment="PATH=/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin"
-EnvironmentFile=-/run/flannel/docker
-ExecStart=/usr/local/bin/dockerd --log-level=error $DOCKER_NETWORK_OPTIONS
-ExecReload=/bin/kill -s HUP $MAINPID
-Restart=on-failure
-RestartSec=5
-LimitNOFILE=infinity
-LimitNPROC=infinity
-LimitCORE=infinity
-Delegate=yes
-KillMode=process
-
-[Install]
-WantedBy=multi-user.target
-EOF
-# 国内dockerhub加速   
-cat <<'EOF' > /etc/docker/daemon.json
-{
-"registry-mirrors": ["https://registry.docker-cn.com"]
-}
-EOF
-
-systemctl restart docker
-systemctl enable docker
-
-# 安装docker-compose  
-curl -L https://get.daocloud.io/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
+ curl https://gitee.com/nickqiu/notes-everything/raw/master/docs/docker/install_docker.sh | bash  
+ 
 ```
 
 
@@ -98,5 +61,4 @@ docker login -u name -p pasword 20.250.204.146:6110
 ```
 
 
- curl -O http://www.linux.com/hello.sh | sh 
 
