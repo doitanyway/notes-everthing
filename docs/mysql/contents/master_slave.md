@@ -208,5 +208,5 @@ max_binlog_size = 1073741824
 
 ```
 show master logs;      #获得主服务器上的一系列日志
-PURGE MASTER LOGS TO 'binlog.000058';   #删除binlog.000005之前的，不包括binlog.000058
+PURGE MASTER LOGS TO 'binlog.000058';   #删除binlog.0000058之前的，不包括binlog.000058
 ```

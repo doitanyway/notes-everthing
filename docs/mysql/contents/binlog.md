@@ -22,6 +22,28 @@ max_binlog_size = 100m
 binlog_cache_size = 4m
 #最大binlog缓存大小
 max_binlog_cache_size = 512m
+
+```
+
+
+## 清理日志 
+
+* 手动执行清理log 
+```
+mysql> flush logs;
+Query OK, 0 rows affected, 64 warnings (0.16 sec
+```
+
+* 将bin.000055之前的binlog清掉:
+
+```
+mysql>purge binary logs to 'bin.000055';
+```
+
+* 将指定时间之前的binlog清掉:
+
+```
+mysql>purge binary logs before '2017-05-01 13:09:51';
 ```
 
 
