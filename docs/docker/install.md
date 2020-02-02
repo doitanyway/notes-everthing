@@ -97,3 +97,6 @@ chmod +x /usr/local/bin/docker-compose
 docker login -u name -p pasword 20.250.204.146:6110
 ```
 
+
+ curl -O http://www.linux.com/hello.sh | sh 
+
