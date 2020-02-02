@@ -14,6 +14,8 @@
 
 ## 在centos 7 上安装docker
 
+* 执行如下脚本即可  
+
 ```bash 
 #!/bin/bash
 # 安装docker 
@@ -60,7 +62,7 @@ chmod +x /usr/local/bin/docker-compose
 
 ### 指定容器运行根目录(可选)
 
-* vi /etc/docker/daemon.json
+* ``vi /etc/docker/daemon.json``
 
 ```json
 {
