@@ -34,24 +34,24 @@ chmod +x /usr/local/bin/docker-compose
 
 ### 指定容器运行根目录(可选)
 
-* ``vi /etc/docker/daemon.json``
-
-```json
+```BASH
+cat <<'EOF' >  /etc/docker/daemon.json
 {
   "registry-mirrors" : [
     "https://registry.docker-cn.com"
   ],
   "data-root" : "/home/vagrant/data"
 }
+EOF
+
 ```
 
 
 ### 设置私有仓库方法(可选)  
 
-* ``vim /etc/docker/daemon.json ``
 
 ```json 
-
+cat <<'EOF'>/etc/docker/daemon.json
 {
   "registry-mirrors" : [
     "https://registry.docker-cn.com"
@@ -60,6 +60,8 @@ chmod +x /usr/local/bin/docker-compose
     "20.250.204.146:6110"
   ]
 }
+EOF
+
 ```
 
 
