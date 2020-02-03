@@ -2,7 +2,6 @@
 
 * [docker基础知识](./content/introduce.md)
 * [安装docker和dockercompose](./install.md)
-* [docker常用命令](./docker_commands.md)
 * [docker-compose快速开始](./content/docker_compose_quick.start.md)
 * [Docker打包Springboot项目](./content/spring_boot_in_docker.md)
 * [Dockerfile](./content/Dockerfile.md)
@@ -17,3 +16,4 @@
 * [containers & images](./containers_images.md)
 * [centos](./centos.md)
 * [常用docker容器](./docs/dockers.md)
+* [docker常用命令](./docker_commands.md)
