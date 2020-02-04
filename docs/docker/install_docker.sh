@@ -42,7 +42,7 @@ EOF
 mkdir -p /etc/docker
 cat <<'EOF' > /etc/docker/daemon.json
 {
-"registry-mirrors": ["https://registry.docker-cn.com"]
+"registry-mirrors": ["https://registry.docker-cn.com","http://hub-mirror.c.163.com"]
 }
 EOF
 systemctl daemon-reload
