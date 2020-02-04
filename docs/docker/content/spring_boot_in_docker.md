@@ -40,19 +40,22 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 * 创建编译脚本build.sh
 
 ```bash
-#!/usr/bin/env bash
-#mvn package
-
-docker build -t docker-demo-spring-boot .
-
-#docker run -d -p 8080:8080 docker-demo-spring-boot
-
-#docker tag docker-demo-spring-boot qiujiahong/docker-demo-spring-boot:1.0
-#docker push  qiujiahong/docker-demo-spring-boot:1.0
+#!/usr/bin/env bash 
+#mvn package 
+docker build -t demo-spring:v1.0 . 
+#docker run -d -p 8080:8080 demo-spring 
+#docker tag demo-spring:v1.0 qiujiahong/demo-spring:1.0 
+#docker push qiujiahong/demo-spring:1.0
 ```
 
 * 运行容器
 
 ```
-docker run -d -p 8080:8080 docker-demo-spring-boot
+docker run  -p 8080:8080 demo-spring:v1.0
+```
+
+* 后台运行容器
+
+```
+docker run -d -p 8080:8080 demo-spring:v1.0
 ```
