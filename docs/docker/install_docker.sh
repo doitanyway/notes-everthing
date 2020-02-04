@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# 错误退出  
+set -e
+
 # 安装docker 
 
 echo "start to dowload docker...."
