@@ -15,7 +15,7 @@ else
 fi
 
 tar -xvf docker-18.03.1-ce.tgz
-chmod +x docker-18.03.1-ce/*
+chmod +x docker*/*
 cp docker-18.03.1-ce/* /usr/local/bin/
 cat > /usr/lib/systemd/system/docker.service <<"EOF"
 [Unit]
