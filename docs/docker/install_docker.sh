@@ -45,7 +45,7 @@ cat <<'EOF' > /etc/docker/daemon.json
 "registry-mirrors": ["https://registry.docker-cn.com"]
 }
 EOF
-
-systemctl restart docker
+systemctl daemon-reload
 systemctl enable docker
+systemctl restart docker
 
