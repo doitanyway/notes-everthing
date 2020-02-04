@@ -40,6 +40,8 @@
 * [django](/docs/django/help.md)
 * [go](/docs/go/help.md)
 * [beego](/docs/beego/help.md)
+* [vagrant](/docs/vagrant/help.md)
+
 
 
 更多markdown.md语法，请参考“https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/”
