@@ -16,7 +16,7 @@ fi
 
 tar -xvf docker-18.03.1-ce.tgz
 chmod +x docker*/*
-cp docker-18.03.1-ce/* /usr/local/bin/
+mv docker*/* /usr/local/bin/
 cat > /usr/lib/systemd/system/docker.service <<"EOF"
 [Unit]
 Description=Docker Application Container Engine
