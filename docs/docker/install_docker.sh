@@ -39,6 +39,7 @@ KillMode=process
 WantedBy=multi-user.target
 EOF
 # 国内dockerhub加速   
+mkdir -p /etc/docker
 cat <<'EOF' > /etc/docker/daemon.json
 {
 "registry-mirrors": ["https://registry.docker-cn.com"]
