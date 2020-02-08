@@ -21,8 +21,9 @@ rpm -qa|grep java | grep openjdk | grep -v grep | xargs -r yum -y remove
 mkdir -p $JAVA_HOME_VAR
 
 
-tar -xzvf jdk-11*linux-x64*.tar.gz -C /apps/
-ln -s /apps/jdk* /apps/jdk
+tar -xzvf jdk-11*linux-x64*.tar.gz -C ${JAVA_HOME_VAR}
+rm -rf ${JAVA_HOME_VAR}/jdk
+ln -s ${JAVA_HOME_VAR}/jdk* ${JAVA_HOME_VAR}/jdk
 
 sed -i '/JAVA_HOME_VAR/'d /etc/profile 
 sed -i '/JAVA_HOME_PATH/'d /etc/profile 
