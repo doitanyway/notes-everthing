@@ -9,7 +9,10 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", inline: "su"
     config.vm.provision "shell", inline: "sudo echo '123456' | passwd --stdin root "
 
-    
+    config.vm.provision "shell", inline: "sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config"
+    config.vm.provision "shell", inline: "sed -i 's/^#UsePAM.*/UsePAM yes/g' /etc/ssh/sshd_config"
+    config.vm.provision "shell", inline: "sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config "
+    config.vm.provision "shell", inline: "systemctl restart sshd.service"
   
     config.vm.define "node1" do |node1|
         node1.vm.box = "centos/7"
