@@ -30,3 +30,4 @@ echo "export JAVA_HOME=${JAVA_HOME_VAR}/jdk   # JAVA_HOME_VAR"  >> /etc/profile
 echo "export PATH=\$JAVA_HOME/bin:\$PATH   # JAVA_HOME_PATH"  >> /etc/profile
 
 source /etc/profile
+java -version
