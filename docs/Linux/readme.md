@@ -21,5 +21,6 @@
   * [vagrant安装ubuntu](content/install/ubuntu.md)
   * [安装node](content/install-node.md)
   * [安装jdk](content/install/jdk.md)
+  * [安装docker](content/install/docker.md)
   
 [返回首页](/readme.md)
