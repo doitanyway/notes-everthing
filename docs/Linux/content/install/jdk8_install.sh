@@ -4,11 +4,11 @@
 
 
 echo "check the jdk file...."
-if [ -a "jdk-8u*-linux-x64.tar.gz" ];then
-        echo "found docker install file"
+if [ -a "jdk-8u"*"-linux-x64.tar.gz" ];then
+        echo "found jdk install file"
 else
         echo "can't find jdk 8 install file. Please download it in the following url."
-        echo "https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"     
+        echo "https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"
 fi
 
 
