@@ -10,6 +10,7 @@ else
         echo "can't find jdk 8 install file. Please download it in the following url."
         echo "Oracle: https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"
         echo "Baidu cloud: https://pan.baidu.com/s/1EgLncH-wOZdLpjya4xcHcA  Code:e7el"
+        exit 1
 fi
 
 
