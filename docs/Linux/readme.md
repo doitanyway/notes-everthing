@@ -16,7 +16,7 @@
 * [linux防火墙](content/iptables.md)
 * [vim自动显示行号](content/vim_line.md)
 * [centos 7开机启动](content/systemd.md)
-* [常用软件安装](content/install/help.md)
+* 常用软件安装
   * [vagrant安装centos](content/install/vagrant.md)
   * [vagrant安装ubuntu](content/install/ubuntu.md)
   * [安装node](content/install-node.md)
