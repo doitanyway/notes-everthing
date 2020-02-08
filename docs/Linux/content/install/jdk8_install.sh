@@ -4,7 +4,7 @@
 
 
 echo "check the jdk file...."
-if [ -a "jdk-8"*"-linux-x64.tar.gz" ];then
+if [ -a "jdk-8"*"linux-x64"*".tar.gz" ];then
         echo "found jdk install file"
 else
         echo "ERROR: can't find jdk 8 install file. Please download it in the following url. and run the command again."
@@ -20,7 +20,7 @@ rpm -qa|grep java | grep openjdk | grep -v grep | xargs -r yum -y remove
 
 mkdir -p $JAVA_HOME_VAR
 
-tar -xzvf jdk-*-linux-x64.tar.gz -C /apps/
+tar -xzvf jdk-8*linux-x64*.tar.gz -C ${JAVA_HOME_VAR}
 ln -s /apps/jdk* /apps/jdk
 
 sed -i '/JAVA_HOME_VAR/'d /etc/profile 
