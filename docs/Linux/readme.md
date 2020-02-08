@@ -20,6 +20,6 @@
   * [vagrant安装centos](content/install/vagrant.md)
   * [vagrant安装ubuntu](content/install/ubuntu.md)
   * [安装node](content/install-node.md)
-  * [安装jdk](content/install/jdk8.md)
+  * [安装jdk](content/install/jdk.md)
   
 [返回首页](/readme.md)
