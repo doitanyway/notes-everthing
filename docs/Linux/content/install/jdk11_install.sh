@@ -4,7 +4,7 @@
 
 
 echo "check the jdk file...."
-if [ -a "jdk-11"*"-linux-x64"*".tar.gz" ];then
+if [ -a "jdk-11"*"linux-x64"*".tar.gz" ];then
         echo "found jdk install file"
 else
         echo "ERROR: can't find jdk 11 install file. Please download it in the following url. and run the command again."
