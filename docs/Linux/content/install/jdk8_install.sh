@@ -9,6 +9,7 @@ if [ -a "jdk-8u"*"-linux-x64.tar.gz" ];then
 else
         echo "can't find jdk 8 install file. Please download it in the following url."
         echo "https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"
+        echo "baidu cloud: https://pan.baidu.com/s/1EgLncH-wOZdLpjya4xcHcA  code:e7el"
 fi
 
 
