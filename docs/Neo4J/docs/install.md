@@ -8,6 +8,9 @@
 
 curl -O http://dist.neo4j.org/neo4j-community-4.0.0-unix.tar.gz
 
+
+curl https://gitee.com/nickqiu/notes-everything/raw/master/docs/Neo4J/docs/neo4j_install.sh | bash 
+
 ```
 
 

@@ -7,10 +7,10 @@ echo "Check the Neo4J file...."
 if [ -a "neo4j-community-"*"-unix.tar.gz" ];then
         echo "found Neo4J install file"
 else
-        # echo "ERROR: can't find Neo4Jinstall file. Please download it in the following url. and run the command again."
-        # echo "Oracle: https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html"
-        # echo "Baidu cloud: https://pan.baidu.com/s/1EgLncH-wOZdLpjya4xcHcA  Code:e7el"
-        # exit 1
+        ehco "download : neo4j-community-4.0.0-unix.tar.gz"
+        echo "If you can't access the internet. You can download it in you desktop and upload to the server."
+        echo "Baidu cloud: https://pan.baidu.com/s/1ztST5FltyQHMPwOe1d65zQ  Code:y3z3"
+        echo "Offical website: http://dist.neo4j.org/neo4j-community-4.0.0-unix.tar.gz"
         yum install -y curl
         curl -O http://dist.neo4j.org/neo4j-community-4.0.0-unix.tar.gz
 fi
