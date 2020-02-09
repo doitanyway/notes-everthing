@@ -22,6 +22,14 @@ curl https://gitee.com/nickqiu/notes-everything/raw/master/docs/Linux/content/in
 ```
 
 
+## 访问  
+
+```bash  
+# ip 地址,进入该数据库的管理界面，默认账户/密码  neo4j/neo4j  
+http://{ip}:7474
+
+```
+
 ## 参考
 
 https://blog.csdn.net/anshenwa4859/article/details/102005175

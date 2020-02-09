@@ -53,6 +53,10 @@ KillMode=process
 WantedBy=multi-user.target
 EOF
 
+# http监听地址，0.0.0.0 所有网卡    
+sed -i "s/^#dbms.connectors.default_listen_address.*/dbms.connectors.default_listen_address=0.0.0.0/g"  \
+        ${APP_HOME}/neo4j/conf/neo4j.conf
+
 systemctl daemon-reload
 systemctl enable neo4j
 systemctl start neo4j
