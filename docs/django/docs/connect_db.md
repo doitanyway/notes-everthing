@@ -145,7 +145,7 @@ $ python3 manage.py runserver
 ![](./assets/2020-01-18-22-29-53.png)
 
 
-## 向管理页面中加入投票应用¶
+## 向管理页面中加入投票应用  
 
 * 修改文件 ``polls/admin.py``  
 

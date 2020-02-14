@@ -41,6 +41,7 @@ Documentation=https://neo4j.com
 Environment="PATH=/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/apps/jdk/bin:/apps/neo4j/bin"
 ExecStart=/apps/neo4j/bin/neo4j start
 ExecReload=/apps/neo4j/bin/neo4j reload
+ExecStop=/apps/neo4j/bin/neo4j stop
 Restart=on-failure 
 RestartSec=5
 LimitNOFILE=infinity
@@ -53,9 +54,33 @@ KillMode=process
 WantedBy=multi-user.target
 EOF
 
+cat > /usr/lib/systemd/system/neo4j.service <<"EOF"
+[Unit] 
+Description=Neo4j Management Service
+[Service] 
+Type=forking
+User=appuser
+ExecStart=/apps/neo4j/bin/neo4j start
+ExecStop=/apps/neo4j/bin/neo4j stop
+ExecReload=/apps/neo4j/bin/neo4j restart
+RemainAfterExit=no
+Restart=on-failure
+PIDFile=/opt/neo4j/data/neo4j-service.pid
+LimitNOFILE=60000
+TimeoutSec=600
+[Install] 
+WantedBy=multi-user.target
+EOF
+
+
 # http监听地址，0.0.0.0 所有网卡    
 sed -i "s/^#dbms.connectors.default_listen_address.*/dbms.connectors.default_listen_address=0.0.0.0/g"  \
         ${APP_HOME}/neo4j/conf/neo4j.conf
+groupadd appuser
+useradd -g appuser appuser
+chown -R appuser:appuser /apps/neo4j*
+
+
 
 systemctl daemon-reload
 systemctl enable neo4j
