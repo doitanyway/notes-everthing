@@ -92,3 +92,8 @@ Ran 3 tests in 0.004s
 OK
 Destroying test database for alias 'default'...
 ```
+
+
+https://docs.djangoproject.com/en/3.0/intro/tutorial05/
+
+
