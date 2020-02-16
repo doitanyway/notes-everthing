@@ -224,3 +224,11 @@ Destroying test database for alias 'default'...
 
 
 
+
+
+
+## 参考
+
+https://docs.djangoproject.com/en/3.0/intro/tutorial05/
+
+
