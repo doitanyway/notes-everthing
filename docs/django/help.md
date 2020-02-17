@@ -12,3 +12,4 @@ https://github.com/qiujiahong/pythonsite
 * [创建第一个django站点-自动化测试-逻辑测试](docs/test.md)
 * [创建第一个django站点-自动化测试-页面测试](docs/test_page.md)
 * [创建第一个django站点-定制admin表单](docs/admin_form.md)
+* [打包django程序](docs/package.md)
