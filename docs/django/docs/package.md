@@ -139,9 +139,25 @@ urlpatterns = [
 
 * 执行命令 `python3 manage.py migrate` 初始化数据库.
 
+
+*  创建一个管理员账号  
+
+```bash 
+$ python3 manage.py createsuperuser
+# 键入你想要使用的用户名，然后按下回车键：
+Username: admin
+# 然后提示你输入想要使用的邮件地址：
+Email address: qiujiahongde@163.com
+# 最后一步是输入密码。你会被要求输入两次密码，第二次的目的是为了确认第一次输入的确实是你想要的密码。
+Password: **********
+Password (again): *********
+Superuser created successfully.
+```
+
 * 启动服务器 
 
 ```bash 
 python3 manage.py runserver
 ```
+
 
