@@ -9,3 +9,5 @@
 * [go语言类型](docs/go_var_type.md)
 * [go语言逻辑](docs/go_var_logic.md)
 * [go语言函数](docs/go_function.md)
+* [go语言指针](docs/go_point.md)
+* [go语言参数传递](docs/go_param.md)
