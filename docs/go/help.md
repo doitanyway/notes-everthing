@@ -11,3 +11,4 @@
 * [go语言函数](docs/go_function.md)
 * [go语言指针](docs/go_point.md)
 * [go语言参数传递](docs/go_param.md)
+* [go语言数组](docs/arrays.md)
