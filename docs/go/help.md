@@ -13,3 +13,4 @@
 * [go语言参数传递](docs/go_param.md)
 * [go语言数组](docs/arrays.md)
 * [go语言切片](docs/slice.md)
+* [Map](docs/map.md)
