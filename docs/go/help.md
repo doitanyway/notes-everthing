@@ -6,3 +6,4 @@
 * [编译](docs/build.md)
 * [hello word](docs/helloword.md)
 * [go语言变量](docs/go_var.md)
+* [go语言类型](docs/go_var_type.md)
