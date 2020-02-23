@@ -6,6 +6,8 @@
 
 * [配置使用国内七牛云的 go module 镜像](https://github.com/goproxy/goproxy.cn)，具体方法如下:
 
+* 其他地址: http://mirrors.ustc.edu.cn/golang/
+
 
 ```bash 
 # unset GO111MODULE
