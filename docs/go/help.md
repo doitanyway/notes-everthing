@@ -15,3 +15,5 @@
 * [go语言切片](docs/slice.md)
 * [Map](docs/map.md)
 * [面向对象](docs/object.md)
+* [面向对象的可见性](docs/object_priv.md)
+* [面向对象-扩展已有类型](docs/object_extend.md)
