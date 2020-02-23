@@ -17,6 +17,7 @@
 * [面向对象](docs/object.md)
 * [面向对象的可见性](docs/object_priv.md)
 * [面向对象-扩展已有类型](docs/object_extend.md)
+* [接口](docs/interfance.md)
 
 
 * [常用配置和命令](docs/config.md)
