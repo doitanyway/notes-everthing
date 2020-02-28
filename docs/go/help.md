@@ -18,10 +18,14 @@
 * [面向对象的可见性](docs/object_priv.md)
 * [面向对象-扩展已有类型](docs/object_extend.md)
 * [接口](docs/interfance.md)
-
+* [接口的组合](docs/interface_compose.md)
+* [例子：自己实现Reader](docs/reader_interface.md)
+* [闭包&匿名函数](docs/close_package.md)
 
 * [常用配置和命令](docs/config.md)
 * [go语言库](docs/go_lib.md)
   * [zap-日志](docs/zap.md)
   * [gin-web Server框架](docs/gin.md)
   
+
+duck typing : 描述事物的外部行为，而非内部结构
