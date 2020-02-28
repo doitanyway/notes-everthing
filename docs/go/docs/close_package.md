@@ -68,17 +68,23 @@ func (node * Node) TraverseF( f func(* Node))  {
 
 
 
+
 func main() {
 
 	var root Node
 	root = Node{Value:3}
 	root.Left = &Node{Value:1}
 	root.Right = &Node{5,nil,nil}
+	count := 0
 	//在运行的时候确定遍历处理函数
 	root.TraverseF(func(node *Node) {
 		fmt.Print(node.Value, " ")
+		count++
 	})
+	fmt.Println()
+	fmt.Println("count =",count)
 }
+
 
 ```
 
