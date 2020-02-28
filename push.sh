@@ -8,5 +8,7 @@ echo note:$note
 
 git add .
 git commit -m "$note"
+# push to git hub
 git push 
+# push to mayun
 git push mayun 
