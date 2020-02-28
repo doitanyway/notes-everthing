@@ -21,6 +21,7 @@
 * [接口的组合](docs/interface_compose.md)
 * [例子：自己实现Reader](docs/reader_interface.md)
 * [闭包&匿名函数](docs/close_package.md)
+* [coroutine-协程](docs/coroutine.md)
 
 * [常用配置和命令](docs/config.md)
 * [go语言库](docs/go_lib.md)
