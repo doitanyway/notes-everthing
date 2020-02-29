@@ -30,10 +30,25 @@
 * [迷宫算法-问题描述](docs/maze.md)
 * [迷宫算法-广度优先算法程序](docs/maze_go.md)
 
+
+* [http server简单demo](docs/http_demo.md)
+* [http client - get](docs/http_demo_get.md)
+* [http client - get](docs/http_demo_get.md)
+
+
 * [常用配置和命令](docs/config.md)
+
 * [go语言库](docs/go_lib.md)
   * [zap-日志](docs/zap.md)
   * [gin-web Server框架](docs/gin.md)
+  * [bufio](docs/bufio.md)
+  * [log](docs/log.md)
+  * [encoding/json](docs/json.md)
+  * [regexp](docs/regexp.md)
+  * [time](docs/time.md)
+  * [string](docs/string.md)
+  * [math](docs/math.md)
+  * [rand](docs/rand.md)
   
 
 

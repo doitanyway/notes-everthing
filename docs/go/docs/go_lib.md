@@ -41,3 +41,14 @@ export GOPATH=/new/path
 go get -u go.uber.org/zap
 
 ```
+
+
+* 查看标准库文档   
+
+```bash 
+# 如下命令启动一个库
+godoc -http 8888
+
+# 也可以直接访问如下页面
+# https://studygolang.com/pkgdoc
+```
