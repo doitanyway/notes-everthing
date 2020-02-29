@@ -23,6 +23,8 @@
 * [闭包&匿名函数](docs/close_package.md)
 * [coroutine-协程](docs/coroutine.md)
 * [channel](docs/channel.md)
+* [godoc](docs/godoc.md)
+
 
 * [常用配置和命令](docs/config.md)
 * [go语言库](docs/go_lib.md)
@@ -30,4 +32,4 @@
   * [gin-web Server框架](docs/gin.md)
   
 
-duck typing : 描述事物的外部行为，而非内部结构
+
