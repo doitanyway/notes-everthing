@@ -27,6 +27,7 @@
 * [select](docs/select.md)
 * [godoc](docs/godoc.md)
 
+* [迷宫算法-问题描述](docs/maze.md)
 
 * [常用配置和命令](docs/config.md)
 * [go语言库](docs/go_lib.md)

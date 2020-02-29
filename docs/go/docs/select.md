@@ -2,7 +2,7 @@
 
 ## 简介 
 
-select 可以实现多个channel协调统一调用。
+select 可以实现多个channel协调统一调度。
 
 ## 例子
 
