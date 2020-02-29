@@ -24,6 +24,7 @@
 * [coroutine-协程](docs/coroutine.md)
 * [channel](docs/channel.md)
 * [channel等待](docs/channel_wait.md)
+* [select](docs/select.md)
 * [godoc](docs/godoc.md)
 
 
