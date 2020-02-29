@@ -23,6 +23,7 @@
 * [闭包&匿名函数](docs/close_package.md)
 * [coroutine-协程](docs/coroutine.md)
 * [channel](docs/channel.md)
+* [channel等待](docs/channel_wait.md)
 * [godoc](docs/godoc.md)
 
 
