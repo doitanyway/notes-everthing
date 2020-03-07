@@ -54,3 +54,69 @@ func main() {
 [hhhhh@176.com hhhhh 176 .com]
 [abc@abc.def.com abc abc.def .com]
 ```
+
+## 抓取城市列表  
+
+```go 
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"golang.org/x/net/html/charset"
+	"golang.org/x/text/encoding"
+	"golang.org/x/text/encoding/unicode"
+	"golang.org/x/text/transform"
+	"io/ioutil"
+	"net/http"
+	"regexp"
+)
+
+// go get golang.org/x/text
+// go get golang.org/x/net/html
+// encoding determine for html page , eg: gbk gb2312 GB18030
+
+func main() {
+	resp, err := http.Get( "http://www.zhenai.com/zhenghun")
+	if err != nil {
+		panic(err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		fmt.Println("ERROR: status code", resp.StatusCode)
+		return
+	}
+
+	// 转换编码格式
+	bufReader := bufio.NewReader(resp.Body)
+	encoding := determineEncoding(bufReader)
+	fmt.Println("encoding:",encoding)
+	reader := transform.NewReader(bufReader, encoding.NewDecoder())
+	contents, err := ioutil.ReadAll(reader)
+	if err != nil {
+		panic(err)
+	}
+	printCityList(contents)
+}
+
+func printCityList(contents []byte) [][] byte {
+	re := regexp.MustCompile(`<a href="http://www.zhenai.com/zhenghun/[0-9a-z]+"[^>]*>[^<]+</a>`)
+	all := re.FindAll(contents, -1)
+	for _,m := range all{
+		fmt.Printf("%s\n",m)
+	}
+	return all
+}
+
+// 获取当前页面的编码格式
+func determineEncoding(r *bufio.Reader) encoding.Encoding {
+	bytes, err := r.Peek(1024)
+	if err != nil {
+		// 如果没有获取到编码格式，则返回默认UTF-8编码格式
+		return unicode.UTF8
+	}
+	e, _, _ := charset.DetermineEncoding(bytes, "")
+	return e
+}
+```
