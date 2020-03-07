@@ -35,6 +35,8 @@
 * [http client - get](docs/http_demo_get.md)
 * [http client - get](docs/http_demo_get.md)
 
+* [go语言正则表达式](docs/regex.md)
+
 
 * [常用配置和命令](docs/config.md)
 
