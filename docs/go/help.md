@@ -40,6 +40,9 @@
 
 * [常用配置和命令](docs/config.md)
 
+* [应用](docs/application.md)
+  * [检测编码方式](docs/detect_encode.md)
+
 * [go语言库](docs/go_lib.md)
   * [zap-日志](docs/zap.md)
   * [gin-web Server框架](docs/gin.md)
