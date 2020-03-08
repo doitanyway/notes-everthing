@@ -26,6 +26,8 @@
 * [channel等待](docs/channel_wait.md)
 * [select](docs/select.md)
 * [godoc](docs/godoc.md)
+* [json](docs/json.md)
+
 
 * [迷宫算法-问题描述](docs/maze.md)
 * [迷宫算法-广度优先算法程序](docs/maze_go.md)
