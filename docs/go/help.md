@@ -27,6 +27,7 @@
 * [select](docs/select.md)
 * [godoc](docs/godoc.md)
 * [json](docs/json.md)
+* [压缩解压tar.gz](docs/tar_gz.md)
 
 
 * [迷宫算法-问题描述](docs/maze.md)
