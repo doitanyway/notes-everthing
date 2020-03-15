@@ -29,9 +29,14 @@
 * [json](docs/json.md)
 * [压缩解压tar.gz](docs/tar_gz.md)
 
+* [go语言模板](docs/template.md)
+
+
 
 * [迷宫算法-问题描述](docs/maze.md)
 * [迷宫算法-广度优先算法程序](docs/maze_go.md)
+
+
 
 
 * [http server简单demo](docs/http_demo.md)
