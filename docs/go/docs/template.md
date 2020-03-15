@@ -210,3 +210,135 @@ func main() {
 }
 
 ```
+
+## 循环   
+
+```go 
+package main
+
+import (
+	"os"
+	"text/template"
+)
+
+func main() {
+	//结构
+	type Student struct {
+		Name string
+		Age    uint
+	}
+	type NewStudents struct {
+		Students [] Student
+	}
+	//结构实例
+	students := NewStudents{
+		Students: [] Student{
+			Student{ Name: "Nick", Age:20},
+			Student{ Name: "Elaine", Age:19},
+		},
+	}
+
+	var Text = `
+{{ range .Students }}
+{{.Name}} is {{.Age}} years old
+{{- end }}
+`
+
+	tmpl, err := template.New("test").Parse(Text)
+	if err!=nil {
+		panic(err)
+	}
+	//合成模板,并输出到标准输出中去，student中的具体指，被传入进去
+	err = tmpl.Execute(os.Stdout, students)
+	if err!=nil {
+		panic(err)
+	}
+}
+
+```
+
+### 模板函数
+
+模板函数可以对变量进行一些函数处理，可以用来处理复杂一点的字段  
+
+```go 
+// 模板函数的类型
+type FuncMap map[string]interface{}
+// 模板函数声明
+t = t.Funcs(template.FuncMap{"handleFieldName": HandleFunc})
+
+```
+
+go 语言中内置了一些模板函数如下：  
+
+```go 
+var builtins = FuncMap{
+    "and":      and,
+    "call":     call,
+    "html":     HTMLEscaper,
+    "index":    index,
+    "js":       JSEscaper,
+    "len":      length,
+    "not":      not,
+    "or":       or,
+    "print":    fmt.Sprint,
+    "printf":   fmt.Sprintf,
+    "println":  fmt.Sprintln,
+    "urlquery": URLQueryEscaper,
+}
+```
+
+* 例子  
+
+```go 
+package main
+
+import (
+	"os"
+	"text/template"
+)
+
+func handleInt(number uint) uint {
+	return number + 10
+}
+func handleString(field string) string {
+	return "\"" + field+"\""
+}
+
+func main() {
+	//结构
+	type Student struct {
+		Name string
+		Age    uint
+	}
+	type NewStudents struct {
+		Students [] Student
+	}
+	//结构实例
+	students := NewStudents{
+		Students: [] Student{
+			Student{ Name: "Nick", Age:20},
+			Student{ Name: "Elaine", Age:19},
+		},
+	}
+
+	var Text = `
+{{ range .Students }}
+{{.Name | handleString}} is {{.Age | handleInt}} years old
+{{- end }}
+`
+	tmpl, err := template.New("test").
+		Funcs(template.FuncMap{"handleString": handleString, "handleInt": handleInt}).
+		Parse(Text)
+	if err!=nil {
+		panic(err)
+	}
+	//合成模板,并输出到标准输出中去，student中的具体指，被传入进去
+	err = tmpl.Execute(os.Stdout, students)
+	if err!=nil {
+		panic(err)
+	}
+}
+
+
+```
