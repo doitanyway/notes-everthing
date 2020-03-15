@@ -171,3 +171,42 @@ func main() {
 }
 
 ```
+
+###  结果输出到文件 
+
+```go 
+package main
+
+import (
+	"os"
+	"text/template"
+)
+
+func main() {
+	//结构
+	type Student struct {
+		Name string
+		Age    uint
+	}
+	//结构实例
+	student := Student{
+		Name: "Nick",
+		Age:  12,
+	}
+	tmpl, err := template.New("test").Parse("{{.Name}} is {{.Age}} years old.")
+	if err!=nil {
+		panic(err)
+	}
+	//新建一个输出文件，添加读写权限
+	file, err := os.OpenFile("demo.txt", os.O_CREATE|os.O_WRONLY, 0755)
+	if err!=nil {
+		panic(err)
+	}
+	//合成模板,并输出到文件中去，student中的具体指，被传入进去
+	err = tmpl.Execute(file, student)
+	if err!=nil {
+		panic(err)
+	}
+}
+
+```
