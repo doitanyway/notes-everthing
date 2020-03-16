@@ -182,12 +182,12 @@ func compressFile(srcFile string, recPath string, tw *tar.Writer, fi os.FileInfo
 
 func main() {
 	//压缩
-	srcDirPath := "/home/zzy/go/src/test/aaa.go"
-	destFilePath := "/home/zzy/go/src/test/test.tar.gz"
+	srcDirPath := "~/go/src/test/aaa.go"
+	destFilePath := "~/go/src/test/test.tar.gz"
 	Compress(srcDirPath, destFilePath)
 	//解压
-	srcFilePath := "/home/zzy/go/src/test/test.tar.gz"
-	destDirPath := "/home/zzy/go/src/test/."
+	srcFilePath := "~/go/src/test/test.tar.gz"
+	destDirPath := "~/go/src/test/."
 	UnCompress(srcFilePath, destDirPath)
 }
 
