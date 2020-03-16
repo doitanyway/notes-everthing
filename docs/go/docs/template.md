@@ -37,6 +37,32 @@ func main() {
 > * 数据求值（data evaluations）,被直接把值拷贝到模板中
 > * 控制结构（control structures），条件、循环、变量、函数调用等
 
+### text 和spaces
+
+```go
+package main
+
+import (
+	"os"
+	"text/template"
+)
+
+type Student struct {
+	Name string
+	Age    uint
+}
+
+func main(){
+	student := Student{"nick", 17}
+	//-}} 表示这几个符号之后的空格和回车都去掉，对应{{- 表示之前的空格和回车都去掉
+	tmpl, err := template.New("test").Parse("{{.Name -}} is {{- .Age}} years old")
+	if err != nil { panic(err) }
+	err = tmpl.Execute(os.Stdout, student)
+	if err != nil { panic(err) }
+	//	nickis17 years old
+}
+```
+
 
 ### 结构带入  
 
@@ -211,7 +237,15 @@ func main() {
 
 ```
 
-## 循环   
+### 循环   
+
+* 循环格式  
+
+```
+{{range .Field}}
+  {{.ChildFieldOne}}  -- {{.ChildFieldTwo }}
+{{ end }}
+```
 
 ```go 
 package main
@@ -256,6 +290,21 @@ func main() {
 }
 
 ```
+
+### 判断
+
+
+```
+{{if .Field}} if部分的输出 {{else}} else 部分的输出 {{end}}
+```
+
+### 管道
+
+```bash
+# | 是一个管道符号，与linux的表示方法类似，如下表示.Field 结果由html函数处理
+{{.Field | html }}
+```
+
 
 ### 模板函数
 
