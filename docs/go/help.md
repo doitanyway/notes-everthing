@@ -30,6 +30,7 @@
 * [压缩解压tar.gz](docs/tar_gz.md)
 
 * [go语言模板](docs/template.md)
+* [go语言打包静态文件](docs/static.md)
 
 
 
