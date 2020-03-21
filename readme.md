@@ -42,6 +42,8 @@
 * [beego](/docs/beego/help.md)
 * [vagrant](/docs/vagrant/help.md)
 * [Neo4J](/docs/Neo4J/help.md)
+* [项目管理](/docs/project/help.md)
+* [PPT](/docs/PPT/help.md)
 
 
 
