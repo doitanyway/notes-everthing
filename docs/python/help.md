@@ -26,6 +26,7 @@
 * EXCEL
   * [python读写EXCEL（xlrd、xlwt）](./content/xlrd.md)
   * [python读写EXCEL（pandas）](./content/pandas.md)
+  * [StyleFrame样式](./content/styleframe.md)
   
 * 常用函数
   * [官方内置函数资料](https://docs.python.org/3/library/functions.html)
