@@ -8,6 +8,26 @@ pip install pandas openpyxl
 # pip3 install pandas
 ```
 
+
+
+## read_excel方法 
+
+* 函数格式   
+
+```py 
+pd.read_excel(io, sheet_name=0, header=0, names=None, index_col=None, usecols=None)
+
+```
+
+
+> io：excel文件，如果命名为中文，在python2.7中，需要使用decode()来解码成unicode字符串，例如： pd.read_excel('示例'.decode('utf-8))
+> sheet_name：返回指定的sheet，如果将sheet_name指定为None，则返回全表，如果需要返回多个表，可以将sheet_name指定为一个列表，例如['sheet1', 'sheet2']
+> header：指定数据表的表头，默认值为0，即将第一行作为表头。
+> usecols：读取指定的列，例如想要读取第一列和第二列数据：
+>    pd.read_excel("example.xlsx", sheet_name=None, usecols=[0, 1])
+
+
+
 ## 简单读写
 
 * 读  
@@ -41,18 +61,27 @@ df = DataFrame(data)
 df.to_excel("work.xlsx")
 ```
 
-## read_excel方法 
+## 案列
 
-* 函数格式   
+### 回写 
+
+![](./assets/2020-03-29-10-28-26.png)
 
 ```py 
-pd.read_excel(io, sheet_name=0, header=0, names=None, index_col=None, usecols=None)
+# coding:utf-8
+
+import pandas as pd
+from pandas import DataFrame
+
+# 读取文件
+data = pd.read_excel("工作簿1.xlsx", sheet_name="Sheet1")
+
+# 找到gender这一列，再在这一列中进行比较
+data['性别'][data['性别'] == '男'] = 1
+data['性别'][data['性别'] == '女'] = 0
+print(data)
+
+
+DataFrame(data).to_excel('new.xlsx', sheet_name='Sheet1', index=False, header=True)
 
 ```
-
-
-> io：excel文件，如果命名为中文，在python2.7中，需要使用decode()来解码成unicode字符串，例如： pd.read_excel('示例'.decode('utf-8))
-> sheet_name：返回指定的sheet，如果将sheet_name指定为None，则返回全表，如果需要返回多个表，可以将sheet_name指定为一个列表，例如['sheet1', 'sheet2']
-> header：指定数据表的表头，默认值为0，即将第一行作为表头。
-> usecols：读取指定的列，例如想要读取第一列和第二列数据：
->    pd.read_excel("example.xlsx", sheet_name=None, usecols=[0, 1])
