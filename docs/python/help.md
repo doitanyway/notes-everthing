@@ -22,6 +22,10 @@
   * [模块](content/module.md)
   * [作用域](content/area.md)
   * [类](content/class.md)
+
+* EXCEL
+  * [python读写EXCEL（xlrd、xlwt）](./content/xlrd.md)
+  * [python读写EXCEL（pandas）](./content/pandas.md)
   
 * 常用函数
   * [官方内置函数资料](https://docs.python.org/3/library/functions.html)
