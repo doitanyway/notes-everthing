@@ -34,20 +34,20 @@ mkdir /home/mysql_data
 * 启动server docker 容器,如下命令启动了一个appliance版本的zabbix,其包含了MySQL server, Zabbix server, Zabbix Java Gateway and Zabbix frontend基于Nginx web-server
 
 ```bash
-# docker pull zabbix/zabbix-appliance:centos-4.4.4
+# docker pull zabbix/zabbix-appliance:alpine-4.4-latest
 docker run -d --name some-zabbix-appliance  \
         -p 80:80 -p 10051:10051  \
         -e PHP_TZ=Asia/Shanghai \
         -v /home/mail.sh:/usr/lib/zabbix/alertscripts/mail.sh \
         -v /home/mysql_data:/var/lib/mysql \
         -v /home/zabbix/mail.rc:/etc/mail.rc \
-        zabbix/zabbix-appliance:centos-4.4.4
+        zabbix/zabbix-appliance:alpine-4.4-latest
 
 
 docker run  --name some-zabbix-appliance  \
         -p 900:80 -p 10051:10051  \
         -e PHP_TZ=Asia/Shanghai \
-        zabbix/zabbix-appliance:centos-4.4.4
+        zabbix/zabbix-appliance:alpine-4.4-latest
 ```
 
 * 在浏览器中输入地址``http://{ip_address}``,访问zabbix主页，如果能打开则安装成功。默认网页用户： Admin ，密码： zabbix
