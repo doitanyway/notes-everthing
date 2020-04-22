@@ -143,3 +143,43 @@ comment_author (str) –
 comment_text (str) –
 text_rotation (int) – Integer in the range 0 - 180
 ```
+
+
+## 简单加工数据再写
+
+```py 
+from StyleFrame import StyleFrame, Styler, utils
+
+if __name__ == '__main__':
+# 加工数据
+    data = {
+        'state': ['Ohio', 'Ohio', 'Ohio', 'Nevada', 'Nevada'],
+        'year': [2000, 2001, 2002, 2001, 2002],
+        'pop': [1.5, 1.7, 3.6, 2.4, 2.9]
+    }
+    print(data)
+    data['Nick'] = [1, 2, 3, 4, 5]
+    print(data)
+
+    data['state'].append("China")
+    data['year'].append(2019)
+    data['pop'].append(11)
+    data['Nick'].append("dd")
+
+    print(data)
+    sf = StyleFrame(data)
+
+    # 连续应用多个样式
+    # sf.apply_style_by_indexes(indexes_to_style=sf[sf['col_a'] > 50],
+    #                      cols_to_style=['col_a'],
+    #                      styler_obj=Styler(bg_color=utils.colors.blue, bold=True, font_size=10)).\
+    #apply_column_style(cols_to_style=['col_b'],
+    #                   styler_obj=Styler(bg_color=utils.colors.green),
+    #                   style_header=True)
+    
+    # 写文件
+    ew = StyleFrame.ExcelWriter(r'./my_excel.xlsx')
+    sf.to_excel(ew)
+    ew.save()
+
+```
