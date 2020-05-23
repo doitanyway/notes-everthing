@@ -13,4 +13,4 @@
 * [ssh-keygen](./ssh-keygen.md)
 * [df](./df.md)
 * [jar](./jar.md)
-
+* [chmod](./chmod.md)

@@ -200,6 +200,14 @@ OK
 
 
 
+### redis-cli 
+
+```bash  
+./redis-cli -h {dcs_instance_address} -p 6379 -a {password} -c
+
+# 其中，{dcs_instance_address}为Redis实例的IP地址/域名，“6379”为Redis实例的端口，{password}为Cluster集群实例的密码，-c连接集群节点时使用。IP地址/域名和端口获取见步骤1。
+
+```
 
 
 

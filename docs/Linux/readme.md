@@ -16,6 +16,7 @@
 * [linux防火墙](content/iptables.md)
 * [vim自动显示行号](content/vim_line.md)
 * [centos 7开机启动](content/systemd.md)
+* [给普通用户添加sudo权限](content/add_sudo.md)
 * 常用软件安装
   * [vagrant安装centos](content/install/vagrant.md)
   * [vagrant安装ubuntu](content/install/ubuntu.md)

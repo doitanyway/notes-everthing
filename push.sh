@@ -12,3 +12,14 @@ git commit -m "$note"
 git push 
 # push to mayun
 git push mayun 
+
+
+
+
+
+
+curl -v --user 'admin:admin123'  \
+    --upload-file /data/server/wizard_uni/union-test/jar.zip  \
+     http://218.80.192.236:9001/repository/raw-repo/jars/test/jar.zip
+
+
