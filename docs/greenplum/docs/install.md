@@ -35,7 +35,8 @@ curl https://gitee.com/nickqiu/notes-everything/raw/master/docs/greenplum/docs/i
 ```
 
 
-* 上传软件包到目录 ``~``,执行如下脚本：  （m1、m2上分别root执行）
+* 上传软件包到目录 ``~``,执行如下脚本：  （m1、m2上分别root执行）  
+
 ```bash 
 cd ~
 yum install -y apr
@@ -54,12 +55,17 @@ yum install -y krb5-devel
 rpm -ivh greenplum-db-6.4.0-rhel7-x86_64.rpm
 
 # /data替换成为大的目录
-data_dir=/data
+
 mkdir -p /home/gpadmin/gpconfigs
 mkdir -p $data_dir/master
 mkdir -p $data_dir/primary
 
 
+cat >/home/gpadmin/gpconfigs/data_dir<< EOF
+export data_dir=/data
+EOF 
+
+source /home/gpadmin/gpconfigs/data_dir
 
 # 配置hostlist文件记录所有节点    
 cat >/home/gpadmin/gpconfigs/hostfile_gpinitsystem<< EOF
@@ -97,4 +103,84 @@ source /usr/local/greenplum-db/greenplum_path.sh
 chown -R gpadmin:gpadmin /usr/local/greenplum*
 chown -R gpadmin:gpadmin $data_dir
 chown -R gpadmin:gpadmin /home/gpadmin
+```
+
+* 初始化gp(m1上执行)     
+
+```bash 
+# 主节点到所有节点免密,手动
+su gpadmin
+ssh-keygen -t rsa
+ssh-copy-id m1
+ssh-copy-id m2
+
+source /home/gpadmin/gpconfigs/data_dir
+cat >>/home/gpadmin/.bash_profile<< EOF
+source /usr/local/greenplum-db/greenplum_path.sh
+export MASTER_DATA_DIRECTORY=$data_dir/master/gpseg-1
+export LD_PRELOAD=/lib64/libz.so.1 ps
+export PGUSER=gpadmin
+export PGDATABASE=gp_sydb
+EOF
+source /home/gpadmin/.bash_profile
+
+
+cd /home/gpadmin/gpconfigs/
+# 权限互通  
+gpssh-exkeys -f hostfile_gpinitsystem
+# -c 初始化配置文件  -h segment主机配置文件 -s master的standby（备份）所在的节点，书上和网上的一些资料都将standby放在最后一个节点
+# gpinitsystem -c gpinitsystem_config  -h seg_hosts -s sdw3
+# 不配置standby
+gpinitsystem -c gpinitsystem_config  -h seg_hosts
+
+```
+
+* 配置允许所有客户端IP访问(master上执行)：  
+ 
+```bash 
+echo "host     all         gpadmin         0.0.0.0/0       trust" >> /data/master/gpseg-1/pg_hba.conf
+# 重新加载配置文件
+gpstop -u
+```
+
+
+* 修改数据库密码(master上执行)：  
+
+```bash 
+# 修改数据库密码,使用gpadmin用户执行
+#  su gpadmin  
+# psql -p:指定端口  -d:指定数据库
+    psql
+    修改数据库密码
+    alter role gpadmin with password '123456';
+    \l  # 查看所有数据库
+    \q  # 退出登录
+```
+
+
+## 相关命令
+
+```bash 
+gpstop -u  #重新加载配置文件
+gpstart #正常启动 
+gpstop #正常关闭 
+gpstop -M fast #快速关闭 
+gpstop –r #重启 
+
+gpstate -e #查看mirror的状态
+gpstate -f #查看standby master的状态
+gpstate -s #查看整个GP群集的状态
+gpstate -i #查看GP的版本
+gpstate --help #帮助文档，可以查看gpstate更多用法
+```
+
+## 数据清理 
+
+```bash 
+source /home/gpadmin/gpconfigs/data_dir
+mkdir -p /home/gpadmin/gpconfigs
+mkdir -p $data_dir/master
+mkdir -p $data_dir/primary
+# cd /home/gpadmin/gpconfigs/
+# gpinitsystem -c gpinitsystem_config  -h seg_hosts
 ```
