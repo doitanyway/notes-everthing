@@ -6,6 +6,9 @@
 note=${1:-"commit"}
 echo note:$note
 
+#!/bin/bash 
+note=${1-"commit note"}
+echo $note
 git add .
 git commit -m "$note"
 # push to git hub
