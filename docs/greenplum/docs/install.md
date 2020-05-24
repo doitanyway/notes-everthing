@@ -16,6 +16,8 @@
 |m1|192.168.90.11|master host,segment host|
 |m2|192.168.90.12|segment host|
 
+
+
 * 对应安装包请到百度网盘下载：  
 
 链接:https://pan.baidu.com/s/1_WZFm9jwlTwh9nSvA-ClLA  密码:vv7u
@@ -55,17 +57,18 @@ yum install -y krb5-devel
 rpm -ivh greenplum-db-6.4.0-rhel7-x86_64.rpm
 
 # /data替换成为大的目录
+mkdir -p /home/gpadmin/gpconfigs/
+cat >/home/gpadmin/gpconfigs/data_dir<< EOF
+export data_dir=/data
+EOF
 
-mkdir -p /home/gpadmin/gpconfigs
+source /home/gpadmin/gpconfigs/data_dir
+
 mkdir -p $data_dir/master
 mkdir -p $data_dir/primary
 
 
-cat >/home/gpadmin/gpconfigs/data_dir<< EOF
-export data_dir=/data
-EOF 
 
-source /home/gpadmin/gpconfigs/data_dir
 
 # 配置hostlist文件记录所有节点    
 cat >/home/gpadmin/gpconfigs/hostfile_gpinitsystem<< EOF
@@ -122,6 +125,7 @@ export LD_PRELOAD=/lib64/libz.so.1 ps
 export PGUSER=gpadmin
 export PGDATABASE=gp_sydb
 EOF
+
 source /home/gpadmin/.bash_profile
 
 
@@ -152,7 +156,7 @@ gpstop -u
 # psql -p:指定端口  -d:指定数据库
     psql
     修改数据库密码
-    alter role gpadmin with password '123456';
+    alter role gpadmin with password 'pingan123';
     \l  # 查看所有数据库
     \q  # 退出登录
 ```
