@@ -45,6 +45,7 @@
 * [项目管理](/docs/project/help.md)
 * [PPT](/docs/PPT/help.md)
 * [greenplum](/docs/greenplum/help.md)
+* [scala](/docs/scala/help.md)
 
 
 
