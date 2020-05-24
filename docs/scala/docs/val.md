@@ -12,3 +12,7 @@ var msg  = "hello"
 # 定义常量,值不能修改
 val msg = "hello"
 ```
+
+## 类型
+
+Scala支持类型Byte 、 Char 、 Short 、 Int 、Long 、Float 、 Double 和 Boolean
