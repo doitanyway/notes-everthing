@@ -11,9 +11,11 @@ https://www.scala-lang.org/download/all.html
 * 配置环境变量  
 
 ```bash 
+tar -xzvf scala-2.11.12.tgz -C /usr/local/
+ln -s /usr/local/scala-2.11.12 /usr/local/scala
 sed -i "/SCALA_HOME_VAR/d" /etc/profile
-echo "export SCALA_HOME=/usr/local/scala # SCALA_HOME_VAR"  >> /etc/profile 
-echo "export PATH=\$PATH:\$SCALA_HOME/bin # SCALA_HOME_VAR"  >> /etc/profile 
+echo "export SCALA_HOME=/usr/local/scala  s# SCALA_HOME_VAR"  >> /etc/profile 
+echo "export PATH=\$PATH:\$SCALA_HOME/bin   # SCALA_HOME_VAR"  >> /etc/profile 
 source /etc/profile
 ```
 
