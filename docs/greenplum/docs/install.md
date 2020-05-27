@@ -188,3 +188,17 @@ mkdir -p $data_dir/primary
 # cd /home/gpadmin/gpconfigs/
 # gpinitsystem -c gpinitsystem_config  -h seg_hosts
 ```
+
+
+## 常见问题
+
+* 提示``Unknown host iZ11mtchp6vZ Script Exiting!``
+
+```bash 
+# 有一个cache文件莫名其妙会被修改，手动改过来就好了。
+grep -rn "iZ11mtchp6vZ" /home/gpadmin/ 
+
+```
+
+* 版本
+
