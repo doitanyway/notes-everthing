@@ -8,3 +8,4 @@
 * [使用idea编写scala程序](https://docs.scala-lang.org/getting-started/intellij-track/getting-started-with-scala-in-intellij.html)
 * [scala变量](docs/val.md)
 * [scala条件](docs/if.md)
+* [scala循环](docs/for.md)

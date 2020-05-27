@@ -38,11 +38,14 @@ object ConditionTest {
     println("No else: z="+ z)
 
     // else if用法
-    val w = if (x <0 ) 0
+    val zz = if (x <0 ) 0
     else if (x >  10)  100
     else 50
-    println(w)
+    println(zz)
   }
 }
 
 ```
+
+
+> 在scala{}包含的一系列表达式叫块表达式。
