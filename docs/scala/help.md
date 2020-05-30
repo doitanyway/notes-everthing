@@ -10,4 +10,5 @@
 * [scala条件](docs/if.md)
 * [scala循环](docs/for.md)
 * [scala操作符重载](docs/op_override.md)
-* [scala方法](docs/function.md)
+* [scala方法](docs/method.md)
+* [scala函数](docs/function1.md)
