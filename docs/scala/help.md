@@ -17,3 +17,4 @@
 * [scala 高级用法](docs/collection_hi.md)
 * [scala 数组](docs/array.md)
 * [单机word count ](docs/word_count.md)
+* [scala类 ](docs/class.md)
