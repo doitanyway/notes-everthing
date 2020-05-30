@@ -21,5 +21,6 @@
 * [scala对象 ](docs/object.md)
 * [继承 ](docs/extends.md)
 * [模式匹配 ](docs/case.md)
+* [可选 ](docs/option.md)
 
 
