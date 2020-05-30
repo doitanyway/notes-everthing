@@ -15,3 +15,4 @@
 * [scala map&filter](docs/map_filter.md)
 * [scala 集合](docs/collection.md)
 * [scala 数组](docs/array.md)
+* [单机word count ](docs/word_count.md)
