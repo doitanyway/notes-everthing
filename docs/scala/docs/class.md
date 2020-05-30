@@ -89,3 +89,11 @@ object  Person1{
   }
 }
 ```
+
+* 设置类只能在包内访问
+
+```
+package com.nick.study.test1
+private[test1] class Teacher {
+}
+```
