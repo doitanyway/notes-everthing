@@ -13,3 +13,4 @@
 * [scala方法](docs/method.md)
 * [scala函数](docs/function1.md)
 * [scala map&filter](docs/map_filter.md)
+* [scala 集合](docs/collection.md)
