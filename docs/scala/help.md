@@ -18,3 +18,5 @@
 * [scala 数组](docs/array.md)
 * [单机word count ](docs/word_count.md)
 * [scala类 ](docs/class.md)
+* [scala对象 ](docs/object.md)
+
