@@ -20,9 +20,11 @@ object MapTest {
     for (x <- arr2) print(x + " ")
     println()
     
-    // 求和
+    // 求和 reduceLeft  reduceRight
     var sum = arr2.reduce((x,y) => x+y)
     println(sum)
+
+
   }
 
 }
