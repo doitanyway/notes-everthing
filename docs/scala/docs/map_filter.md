@@ -19,7 +19,10 @@ object MapTest {
     val arr2 = arr.filter(x => x % 2 == 0)
     for (x <- arr2) print(x + " ")
     println()
-
+    
+    // 求和
+    var sum = arr2.reduce((x,y) => x+y)
+    println(sum)
   }
 
 }
