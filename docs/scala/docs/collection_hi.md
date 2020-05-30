@@ -45,14 +45,19 @@ object ListTest {
 
     val l1 = List(5,6,4,8)
     val l2 = List(1,2,3,4)
-//    求并集  List(5, 6, 4, 8, 1, 2, 3, 4), 不去重复,如果是set类型才去重复,也可以写成 :  l1 union l2
+    //    求并集  List(5, 6, 4, 8, 1, 2, 3, 4), 不去重复,如果是set类型才去重复,也可以写成 :  l1 union l2
     var r1 = l1.union(l2)
 
-//    求交集合,2个都有的, List(4)  也可以写成 :   l1 intersect  l2
+    //    求交集合,2个都有的, List(4)  也可以写成 :   l1 intersect  l2
     val r2 = l1.intersect(l2)
-//    求差集  List(5, 6, 8)
+    //    求差集  List(5, 6, 8)
     val r3 = l1.diff(l2)
     println(r3)
+
+    //    创建一个List
+    val list0 = List(1, 9, 8, 7, 2, 0, 1, 2, 3)
+    // list0 变成一个并行集合，然后再计算
+    list0.par.fold(0)(_+_)
 
   }
 
