@@ -12,5 +12,5 @@
 * [数据双向绑定案例](docs/data_bind.md)
 * [循环案例](docs/for.md)
 * [组件的使用](docs/component.md)
-
+* [子组件向父组件传值](docs/docs/send_to_father.md)
 
