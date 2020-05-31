@@ -13,4 +13,5 @@
 * [循环案例](docs/for.md)
 * [组件的使用](docs/component.md)
 * [子组件向父组件传值](docs/docs/send_to_father.md)
+* [css单独分离打包](docs/docs/css_extract.md)
 
