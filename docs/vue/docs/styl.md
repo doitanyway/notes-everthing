@@ -1,23 +1,22 @@
-# 加载静态资源
-
+# 添加stylus支持
 
 ## 简介
 
-本文承接上一个项目 [创建一个简单的vue js项目](create_vue.md),在该项目 基础上创建一个完整
+在css样式开发中，css实际不太好模块化开发，为了能够模块化开发，我们期望引入预处理器styless。
 
 
-
-## 详细步骤
+## 详细步骤 
 
 * 安装依赖
 
 ```bash 
-yarn add style-loader url-loader file-loader
+yarn add stylus-loader  stylus
 ```
 
-* ``webpack.config.js``文件内添加css和图片文件的预处理器  
 
-```js
+* ``webpack.config.js``添加预处理器  
+
+```js 
 const   path = require("path")
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
@@ -48,6 +47,10 @@ module.exports ={
                 use: ['style-loader','css-loader', 'sass-loader']
             },
             {
+                test: /\.styl$/,
+                use: ['style-loader','css-loader', 'stylus-loader']
+            },
+            {
                 test:/\.(gif|jpeg|jpg|png|svg)$/,
                 use: [
                     {
@@ -66,25 +69,22 @@ module.exports ={
 }
 ```
 
-* 添加图片文件到目录``src/assets/image/``下 ,[下载地址](https://github.com/Amy0904/vue-webpack-todo/tree/master/src/assets/images) 
 
+* 添加``src/assets/style/test-stylus.styl``样式文件   
 
-* 添加css文件 ``src/assets/style/test.css``
-
-```bash
-body{
-    color: red;
-    background-image: url('../image/unChecked.svg');
-}
+```styl
+body
+  font-size: 10px
 ```
 
-* index.js入口文件中导入静态文件  
+* ``src/index.js``入口文件中引入依赖  
 
-```
+```js
 import  Vue from "vue"
 import App from "./app.vue"
 import "./assets/style/test.css"
 import "./assets/image/bg.png"
+import "./assets/style/test-stylus.styl"
 
 const root = document.createElement("div")
 document.body.appendChild(root)
@@ -94,8 +94,10 @@ new Vue({
 }).$mount(root)
 ```
 
-* 重新编译文件  
+
+* 执行编译  
 
 ```bash 
 yarn run build 
 ```
+
