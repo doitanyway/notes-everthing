@@ -6,3 +6,4 @@
 * [创建一个简单的vue js项目](docs/create_vue.md)
 * [加载静态资源](docs/static_resouce.md)
 * [添加stylus支持](docs/styl.md)
+* [添加webpack-dev-server支持](docs/webpack-dev-server.md)
