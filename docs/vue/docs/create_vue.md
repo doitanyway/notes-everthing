@@ -135,6 +135,8 @@ module.exports ={
 ```bash 
 # 执行该命令，将会在dist目录下生成一个bundle.js文件作为输出文件
 yarn run build 
+
+# 完成项目分支 create_vue
 ```
 
 
@@ -150,3 +152,4 @@ yarn add [packagename]@[version]
 yarn add [packagename]
 
 ```
+
