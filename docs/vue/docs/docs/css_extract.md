@@ -22,7 +22,7 @@ yarn add mini-css-extract-plugin
 
 
 ```js 
-const   path = require("path")
+const path = require("path")
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HTMLPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
@@ -30,19 +30,19 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isDev = process.env.NODE_ENV === 'development'
 
-const config ={
+const config = {
     target: "web",
-    entry:  path.join(__dirname,'src/index.js'),
+    entry: path.join(__dirname, 'src/index.js'),
     output: {
         filename: 'bundle.[hash:8].js',
-        path: path.join(__dirname,'dist')
+        path: path.join(__dirname, 'dist')
     },
     plugins: [
         new VueLoaderPlugin(),
         //vue webpack会根据不同的环境区分打包
         new webpack.DefinePlugin({
-            'process.env':{
-                NODE_ENV: isDev? '"development"' :'"production"'
+            'process.env': {
+                NODE_ENV: isDev ? '"development"' : '"production"'
             }
         }),
         new HTMLPlugin()
@@ -69,7 +69,7 @@ const config ={
             //     use: ['style-loader','css-loader', 'sass-loader']
             // },
             {
-                test:/\.(gif|jpeg|jpg|png|svg)$/,
+                test: /\.(gif|jpeg|jpg|png|svg)$/,
                 use: [
                     {
                         loader: "url-loader",
@@ -87,7 +87,7 @@ const config ={
 }
 
 
-if (isDev){
+if (isDev) {
     config.module.rules.push({
         // test: /\.styl$/,
         test: /\.styl(us)?$/,
@@ -125,9 +125,33 @@ if (isDev){
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
     )
-}else{
-
+} else {
     //生产模式的时候修改配置
+    config.entry = {
+        app: path.join(__dirname, 'src/index.js'),
+        vendor: ['vue']
+    }
+    //配置css编译优化vendor 相关的独立出来
+    config.optimization = {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    chunks: 'initial',
+                    minChunks: 2, maxInitialRequests: 5,
+                    minSize: 0
+                },
+                vendor: {
+                    test: /node_modules/,
+                    chunks: 'initial',
+                    name: 'vendor',
+                    priority: 10,
+                    enforce: true
+                }
+            }
+        },
+        runtimeChunk: true
+    }
+
     config.output.filename = '[name].[chunkhash:8].js'
     config.module.rules.push(
         {
@@ -160,7 +184,8 @@ if (isDev){
             // Options similar to the same options in webpackOptions.output
             // all options are optional
             filename: '[name].[contentHash:8].css',
-            chunkFilename: '[id].css',
+            // chunkFilename: '[id].[contentHash:8].css',
+            chunkFilename: '[name].[contentHash:8].css',
             ignoreOrder: false, // Enable to remove warnings about conflicting order
         }),
     )
@@ -168,8 +193,6 @@ if (isDev){
 
 
 module.exports = config
-
-
 ```
 
 
