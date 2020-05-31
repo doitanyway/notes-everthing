@@ -1,66 +1,57 @@
-#   添加webpack-dev-server支持
+# 配置vue jsx写法以及postcss
 
 
-## 简介
+##  简介 
 
-webpack-dev-server为我们在线开发调试前端工程提供了一个很好的解决方案，本节讲解如何在上一节代码基础上配置webpack-dev-server支持。
+本文介绍如何支持vue jsx 和postcss 
 
-基础代码参考[添加stylus支持](styl.md),使用分支``02stylus``
+* vue jsx
+* postcss： 在css编译好了之后再做一轮处理让css对各种浏览器的支持更好  
+
+03webpack-dev-server
 
 
 ## 详细步骤
 
+
+* 安装依赖  
+
 ```bash 
-# 服务器开发方便  
-yarn add webpack-dev-server
-# corss-env用来在不同环境中访问不同的变量,因为MAC和WINDOWS环境变量语法不一样所以才需要安装
-yarn add cross-env
-#
-yarn add html-webpack-plugin
+yarn add postcss-loader autoprefixer babel-loader babel-core
+yarn add babel-preset-env babel-plugin-transform-vue-jsx 
+yarn add @babel/core babel-helper-vue-jsx-merge-props 
 ```
 
 
+* ``postcss.config.js``配置postcss  
 
-* ``package.json``添加webpack-dev-server相关命令，及其环境变量配置   
+```js 
+const autoprefixer = require('autoprefixer')
 
-```bash 
-{
-  "name": "vue",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --config  webpack.config.js",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config  webpack.config.js"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "chokidar": "^3.4.0",
-    "cross-env": "^7.0.2",
-    "css-loader": "^3.5.3",
-    "file-loader": "^6.0.0",
-    "html-webpack-plugin": "^4.3.0",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^8.0.2",
-    "style-loader": "^1.2.1",
-    "stylus": "^0.54.7",
-    "stylus-loader": "^3.0.2",
-    "url-loader": "^4.1.0",
-    "vue": "^2.6.11",
-    "vue-loader": "^15.9.2",
-    "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.43.0",
-    "webpack-dev-server": "^3.11.0"
-  },
-  "devDependencies": {
-    "webpack-cli": "^3.3.11"
-  }
+//css编译完成之后再通过postcss来编译优化代码，使其浏览器兼容性更好
+module.exports ={
+    plugins : [
+        autoprefixer()
+    ]
 }
-
 ```
 
 
+* ``.babelrc``配置babel 
 
-* ``webpack.config.js``判断不同环境，做不同配置，添加development环境下的配置  
+```json
+{
+  "presets": [
+    "env"
+  ],
+  "plugins": [
+    "transform-vue-jsx"
+  ]
+}
+```
+
+* ``webpack.config.js``为jsx文件和styl文件添加对应的loader 
+
 ```js 
 const   path = require("path")
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
@@ -94,6 +85,10 @@ const config ={
                 test: /.vue$/,
                 loader: 'vue-loader'
             },
+            {
+                test: /.jsx$/,
+                loader: 'babel-loader'
+            },
             {// 添加这个json，解决如上的报错问题
                 test: /\.scss$/,
                 use: ['style-loader','css-loader', 'sass-loader']
@@ -105,7 +100,18 @@ const config ={
             },
             {
                 test: /\.styl$/,
-                use: ['style-loader','css-loader', 'stylus-loader']
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    {
+                        loader: "postcss-loader",
+                        //使用前面生成的sourceMap
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    'stylus-loader'
+                ]
             },
             {
                 test:/\.(gif|jpeg|jpg|png|svg)$/,
@@ -149,13 +155,22 @@ if (isDev){
     //     new webpack.NoEmitOnErrorsPlugin()
     // )
 }
+
+
 module.exports = config
+
 ```
 
 
+* 执行程序  
 
-* 尝试运行webpack-dev-server  
-
-```bash  
+```bash 
 yarn run dev 
+
+# 提交保存代码,新建一个分支 04postcss 保存这个版本代码   
+git add . 
+git commit -m "[add] postcss" 
+git checkout -b 04postcss  
+git checkout master 
+
 ```
