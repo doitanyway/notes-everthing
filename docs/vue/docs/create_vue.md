@@ -144,6 +144,9 @@ yarn run build
 
 ```bash 
 yarn remove [packagename]
+# 安装指版本包
+yarn add [packagename]@[version]
+# 安装指定包
 yarn add [packagename]
 
 ```
