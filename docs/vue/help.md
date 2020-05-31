@@ -8,5 +8,9 @@
 * [添加stylus支持](docs/styl.md)
 * [添加webpack-dev-server支持](docs/webpack-dev-server.md)
 * [配置vue jsx写法以及postcss](docs/post_css.md)
+* [数据样式绑定案例](docs/data_style.md)
+* [数据双向绑定案例](docs/data_bind.md)
+* [循环案例](docs/for.md)
+* [组件的使用](docs/component.md)
 
 
