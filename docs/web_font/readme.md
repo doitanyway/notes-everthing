@@ -37,5 +37,8 @@
 * [html]
     * [svg](html/svg.md)
 * [NVD3](./NVD3/readme.md)
-* [vue.js](./vue/readme.md)
 * [npm & yarn ](./tools/npm_yarn.md)
+* [vue.js](./vue/readme.md)
+* [vue](/docs/vue/help.md)
+
+* [babel](babel/help.md)

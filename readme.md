@@ -46,7 +46,6 @@
 * [PPT](/docs/PPT/help.md)
 * [greenplum](/docs/greenplum/help.md)
 * [scala](/docs/scala/help.md)
-* [vue](/docs/vue/help.md)
 
 
 
