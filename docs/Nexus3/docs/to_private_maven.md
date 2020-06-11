@@ -62,12 +62,7 @@ find . -type f \
     | xargs -I '{}' curl -u "$USERNAME:$PASSWORD" -X PUT -v -T {} ${REPO_URL}/{} ;
 EOF
 
-
-
-
-
 chmod +x mavenimport.sh
-
 
 # 添加执行权限,下面的参数需要修改    
 host_ip=192.168.1.11:8801
