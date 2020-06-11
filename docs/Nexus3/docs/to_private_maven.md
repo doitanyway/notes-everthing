@@ -35,7 +35,7 @@ unzip repository.zip
 cd repository
 
 # 准备文件  
-cat  << ‘EOF’ > mavenimport.sh
+cat  <<'EOF'> mavenimport.sh
 #!/bin/bash
 # copy and run this script to the root of the repository directory containing files
 # this script attempts to exclude uploading itself explicitly so the script name is important
@@ -60,7 +60,11 @@ find . -type f \
     -not -path '*/\^maven\-metadata\-deployment*\.xml' \
     | sed "s|^\./||" \
     | xargs -I '{}' curl -u "$USERNAME:$PASSWORD" -X PUT -v -T {} ${REPO_URL}/{} ;
-EOF 
+EOF
+
+
+
+
 
 chmod +x mavenimport.sh
 
