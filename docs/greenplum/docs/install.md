@@ -202,3 +202,14 @@ grep -rn "iZ11mtchp6vZ" /home/gpadmin/
 
 * 版本
 
+
+
+## 高可用 
+
+
+* master 和 standby master 安装keepalived 
+
+```bash 
+yum install keepalived
+```
+

@@ -219,3 +219,19 @@ systemctl restart keepalived
 > 1. 其中一个节点的优先级必须要高于另外一个节点的优先级。
 
 
+### notify
+
+
+notify的用法：
+
+  notify_master:当当前节点成为master时，通知脚本执行任务(一般用于启动某服务，比如nginx,haproxy等)
+
+  notify_backup:当当前节点成为backup时，通知脚本执行任务(一般用于关闭某服务，比如nginx,haproxy等)
+
+  notify_fault：当当前节点出现故障，执行的任务; 
+
+  例：当成为master时启动haproxy,当成为backup时关闭haproxy
+
+  notify_master "/etc/keepalived/start_haproxy.sh start"
+
+  notify_backup "/etc/keepalived/start_haproxy.sh stop"
