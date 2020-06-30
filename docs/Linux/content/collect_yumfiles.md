@@ -79,3 +79,8 @@ yum install ansible -y
 ansible --version
 
 ```
+
+
+## 补充说明 
+
+如果还确实少部分的rpm包，可以到[centos官网在线下载](http://mirror.centos.org/centos/)
