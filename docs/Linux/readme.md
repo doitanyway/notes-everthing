@@ -24,4 +24,5 @@
   * [安装jdk](content/install/jdk.md)
   * [安装docker](content/install/docker.md)
 * [挂载本地yum源](content/local_yum.md)  
+* [收集yum依赖-例子安装ansible](content/collect_yumfiles.md)  
 [返回首页](/readme.md)
