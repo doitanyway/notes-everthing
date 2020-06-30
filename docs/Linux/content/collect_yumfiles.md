@@ -19,14 +19,13 @@
 cd ~
 # 安装工具yum-utils   
 yum install yum-utils -y
-# 创建目标文件夹 
-mkdir /root/mypackages
 yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
-# 下载依赖包到目标文件夹 
+#  创建目标文件夹,下载依赖包到目标文件夹 
+mkdir -p /root/mypackages
 yumdownloader --resolve --destdir /root/mypackages/ ansible
 yumdownloader --resolve --destdir /root/mypackages/ createrepo
 
-tar -czvf ansible.tar.gz /root/mypackages
+tar -czvf ansible.tar.gz ./mypackages
 
 ```
 
@@ -36,19 +35,18 @@ tar -czvf ansible.tar.gz /root/mypackages
 
 
 ```bash 
-mkdir -p /data/packages
-tar -xzvf ansible.tar.gz 
-cp -rf root/mypackages/* /data/packages
+mkdir -p /data/
+tar -xzvf ansible.tar.gz -C /data/
 
 # 安装createrepo
-cd /data/packages
-rpm -ivh deltarpm-3.6-3.el7.x86_64.rpm 
+cd /data/mypackages
+# rpm -ivh deltarpm-3.6-3.el7.x86_64.rpm 
 rpm -ivh python-deltarpm-3.6-3.el7.x86_64.rpm
 rpm -ivh createrepo-0.9.9-28.el7.noarch.rpm 
 
 
 # 制作离线源,成功执行后能在/data/ansible_packages看到新增了一个repodata目录：
-createrepo /data/packages
+createrepo /data/mypackages
 
 
 
@@ -58,7 +56,7 @@ createrepo /data/packages
 cat  << 'EOF' > /etc/yum.repos.d/ansible.repo
 [ansible]
 name=ansible
-baseurl=file:///data/packages
+baseurl=file:///data/mypackages
 gpgcheck=0
 enabled=1
 EOF
