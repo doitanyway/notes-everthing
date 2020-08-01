@@ -30,14 +30,16 @@ docker run --name some-mysql  \
 # 要持久化数据
 docker run -d \
     --name some-postgres \
-    -e POSTGRES_PASSWORD=mysecretpassword \
+    -e POSTGRES_PASSWORD=123456 \
     -e PGDATA=/var/lib/postgresql/data/pgdata \
     -v /custom/mount:/var/lib/postgresql/data \
+   -p 5432:5432  \
     postgres:9.6.18
 
 #  不持久化数据
 docker run --name some-postgres \
-  -e POSTGRES_PASSWORD=mysecretpassword -d postgres:9.6.18
+   -p 5432:5432  \
+  -e POSTGRES_PASSWORD=123456 -d postgres:9.6.18
 
 ````
 
