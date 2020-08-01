@@ -18,7 +18,6 @@ docker run --name some-mysql  \
 docker run --name some-mysql  \
     -e MYSQL_ROOT_PASSWORD=123456 -p 3307:3306 -d mysql:5.7
 
-
 ```
 
 > 参考：  https://hub.docker.com/_/mysql
@@ -39,7 +38,7 @@ docker run -d \
 #  不持久化数据
 docker run --name some-postgres \
   -e POSTGRES_PASSWORD=mysecretpassword -d postgres:9.6.18
-  
+
 ````
 
 
