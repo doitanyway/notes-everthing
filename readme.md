@@ -47,7 +47,7 @@
 * [greenplum](/docs/greenplum/help.md)
 * [scala](/docs/scala/help.md)
 * [keepalived](/docs/keepalived/help.md)
-
+* [ShardingSphere](/docs/ShardingSphere/help.md)
 
 
 更多markdown.md语法，请参考“https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/”
