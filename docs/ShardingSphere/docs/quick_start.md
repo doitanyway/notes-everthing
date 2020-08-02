@@ -1,4 +1,4 @@
-# 快速入门
+# 快速使用
 
 
 ## 简介
@@ -152,10 +152,12 @@ mkdir lib
 
 
 ```bash 
-docker-compose up 
 
+docker-compose up -d
+echo "sleep for 60 seconds ......................."
+sleep 60
 # 等待mysql启动完毕，重新启动sharding proxy（因为第一次启动proxy因为Mysql没有准备好，所以会启动你那个失败）  
-docker-compose restart  sharding
+docker-compose restart sharding
 
 ```
 
