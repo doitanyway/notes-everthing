@@ -47,3 +47,31 @@ docker run --name some-postgres \
 > 参考:  https://hub.docker.com/_/postgres
 
 
+## ShardingSphare
+
+
+```bash 
+
+docker run -d -v /${your_work_dir}/conf:/opt/sharding-proxy/conf \
+    -e PORT=3308 -p13308:3308 apache/sharding-proxy:4.1.1
+
+# 配置相关jvm参数到JVM_OPTS参数中
+docker run -d -v /${your_work_dir}/conf:/opt/sharding-proxy/conf \
+     -e JVM_OPTS="-Djava.awt.headless=true" -e PORT=3308 -p13308:3308 apache/sharding-proxy:4.1.1
+
+# psql -U ${your_user_name} -h ${your_host} -p 13308
+
+```
+
+> 参考： https://hub.docker.com/r/apache/sharding-proxy
+>  /${your_work_dir}/conf 文件夹下，请创建server.yam和config-xxx.yaml去配置服务和分片规则
+>  配置文件参考 https://shardingsphere.apache.org/document/legacy/4.x/document/cn/manual/sharding-proxy/configuration/
+
+
+
+## 清理容器
+
+```
+docker ps -qa |xargs docker stop
+docker ps -qa |xargs docker rm 
+```
