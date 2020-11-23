@@ -2,10 +2,13 @@
 
 ## 场景介绍
 
-shell 脚本中经常需要传入一些命令参数，如 ``cmd -a abc -b -c dddd``或者，``cmd -name nick -disable``,本文介绍如前面列子中的参数在脚本中如何提取。
+本文介绍以下2个知识点，为后后续在工作过程中安装一键安装脚本打好基础：
+
+* shell 脚本中经常需要传入一些命令参数，如 ``cmd -a abc -b -c dddd``或者，``cmd -name nick -disable``,本文介绍如前面列子中的参数在脚本中如何提取命令；
+* 如gitlab或者github上面有一个shell脚本，如何在线的执行git服务器上的shell文件。
 
 
-## 提取办法  
+## 提取命令办法  
 
 ### 按位置获取 
 
@@ -114,3 +117,25 @@ get parameters success.!
 end of get parameters success.
 ```
 
+
+## 在线执行shell脚本
+
+有时候shell脚本可以放在http页面上，不用download，可以直接执行。
+
+* 一般方法：
+
+```bash 
+curl http://XXX.com/xx/xx.sh | bash
+```
+
+* 带参数
+
+```bash 
+curl -s http://XXX.com/xx/xx.sh | bash -s arg1 arg2
+````
+
+* 使用带有具名参数的脚本
+
+```bash 
+curl -L http://XXX.com/xx/xx.sh | bash -s -- -x abc -y xyz
+```
