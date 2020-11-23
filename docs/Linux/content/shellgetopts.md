@@ -1,4 +1,4 @@
-# shell脚本获取参数
+# shell脚本获取参数&在线执行shell脚本
 
 ## 场景介绍
 
@@ -137,5 +137,9 @@ curl -s http://XXX.com/xx/xx.sh | bash -s arg1 arg2
 * 使用带有具名参数的脚本
 
 ```bash 
+# 基本格式
 curl -L http://XXX.com/xx/xx.sh | bash -s -- -x abc -y xyz
+# 例子
+curl -L https://gitee.com/nickqiu/notes-everything/raw/master/docs/Linux/content/for.sh | bash -s -- -a --banana blala
+
 ```
