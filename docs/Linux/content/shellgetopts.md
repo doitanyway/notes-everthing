@@ -143,3 +143,9 @@ curl -L http://XXX.com/xx/xx.sh | bash -s -- -x abc -y xyz
 curl -L https://gitee.com/nickqiu/notes-everything/raw/master/docs/Linux/content/for.sh | bash -s -- -a --banana blala
 
 ```
+
+
+## 参考文章
+
+https://www.cnblogs.com/klb561/p/8933992.html
+https://www.cnblogs.com/faberbeta/archive/2004/01/13/13559686.html
