@@ -1,5 +1,7 @@
 #  MySQLdump笔记
 
+## 备份 
+
 * 备份本地数据
     * cmd进入到MySQL的bin目录下，执行命令：
      ``mysqldump --host=localhost -uroot -p123456 --databases   jweb > D:\xwz\myshell\backup\db.sql``
@@ -26,7 +28,7 @@ mysqldump -uroot -proot --no-data --databases db1 > D:/xwz/db.sql
 mysqldump -uroot -proot --databases db1 --tables a1 a2  > D:/xwz/db.sql
 ```
 
-* 还原备份
+## 还原备份
 
 ```bash
 cat fss_crcb_edb.sql | mysql -ucrcpasepd -pCrcportal_123 -D db1
