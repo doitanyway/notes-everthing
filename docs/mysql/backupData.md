@@ -9,8 +9,25 @@
 * 备份服务器数据雷同本地指令
 
 * 跨服务器导出导入数据    
-  ``mysqldump --host=h1 -uroot -proot --databases db1 |mysql --host=h2 -uroot -proot db2``
+
+```
+mysqldump --host=h1 -uroot -proot --databases db1 |mysql --host=h2 -uroot -proot db2
+```
+
 * 只导出表结构不导出数据``--no-data``  
-  ``mysqldump -uroot -proot --no-data --databases db1 > D:/xwz/db.sql``  
+
+```
+mysqldump -uroot -proot --no-data --databases db1 > D:/xwz/db.sql
+```  
+
 * 导出某个表的数据  
- ``mysqldump -uroot -proot --databases db1 --tables a1 a2  > D:/xwz/db.sql``
+
+```
+mysqldump -uroot -proot --databases db1 --tables a1 a2  > D:/xwz/db.sql
+```
+
+* 还原备份
+
+```bash
+cat fss_crcb_edb.sql | mysql -ucrcpasepd -pCrcportal_123 -D db1
+```
