@@ -6,3 +6,4 @@
 
 * [常用module]
   * [ts-deepcopy-深度拷贝](./content/ts-deepcopy.md)
+  * [use-interval-定时](./content/use-interval.md)
