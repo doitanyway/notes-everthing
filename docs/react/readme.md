@@ -4,7 +4,11 @@
 * [练习:random box](./content/randombox/randombox.md)
 * [练习:创建react app](./content/randombox/react_app.md)
 
+
+* [npm link](./content/npm_link.md)
+
 * [常用module]
+  * [rimraf](./content/rimraf.md)
   * [ts-deepcopy-深度拷贝](./content/ts-deepcopy.md)
   * [use-interval-定时](./content/use-interval.md)
   * [react-use]
