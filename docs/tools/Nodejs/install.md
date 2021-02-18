@@ -45,7 +45,16 @@ npm config set registry https://registry.npm.taobao.org
 # 使用官方镜像
 npm config set registry https://registry.npmjs.org
 # 查看镜像源
+npm config get registry
+npm config ls
 
+# 注册用户
+npm login 
+# 注册同时登陆
+# npm adduser
+
+# 查看当前登录的用户
+npm whoami
 ```
 
 ## 其他
