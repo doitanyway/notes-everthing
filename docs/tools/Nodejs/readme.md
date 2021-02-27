@@ -4,6 +4,7 @@
 # 目录
 
 * [Nodejs](nodejs.md)
+  * [nrm](nrm.md)
   * [安装](install.md)
   * [发布包](release.md)
 * [Angularjs](angularjs.md)
