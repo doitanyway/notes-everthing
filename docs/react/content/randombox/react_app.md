@@ -11,7 +11,15 @@
 sudo npm install -g create-react-app
 ```
 
-* 创建app ``create-react-app helloworld``
+* 创建app 
+
+```bash
+# create-react-app helloworld
+
+npx create-react-app my-app
+npx create-react-app my-app --template typescript
+
+```
 
 
 * 运行app 

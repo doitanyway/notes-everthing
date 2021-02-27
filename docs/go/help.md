@@ -63,6 +63,6 @@
   * [string](docs/string.md)
   * [math](docs/math.md)
   * [rand](docs/rand.md)
-  
+  * [fresh](docs/fresh.md)
 
 

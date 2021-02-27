@@ -52,5 +52,6 @@
 - [Consul](/docs/Consul/help.md)
 - [grafana](/docs/grafana/help.md)
 - [datax](/docs/datax/help.md)
+- [tidb](/docs/tidb/help.md)
 
 更多 markdown.md 语法，请参考“https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/”
