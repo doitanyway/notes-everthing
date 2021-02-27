@@ -52,4 +52,5 @@ nrm use cnpm  //switch registry to cnpm
 ## 设置用户校验信息  
 nrm set-auth npm -u qiujiahong -p 123456
 
+
 ```
