@@ -244,11 +244,13 @@ echo ${var}
 
 ## 循环执行命令
 
+```
 array=(node1 node2 node3)
 for node in ${array[@]}; do 
 echo $node;
 echo 1:$node;
 done
+```
 
 ## 远程执行
 
