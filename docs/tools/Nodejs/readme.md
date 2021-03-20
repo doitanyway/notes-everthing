@@ -4,6 +4,8 @@
 # 目录
 
 * [Nodejs](nodejs.md)
+  * [nrm](nrm.md)
+  * [.npmrc](npmrc.md)
   * [安装](install.md)
   * [发布包](release.md)
   * [package瘦身](package.md)

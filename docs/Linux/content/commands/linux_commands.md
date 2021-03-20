@@ -14,3 +14,4 @@
 * [df](./df.md)
 * [jar](./jar.md)
 * [chmod](./chmod.md)
+* [nc](./nc.md)
