@@ -6,6 +6,7 @@
 * [Nodejs](nodejs.md)
   * [安装](install.md)
   * [发布包](release.md)
+  * [package瘦身](package.md)
 * [Angularjs](angularjs.md)
   * [Angularjs开发环境](Angularjs_development_ev.md)
   * [Hero 编辑器](hero.md)
