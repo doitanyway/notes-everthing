@@ -14,7 +14,7 @@ mv /etc/yum.repos.d/* /root/centos-yum.bak/
 cat << EOF >/etc/yum.repos.d/local.repo
 [local]
 name=local
-baseurl=file:///opt/centos
+baseurl=file:///data/centos
 enabled=1
 gpgcheck=0
 EOF
