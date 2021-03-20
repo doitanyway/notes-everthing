@@ -8,7 +8,7 @@ if [ -a "jdk-11"*"linux-x64"*".tar.gz" ];then
         echo "found jdk install file"
 else
         echo "ERROR: can't find jdk 11 install file. Please download it in the following url. and run the command again."
-        echo "Oracle: https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html"
+        echo "Oracle: https://www.oracle.com/java/technologies/javase-jdk11-downloads.html"
         echo "Baidu cloud: https://pan.baidu.com/s/1EgLncH-wOZdLpjya4xcHcA  Code:e7el"
         exit 1
 fi

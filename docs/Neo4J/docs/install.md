@@ -22,6 +22,15 @@ curl https://gitee.com/nickqiu/notes-everything/raw/master/docs/Linux/content/in
 ```
 
 
+## 修改默认配置 
+
+
+* 网页端口7474，打开远端访问，``/path/of/neo4j/conf/neo4j.conf``
+```
+dbms.connector.http.listen_address=0.0.0.0:7474
+```
+
+
 ## 访问  
 
 ```bash  

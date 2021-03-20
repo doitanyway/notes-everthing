@@ -58,5 +58,10 @@ RETURN type(r)
 
 ## match 
 
-*  ``match (a) return a ``查询所有a节点
+*  ``match (a) return a ``查询所有节点
+*  ``match (n) return (n) limit 10`` 查询所有节点，并且限制结果最多10个
 *  ``match (a:Person) return a ``,查询所有包含``Person``的标签
+
+
+## merge 
+
