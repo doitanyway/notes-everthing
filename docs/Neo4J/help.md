@@ -8,6 +8,7 @@
 * [cypher基础-cypher语句](docs/cypher_lan.md)
 * [使用cypher创建和查询数据](docs/create_data_with_cypher.md)
 * [导入CSV文件到Neo4j](docs/import.md)
+* [cypher函数](docs/cypher_fun.md)
 * [社区板和企业版](docs/vs.md)
 * [cypher shell](docs/cypher_shell.md)
 
