@@ -91,6 +91,14 @@ RETURN person.name
 ```
 
 
+* 统计次数,采购人名称，供应商名称，以及该采购人和该供应商达成交易次数，只返回其中次数最大的三个，且降序排列返回
+
+```bash 
+match 
+	(p:Purchaser) --()<-[:WBID] - (s:Supplier) return p.name ,s.name,count(*) as times  ORDER BY times DESC SKIP 0  LIMIT 3
+```
+
+
 
 ### OPTIONAL MATCH
 ### WHERE

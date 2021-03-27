@@ -635,9 +635,10 @@ RETURN tom, m, coActors, m2, cruise
 
 * 删除所有节点，以及其关系
   
-```
+```bash 
 MATCH (n) DETACH DELETE n
 
+# 删除后查询结果
 MATCH (n) RETURN n
 ```
 
