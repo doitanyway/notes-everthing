@@ -59,3 +59,14 @@ curl -X GET "localhost:9200/student"
 ```bash 
 curl -X DELETE "localhost:9200/student/_doc/1"
 ```
+
+
+* 同时查看多个索引
+
+
+```bash 
+curl -X PUT "localhost:9200/student"
+curl -X PUT "localhost:9200/teacher"
+# 逗号隔离开多个索引
+curl -X GET "localhost:9200/teacher,student?pretty"
+```

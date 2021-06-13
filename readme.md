@@ -31,7 +31,6 @@
 - [emq](/docs/tools/emq/readme.md)
 - [json-server](/docs/tools/json-server/json-server.md)
 - [uml](/docs/uml/help.md)
-- [elk](/docs/elk/help.md)
 - [Nexus3](/docs/Nexus3/help.md)
 - [artifactory](/docs/artifactory/help.md)
 - [python](/docs/python/help.md)
