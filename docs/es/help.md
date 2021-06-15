@@ -9,3 +9,5 @@
 * [es基本操作](./content/es_basic.md)
 * [es的mapping](./content/mapping.md)
 * [文档的基本操作](./content/document.md)
+* [搜索命令](./content/search_cmd.md)
+  
