@@ -11,4 +11,4 @@
 * [文档的基本操作](./content/document.md)
 * [搜索命令](./content/search_cmd.md)
 * [分词器](./content/analyzer.md)
-* [自动类型](./content/type.md)
+* [es支持的类型](./content/type.md)
