@@ -13,5 +13,6 @@
 * [分词器](./content/analyzer.md)
 * [es支持的类型](./content/type.md)
 * [bulk api](./content/bulk.md)
+* [es的多种基本查询方法](./content/search.md)
 
 
